@@ -1,0 +1,5 @@
+FROM existdb/existdb:6.1.0
+
+MAINTAINER Helmut Konrad Fahrendholz <helmutus@outlook.com>
+
+COPY build/*.xar /exist/autodeploy

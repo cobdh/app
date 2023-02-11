@@ -3,8 +3,8 @@
         xmlns="http://expath.org/ns/pkg"
         name="http://cobdh.org/cobdh-data"
         abbrev="cobdh-data"
-        version="0.1"
+        version="XXX"
         spec="1.0">
     <title>cobdh.org data</title>
-    <dependency package="http://exist-db.org/apps/shared" />
+    <!--<dependency package="http://exist-db.org/apps/shared" />-->
 </package>
