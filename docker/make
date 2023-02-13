@@ -39,3 +39,6 @@ fi
 
 echo "docker run ${TAG}"
 docker run --rm -it -p 8090:8080 ${TAG}
+
+echo "remove"
+docker rmi ${TAG}
