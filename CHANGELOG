@@ -1,2 +1,14 @@
 CHANGELOG
 =========
+
+## v0.1.0 (2023-02-13)
+
+### Feature
+
+* use minimal exist-db image (c34fd37afb6a)
+* add builder (b9c068ed4982)
+* use srophe data app as template (759b0f164c12)
+
+### Chore
+
+* do not pollute docker image repo (d92dbe047826)
