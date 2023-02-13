@@ -1,5 +1,3 @@
-FROM existdb/existdb:6.1.0
-
-MAINTAINER Helmut Konrad Fahrendholz <helmutus@outlook.com>
+FROM cobdh/nano_db:v0.2.0
 
 COPY build/*.xar /exist/autodeploy
