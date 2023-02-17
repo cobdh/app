@@ -1,5 +1,7 @@
 #!/bin/sh
 
+: "${CLEANUP}:=0"
+
 BUILDER="cobdh/builder:v0.1.0-3-g62d4382"
 ROOT=$(pwd)
 
@@ -40,5 +42,8 @@ fi
 echo "docker run ${TAG}"
 docker run --rm -it -p 8090:8080 ${TAG}
 
-echo "remove"
-docker rmi ${TAG}
+if [ $CLEANUP -eq 1 ]
+then
+    echo "remove"
+    docker rmi ${TAG}
+fi
