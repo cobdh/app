@@ -12,7 +12,10 @@ import module namespace templates="http://exist-db.org/xquery/templates" ;
  : templating.
  :)
 import module namespace config="http://cobdh.org/cobdh-data/config" at "config.xqm";
+
 import module namespace app="http://cobdh.org/cobdh-data/templates" at "app.xql";
+
+import module namespace tester="http://cobdh.org/cobdh-data/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 
