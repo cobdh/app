@@ -8,27 +8,27 @@ import module namespace test="http://exist-db.org/xquery/xqsuite" at "resource:o
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 
-declare function tester:error-handler-test($node as node(), $model as map(*), $number as xs:string?) {
+declare function tester:error-handler-test($node as node(), $model as map(*), $number as xs:string?){
     if (exists($number)) then
         xs:int($number)
     else
         ()
 };
 
-declare function tester:link-to-home($node as node(), $model as map(*)) {
+declare function tester:link-to-home($node as node(), $model as map(*)){
     <a href="{request:get-context-path()}/">{
         $node/@* except $node/@href,
         $node/node()
     }</a>
 };
 
-declare function tester:run-tests($node as node(), $model as map(*)) {
+declare function tester:run-tests($node as node(), $model as map(*)){
     let $results := test:suite(inspect:module-functions(xs:anyURI("../tests/data-tests.xql")))
     return
         test:to-html($results)
 };
 
-declare function tester:display-source($node as node(), $model as map(*), $lang as xs:string?, $type as xs:string?) {
+declare function tester:display-source($node as node(), $model as map(*), $lang as xs:string?, $type as xs:string?){
     let $source := replace($node/string(), "^\s*(.*)\s*$", "$1")
     let $expanded := replace($source, "@@path", $config:app-root)
     let $eXideLink := templates:link-to-app("http://exist-db.org/apps/eXide", "index.html?snip=" || encode-for-uri($expanded))
