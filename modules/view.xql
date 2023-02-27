@@ -11,7 +11,7 @@ import module namespace templates="http://exist-db.org/xquery/templates" ;
  : The following modules provide functions which will be called by the
  : templating.
  :)
-import module namespace config="http://cobdh.org/cobdh-data/config" at "config.xqm";
+import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 import module namespace app="http://cobdh.org/cobdh-data/templates" at "app.xql";
 

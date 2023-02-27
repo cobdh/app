@@ -3,7 +3,7 @@ xquery version "3.0";
 module namespace app="http://cobdh.org/cobdh-data/templates";
 
 import module namespace templates="http://exist-db.org/xquery/templates" ;
-import module namespace config="http://cobdh.org/cobdh-data/config" at "config.xqm";
+import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 (:~
  : This is a sample templating function. It will be called by the templating module if
