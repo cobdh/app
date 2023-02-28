@@ -16,6 +16,11 @@ else if ($exist:path eq "/") then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <redirect url="index.html"/>
     </dispatch>
+else if ($exist:path eq "/bibs" or $exist:path eq "/persons" or $exist:path eq "/editors") then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+        <forward url="views/{$exist:path}.html"/>
+        <view><forward url="{$exist:controller}/modules/view.xql"/></view>
+    </dispatch>
 else if (ends-with($exist:resource, ".html")) then
     (: the html page is run through view.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
