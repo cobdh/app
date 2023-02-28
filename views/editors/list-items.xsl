@@ -5,7 +5,6 @@
     version="2.0"
     >
     <xsl:template match="/">
-        <h1>Editors</h1>
         <ul>
             <xsl:for-each select="//tei:person">
                 <li>
