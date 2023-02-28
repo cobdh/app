@@ -10,11 +10,11 @@ if ($exist:path eq '') then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <redirect url="{request:get-uri()}/"/>
     </dispatch>
-
-else if ($exist:path eq "/") then
+else if ($exist:path eq "/" or $exist:path eq "index.html") then
     (: forward root path to index.xql :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        <redirect url="index.html"/>
+        <forward url="index.html"/>
+        <view><forward url="{$exist:controller}/modules/view.xql"/></view>
     </dispatch>
 else if ($exist:path eq "/bibs" or $exist:path eq "/persons" or $exist:path eq "/editors") then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
