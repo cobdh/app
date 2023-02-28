@@ -17,6 +17,8 @@ import module namespace app="http://cobdh.org/cobdh-data/templates" at "app.xql"
 
 import module namespace editor="http://cobdh.org/cobdh-data/editor" at "editor.xql";
 
+import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+
 import module namespace tester="http://cobdh.org/cobdh-data/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
