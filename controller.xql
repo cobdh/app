@@ -14,22 +14,22 @@ else if ($exist:path eq "/" or $exist:path eq "index.html") then
     (: forward root path to index.xql :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="index.html"/>
-        <view><forward url="{$exist:controller}/modules/view.xql"/></view>
+        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
 else if ($exist:path eq "/bibs" or $exist:path eq "/persons" or $exist:path eq "/editors") then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="views/{$exist:path}.html"/>
-        <view><forward url="{$exist:controller}/modules/view.xql"/></view>
+        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
 else if (ends-with($exist:resource, ".html")) then
-    (: the html page is run through view.xql to expand templates :)
+    (: the html page is run through template.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <view>
-            <forward url="{$exist:controller}/modules/view.xql"/>
+            <forward url="{$exist:controller}/modules/template.xql"/>
         </view>
         <error-handler>
             <forward url="{$exist:controller}/error-page.html" method="get"/>
-            <forward url="{$exist:controller}/modules/view.xql"/>
+            <forward url="{$exist:controller}/modules/template.xql"/>
         </error-handler>
     </dispatch>
 (: Resource paths starting with $shared are loaded from the shared-resources app :)
