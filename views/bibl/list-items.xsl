@@ -8,10 +8,10 @@
         <ul>
             <xsl:for-each select="//tei:biblFull">
                 <li>
-                    <!-- Example: cobdh.org/bibs/1-->
+                    <!-- Example: cobdh.org/bibl/1-->
                     <xsl:element name="a">
                         <xsl:attribute name="href">
-                            bibs/<xsl:value-of select="@xml:id"/>
+                            bibl/<xsl:value-of select="@xml:id"/>
                         </xsl:attribute>
                         <xsl:value-of select="//tei:title"/>
                         ;

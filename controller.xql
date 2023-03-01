@@ -16,12 +16,20 @@ else if ($exist:path eq "/" or $exist:path eq "index.html") then
         <forward url="index.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
-else if ($exist:path eq "/bibs" or $exist:path eq "/persons"
-    or $exist:path eq "/editors" or $exist:path eq "/impressum"
-    or $exist:path eq "/validation" or $exist:path eq "/contribution"
+else if ($exist:path eq "/impressum"
+    or $exist:path eq "/validation"
+    or $exist:path eq "/contribution"
     ) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="views/{$exist:path}.html"/>
+        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
+    </dispatch>
+else if ($exist:path eq "/bibl"
+    or $exist:path eq "/editors"
+    or $exist:path eq "/persons"
+    ) then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+        <forward url="views/{$exist:path}/index.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
 else if (ends-with($exist:resource, ".html")) then

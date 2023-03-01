@@ -4,7 +4,7 @@ import tests.int
 
 
 @pytest.mark.parametrize('url, expected', [
-    pytest.param('/bibs', 'Bibliography'),
+    pytest.param('/bibl', 'Bibliography'),
     pytest.param('/persons', 'Persons'),
     pytest.param('/editors', 'Editors'),
     pytest.param('/impressum', 'Impressum'),
