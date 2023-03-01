@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-module namespace tester="http://cobdh.org/cobdh-data/tester";
+module namespace tester="https://data.cobdh.org/tester";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 

@@ -13,13 +13,13 @@ import module namespace templates="http://exist-db.org/xquery/templates" ;
  :)
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
-import module namespace app="http://cobdh.org/cobdh-data/templates" at "app.xql";
+import module namespace app="https://data.cobdh.org/templates" at "app.xql";
 
-import module namespace editor="http://cobdh.org/cobdh-data/editor" at "editor.xql";
+import module namespace editor="https://data.cobdh.org/editors" at "editor.xql";
 
 import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
 
-import module namespace tester="http://cobdh.org/cobdh-data/tester" at "tester.xql";
+import module namespace tester="https://data.cobdh.org/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 

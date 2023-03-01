@@ -1,10 +1,10 @@
 xquery version "3.0";
 
-module namespace editor="http://cobdh.org/cobdh-data/editor";
+module namespace editor="https://data.cobdh.org/editors";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
-import module namespace editors="https://data.cobdh.org/editors" at "../rest/editors.xq";
+import module namespace editors="https://data.cobdh.org/rest/editors" at "../rest/editors.xq";
 
 declare function editor:index($node as node(), $model as map(*)){
     let $input := editors:list-items()

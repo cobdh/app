@@ -3,7 +3,7 @@ xquery version "3.0";
 (:
  : Defines all the RestXQ endpoints used by the XForms.
  :)
-module namespace editors="https://data.cobdh.org/editors";
+module namespace editors="https://data.cobdh.org/rest/editors";
 
 import module namespace config="https://data.cobdh.org/config" at "../modules/config.xqm";
 
