@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei:TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xml:lang="de"
+    >
+    <tei:biblFull xml:id="2">
+        <tei:titleStmt>
+            <tei:title>
+                THe second one
+            </tei:title>
+            <tei:author>
+                Blain, Virginia
+            </tei:author>
+            <tei:author>
+                Clements, Patricia
+            </tei:author>
+        </tei:titleStmt>
+        <tei:editionStmt>
+            <tei:edition>
+                UK edition
+            </tei:edition>
+        </tei:editionStmt>
+        <tei:extent>
+            1231 pp
+        </tei:extent>
+        <tei:publicationStmt>
+            <tei:publisher>
+                Yale University Press
+            </tei:publisher>
+            <tei:pubPlace>
+                New Haven and London
+            </tei:pubPlace>
+            <tei:date>
+                1990
+            </tei:date>
+        </tei:publicationStmt>
+        <tei:sourceDesc>
+            <p>No source: this is an original work</p>
+        </tei:sourceDesc>
+    </tei:biblFull>
+</tei:TEI>
