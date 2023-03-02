@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tei:TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+    >
+    <tei:person xml:id="1" sex="1" role="poet">
+        <tei:persName>Ovid</tei:persName>
+        <tei:persName xml:lang="la">Publius Ovidius Naso</tei:persName>
+        <tei:birth when="-0044-03-20"> 20 March 43 BC
+            <tei:placeName>
+                <tei:settlement type="city">Sulmona</tei:settlement>
+                <tei:country key="IT">Italy</tei:country>
+            </tei:placeName>
+        </tei:birth>
+        <tei:death notBefore="0017" notAfter="0018">17 or 18 AD
+            <tei:placeName>
+                <tei:settlement type="city">Tomis (Constanta)</tei:settlement>
+                <tei:country key="RO">Romania</tei:country>
+            </tei:placeName>
+        </tei:death>
+    </tei:person>
+</tei:TEI>
