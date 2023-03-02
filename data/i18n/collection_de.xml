@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogue xml:lang="de">
     <msg key="bibl_bibliography">Bibliographie</msg>
+    <msg key="bibl_record">Bibliographie-Eintrag</msg>
     <msg key="contribution_howto">Wie kann ich beitragen?</msg>
     <msg key="editors_editors">Editoren</msg>
     <msg key="impressum_contact">Kontakt</msg>

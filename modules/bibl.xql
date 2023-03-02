@@ -17,6 +17,21 @@ declare function bibl:index($node as node(), $model as map(*)){
         transform:transform($input, $xsl, ())
 };
 
+declare function bibl:view-item($node as node(), $model as map(*), $index as xs:integer){
+    let $index := $index cast as xs:string
+    let $data := collection($bibl:data)/tei:TEI/tei:biblFull[@xml:id eq $index]
+    let $xsl := config:resolve("views/bibl/view-item.xsl")
+    return
+        transform:transform($data, $xsl, ())
+};
+
+declare function bibl:view-item-request($node as node(), $model as map(*)){
+    (: TODO: SIMPLFIY LATER :)
+    (: `selected` is determined in app:determine_resource :)
+    let $index := $model("selected")
+    return
+        bibl:view-item($node, $model, $index)
+};
 
 declare function bibl:list-items(){
     <tei:listBibl>
