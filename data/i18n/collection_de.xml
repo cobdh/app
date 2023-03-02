@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalogue xml:lang="de">
+    <msg key="bibl_bibliography">Bibliographie</msg>
+    <msg key="contribution_howto">Wie kann ich beitragen?</msg>
+    <msg key="editors_editors">Editoren</msg>
     <msg key="impressum_contact">Kontakt</msg>
     <msg key="impressum_licence">Lizenz</msg>
-    <msg key="contribution_howto">Wie kann ich beitragen?</msg>
     <msg key="persons_persons">Personen</msg>
-    <msg key="bibl_bibliography">Bibliographie</msg>
-    <msg key="editors_editors">Editoren</msg>
 </catalogue>
