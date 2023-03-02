@@ -4,7 +4,10 @@
     data-template="templates:surround"
     data-template-with="templates/page.html"
     data-template-at="content"
+    xmlns:i18n="http://exist-db.org/xquery/i18n"
     >
-    <h1>Editors</h1>
-    <div data-template="editor:index" />
+    <div data-template="i18n:translate">
+        <h1><i18n:text key="editors_editors">Editors</i18n:text></h1>
+        <div data-template="editor:index" />
+    </div>
 </div>

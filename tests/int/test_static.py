@@ -1,3 +1,5 @@
+import re
+
 import pytest
 
 import tests.int
@@ -12,6 +14,8 @@ import tests.int
     pytest.param('/validation', 'Validation'),
 ])
 def test_static(url, expected):
-    expected = f'<h1>{expected}</h1>'
+    # add optional white spaces \s* to make check more robust against white
+    # spaces which are introduced by translation module.
+    expected = rf'<h1>\s*{expected}\s*</h1>'
     result = tests.int.curl(url)
-    assert expected in result
+    assert re.search(expected, result), result
