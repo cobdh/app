@@ -11,6 +11,8 @@ import module namespace templates="http://exist-db.org/xquery/templates" ;
  : The following modules provide functions which will be called by the
  : templating.
  :)
+import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
+
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 import module namespace app="https://data.cobdh.org/templates" at "app.xql";

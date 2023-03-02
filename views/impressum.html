@@ -4,10 +4,14 @@
     data-template="templates:surround"
     data-template-with="templates/page.html"
     data-template-at="content"
+    xmlns:i18n="http://exist-db.org/xquery/i18n"
     >
+    <div data-template="i18n:translate"
+         data-template-catalogues="data/i18n"
+     >
     <div class="col-md-6">
         <h1>Impressum</h1>
-        <h2>Contact</h2>
+        <h2><i18n:text key="impressum_contact">Contact</i18n:text></h2>
             <p>
                 Prof. Dr. Cornelia Horn (Ph.D., Dr. phil. habil.)<br/>
                 <br/>
@@ -43,5 +47,6 @@
         <p>
             <a href="editors/horn_cornelia">© Prof. Dr. Cornelia Horn (ed.)</a>
         </p>
+    </div>
     </div>
 </div>
