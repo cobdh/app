@@ -13,9 +13,9 @@
                         <xsl:attribute name="href">
                             bibl/<xsl:value-of select="@xml:id"/>
                         </xsl:attribute>
-                        <xsl:value-of select="//tei:title"/>
+                        <xsl:value-of select=".//tei:title"/>
                         ;
-                        <xsl:value-of select="//tei:date"/>
+                        <xsl:value-of select=".//tei:date"/>
                     </xsl:element>
                 </li>
             </xsl:for-each>
