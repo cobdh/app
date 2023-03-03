@@ -6,6 +6,8 @@ import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 import module namespace editors="https://data.cobdh.org/rest/editors" at "../rest/editors.xq";
 
+import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -29,4 +31,14 @@ declare function editor:view-item-request($node as node(), $model as map(*)){
     let $index := $model("selected")
     return
         editor:view-item($node, $model, $index)
+};
+
+(: Display bibliography elements where editor contributed some changes. :)
+declare function editor:edited-request($node as node(), $model as map(*)){
+    (: `selected` is determined in app:determine_resource :)
+    let $editor := $model("selected")
+    let $data := bibl:list-items()//tei:TEI[contains(tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref, $editor)]/tei:body
+    let $xsl := config:resolve("views/bibl/list-items.xsl")
+    return
+        transform:transform($data, $xsl, ())
 };

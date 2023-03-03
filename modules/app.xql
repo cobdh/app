@@ -27,6 +27,12 @@ declare function app:href($node as node(), $model as map(*), $text as xs:string,
     <a href="/exist/apps/cobdh-data{$path}">{$text}</a>
 };
 
+declare function app:abspath($path as xs:string){
+    let $result := concat("/exist/apps/cobdh-data/", $path)
+    return
+        $result
+};
+
 (:~ Determine resource based on passed url.
  : For example: https://data.cobdh.org/bibl/123 the resource is 123.
 :)
