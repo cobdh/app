@@ -37,6 +37,11 @@ else if (matches($exist:path, '/bibl/\d+')) then
         <forward url="{$exist:controller}/views/bibl/record.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
+else if (matches($exist:path, '/editors/[a-zA-Z_]+')) then
+    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+        <forward url="{$exist:controller}/views/editors/record.html"/>
+        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
+    </dispatch>
 else if (ends-with($exist:resource, ".html")) then
     (: the html page is run through template.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
