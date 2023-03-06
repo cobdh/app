@@ -1,67 +1,139 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <html
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:i18n="http://exist-db.org/xquery/i18n"
     data-template="app:determine_resource"
-    >
+>
     <head>
         <title data-template="config:app-title">App Title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta
+            content="width=device-width, initial-scale=1.0"
+            name="viewport"
+        />
         <meta data-template="config:app-meta"/>
-        <link rel="stylesheet" type="text/css" href="$shared/resources/css/exist-2.2.css"/>
-        <link rel="stylesheet" type="text/css" href="$resources/resources/css/style.css"/>
-        <script type="text/javascript" src="$shared/resources/scripts/jquery/jquery-1.7.1.min.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/bootstrap-3.0.3.min.js"/>
-        <script type="text/javascript" src="$shared/resources/scripts/loadsource.js"/>
+        <link
+            href="$shared/resources/css/exist-2.2.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="$resources/resources/css/style.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script
+            src="$shared/resources/scripts/jquery/jquery-1.7.1.min.js"
+            type="text/javascript"
+        />
+        <script
+            src="$shared/resources/scripts/bootstrap-3.0.3.min.js"
+            type="text/javascript"
+        />
+        <script
+            src="$shared/resources/scripts/loadsource.js"
+            type="text/javascript"
+        />
     </head>
     <body id="grey-top">
         <div class="grey-bot">
-            <div class="container" id="main-container">
+            <div
+                class="container"
+                id="main-container"
+            >
                 <div class="row">
-                    <div class="col-md-12" id="header">
-                        <a href="/" id="logo">https://data.cobdh.org</a>
+                    <div
+                        class="col-md-12"
+                        id="header"
+                    >
+                        <a
+                            href="/"
+                            id="logo"
+                        >
+                            https://data.cobdh.org
+                        </a>
                     </div>
                 </div>
                 <div class="row">
-                    <nav class="navbar navbar-default" role="navigation">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                    <nav
+                        class="navbar navbar-default"
+                        role="navigation"
+                    >
+                        <button
+                            class="navbar-toggle"
+                            data-target="#navbar-collapse-1"
+                            data-toggle="collapse"
+                            type="button"
+                        >
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"/>
                             <span class="icon-bar"/>
                             <span class="icon-bar"/>
                         </button>
-                        <div class="navbar-collapse collapse" id="navbar-collapse-1">
+                        <div
+                            class="navbar-collapse collapse"
+                            id="navbar-collapse-1"
+                        >
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <div data-template="app:href" data-template-text="Home" data-template-path="/" />
+                                    <div
+                                        data-template="app:href"
+                                        data-template-path="/"
+                                        data-template-text="Home"
+                                    />
                                 </li>
                                 <li>
-                                    <div data-template="app:href" data-template-text="Bibliography" data-template-path="/bibl" />
+                                    <div
+                                        data-template="app:href"
+                                        data-template-path="/bibl"
+                                        data-template-text="Bibliography"
+                                    />
                                 </li>
                                 <li>
-                                    <div data-template="app:href" data-template-text="Persons" data-template-path="/persons" />
+                                    <div
+                                        data-template="app:href"
+                                        data-template-path="/persons"
+                                        data-template-text="Persons"
+                                    />
                                 </li>
                                 <li>
-                                    <div data-template="app:href" data-template-text="Editors" data-template-path="/editors" />
+                                    <div
+                                        data-template="app:href"
+                                        data-template-path="/editors"
+                                        data-template-text="Editors"
+                                    />
                                 </li>
                             </ul>
                         </div>
                     </nav>
                 </div>
-                <div id="content" class="row"/>
+                <div
+                    class="row"
+                    id="content"
+                />
             </div>
         </div>
         <div id="footer">
             <div class="container">
                 <ul>
                     <li>
-                        <div data-template="app:href" data-template-text="Impressum" data-template-path="/impressum" />
+                        <div
+                            data-template="app:href"
+                            data-template-path="/impressum"
+                            data-template-text="Impressum"
+                        />
                     </li>
                     <li>
-                        <div data-template="app:href" data-template-text="How To Contribute" data-template-path="/contribution" />
+                        <div
+                            data-template="app:href"
+                            data-template-path="/contribution"
+                            data-template-text="How To Contribute"
+                        />
                     </li>
                     <li>
-                        <div data-template="app:href" data-template-text="Validation" data-template-path="/validation" />
+                        <div
+                            data-template="app:href"
+                            data-template-path="/validation"
+                            data-template-text="Validation"
+                        />
                     </li>
                 </ul>
             </div>
