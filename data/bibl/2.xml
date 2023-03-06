@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tei:TEI
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
     xml:lang="de"
 >
-    <tei:teiHeader>
-        <tei:fileDesc>
-            <tei:titleStmt>
-                <tei:editor
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
                     xml:id="schewe_helmut_konrad"
                     ref="https://cobdh.org/editors/schewe_helmut_konrad"
                     role="creator"
                 />
-            </tei:titleStmt>
-        </tei:fileDesc>
-    </tei:teiHeader>
-    <tei:body>
-        <tei:biblFull xml:id="BVCP1995">
-            <tei:titleStmt>
-                <tei:title>THe second one</tei:title>
-                <tei:author>Blain, Virginia</tei:author>
-                <tei:author>Clements, Patricia</tei:author>
-            </tei:titleStmt>
-            <tei:editionStmt>
-                <tei:edition>UK edition</tei:edition>
-            </tei:editionStmt>
-            <tei:extent>1231 pp</tei:extent>
-            <tei:publicationStmt>
-                <tei:publisher>Yale University Press</tei:publisher>
-                <tei:pubPlace>New Haven and London</tei:pubPlace>
-                <tei:date>1995</tei:date>
-            </tei:publicationStmt>
-            <tei:sourceDesc>
-                <tei:p>No source: this is an original work</tei:p>
-            </tei:sourceDesc>
-        </tei:biblFull>
-    </tei:body>
-</tei:TEI>
+            </titleStmt>
+        </fileDesc>
+    </teiHeader>
+    <body>
+        <biblFull xml:id="BVCP1995">
+            <titleStmt>
+                <title>THe second one</title>
+                <author>Blain, Virginia</author>
+                <author>Clements, Patricia</author>
+            </titleStmt>
+            <editionStmt>
+                <edition>UK edition</edition>
+            </editionStmt>
+            <extent>1231 pp</extent>
+            <publicationStmt>
+                <publisher>Yale University Press</publisher>
+                <pubPlace>New Haven and London</pubPlace>
+                <date>1995</date>
+            </publicationStmt>
+            <sourceDesc>
+                <p>No source: this is an original work</p>
+            </sourceDesc>
+        </biblFull>
+    </body>
+</TEI>

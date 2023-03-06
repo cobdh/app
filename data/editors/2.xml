@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tei:TEI
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
     xml:lang="de"
 >
-    <tei:person xml:id="horn_cornelia">
-        <tei:persName>
-            <tei:surname>Horn</tei:surname>
-            <tei:forename>Cornelia</tei:forename>
-        </tei:persName>
-    </tei:person>
-</tei:TEI>
+    <person xml:id="horn_cornelia">
+        <persName>
+            <surname>Horn</surname>
+            <forename>Cornelia</forename>
+        </persName>
+    </person>
+</TEI>
