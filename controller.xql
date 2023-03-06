@@ -32,7 +32,7 @@ else if ($exist:path eq "/bibl"
         <forward url="views/{$exist:path}/index.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
-else if (matches($exist:path, '/bibl/\d+')) then
+else if (matches($exist:path, '/bibl/[a-zA-Z_0-9]+')) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="{$exist:controller}/views/bibl/record.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>

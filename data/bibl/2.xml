@@ -7,12 +7,12 @@
     <tei:teiHeader>
         <tei:fileDesc>
             <tei:titleStmt>
-                <tei:editor role="creator" ref="https://cobdh.org/editors/schewe_helmut_konrad"/>
+                <tei:editor role="creator" xml:id="schewe_helmut_konrad" ref="https://cobdh.org/editors/schewe_helmut_konrad"/>
             </tei:titleStmt>
         </tei:fileDesc>
     </tei:teiHeader>
     <tei:body>
-        <tei:biblFull xml:id="2">
+        <tei:biblFull xml:id="BVCP1995">
             <tei:titleStmt>
                 <tei:title>
                     THe second one
@@ -40,7 +40,7 @@
                     New Haven and London
                 </tei:pubPlace>
                 <tei:date>
-                    1990
+                    1995
                 </tei:date>
             </tei:publicationStmt>
             <tei:sourceDesc>

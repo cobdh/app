@@ -17,9 +17,8 @@ declare function bibl:index($node as node(), $model as map(*)){
         transform:transform($input, $xsl, ())
 };
 
-declare function bibl:view-item($node as node(), $model as map(*), $index as xs:integer){
-    let $index := $index cast as xs:string
-    let $data := collection($bibl:data)/tei:TEI/tei:biblFull[@xml:id eq $index]
+declare function bibl:view-item($node as node(), $model as map(*), $index as xs:string){
+    let $data := collection($bibl:data)//tei:biblFull[@xml:id eq $index]
     let $xsl := config:resolve("views/bibl/view-item.xsl")
     return
         transform:transform($data, $xsl, ())
