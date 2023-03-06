@@ -4,7 +4,7 @@
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
-    <xsl:template match="tei:biblFull">
+    <xsl:template match="(tei:biblFull|tei:biblStruct)">
         <h2><xsl:value-of select="//tei:title"/></h2>
         <hr/>
         <div class="container">

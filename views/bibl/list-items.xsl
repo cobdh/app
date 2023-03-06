@@ -7,7 +7,7 @@
     >
     <xsl:template match="/">
         <ul>
-            <xsl:for-each select="//tei:biblFull">
+            <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
                 <li>
                     <!-- Example: cobdh.org/bibl/1-->
                     <xsl:element name="a">
