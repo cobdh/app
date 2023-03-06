@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <package
     xmlns="http://expath.org/ns/pkg"
-    name="http://cobdh.org/cobdh-data"
     abbrev="cobdh-data"
+    name="http://cobdh.org/cobdh-data"
+    spec="1.0"
     version="XXX"
-    spec="1.0">
+>
     <title>cobdh.org data</title>
     <!--<dependency package="http://exist-db.org/apps/shared" />-->
 </package>

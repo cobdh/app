@@ -1,22 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <project
     default="xar"
-    name="cobdh-data">
-    <xmlproperty file="expath-pkg.xml" />
+    name="cobdh-data"
+>
+    <xmlproperty file="expath-pkg.xml"/>
     <property
         name="project.version"
-        value="${package(version)}" />
+        value="${package(version)}"
+    />
     <property
         name="project.app"
-        value="cobdh-data" />
+        value="cobdh-data"
+    />
     <property
         name="build.dir"
-        value="build" />
+        value="build"
+    />
     <target name="xar">
-        <mkdir dir="${build.dir}" />
+        <mkdir dir="${build.dir}"/>
         <zip
             basedir="."
             destfile="${build.dir}/${project.app}-${project.version}.xar"
-            excludes="${build.dir}/* docker/*" />
+            excludes="${build.dir}/* docker/*"
+        />
     </target>
 </project>
