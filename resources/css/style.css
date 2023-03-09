@@ -4,3 +4,6 @@
 #header a#logo{
     background: none;
 }
+ul.list-none{
+    list-style: none;
+}
