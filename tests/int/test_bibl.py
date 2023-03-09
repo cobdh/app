@@ -14,3 +14,12 @@ def test_bibl_1():
     assert ABOUT in result
     assert CITATION in result
     assert FULL in result
+
+
+def test_bibl_failure():
+    resource = tests.resources.BIBL_INVALID_ID
+    result = tests.int.curl(f'/bibl/{resource}')
+    assert tests.contains_hx('Bibliography Record', result), result
+    assert ABOUT not in result
+    assert CITATION not in result
+    assert FULL not in result

@@ -38,3 +38,4 @@ def bibl_id(path):
 
 BIBL_1_ID = bibl_id(BIBL_1_PATH)
 BIBL_2_ID = bibl_id(BIBL_2_PATH)
+BIBL_INVALID_ID = '0'
