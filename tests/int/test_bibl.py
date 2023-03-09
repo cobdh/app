@@ -16,10 +16,14 @@ def test_bibl_1():
     assert FULL in result
 
 
+NOT_FOUND = 'Could not locate Resource:'
+
+
 def test_bibl_failure():
     resource = tests.resources.BIBL_INVALID_ID
     result = tests.int.curl(f'/bibl/{resource}')
     assert tests.contains_hx('Bibliography Record', result), result
+    assert NOT_FOUND in result
     assert ABOUT not in result
     assert CITATION not in result
     assert FULL not in result

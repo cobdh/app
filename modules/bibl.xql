@@ -4,6 +4,8 @@ module namespace bibl="https://data.cobdh.org/bibl";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
+import module namespace templates="http://exist-db.org/xquery/templates" at "config.xqm";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -43,4 +45,18 @@ declare function bibl:list-items(){
             $item
     }
     </tei:listBibl>
+};
+
+declare
+    %templates:wrap
+function bibl:missing-item($node as node(), $model as map(*)) {
+    let $index := $model("selected")
+    let $data := collection($bibl:data)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
+    return
+        if (empty($data)) then
+            <p class="alert alert-danger">
+                Could not locate Resource: <b>{$index}</b>
+            </p>
+        else
+            ()
 };
