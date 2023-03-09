@@ -8,9 +8,6 @@ import tests
 BIBL_1_PATH = os.path.join(tests.ROOT, 'data/bibl/1.xml')
 BIBL_2_PATH = os.path.join(tests.ROOT, 'data/bibl/2.xml')
 
-BIBL_1_ID = bibl_id(BIBL_1_PATH)
-BIBL_2_ID = bibl_id(BIBL_2_PATH)
-
 REQUIRED = [
     BIBL_1_PATH,
     BIBL_2_PATH,
@@ -37,3 +34,7 @@ def bibl_id(path):
     # TODO: FIX LATER
     value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
     return value
+
+
+BIBL_1_ID = bibl_id(BIBL_1_PATH)
+BIBL_2_ID = bibl_id(BIBL_2_PATH)
