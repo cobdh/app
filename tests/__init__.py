@@ -1,4 +1,7 @@
+import os
 import re
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 
 def contains_hx(title: str, content: str, level: int = 1) -> bool:
