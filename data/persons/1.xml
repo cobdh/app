@@ -1,31 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tei:TEI
-    xmlns:tei="http://www.tei-c.org/ns/1.0"
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
     xml:lang="en"
 >
-    <tei:person
-        xml:id="1"
-        role="poet"
-        sex="1"
-    >
-        <tei:persName>Ovid</tei:persName>
-        <tei:persName xml:lang="la">Publius Ovidius Naso</tei:persName>
-        <tei:birth when="-0044-03-20">
-            20 March 43 BC
-            <tei:placeName>
-                <tei:settlement type="city">Sulmona</tei:settlement>
-                <tei:country key="IT">Italy</tei:country>
-            </tei:placeName>
-        </tei:birth>
-        <tei:death
-            notAfter="0018"
-            notBefore="0017"
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
+                    xml:id="schewe_helmut_konrad"
+                    ref="https://cobdh.org/editors/schewe_helmut_konrad"
+                    role="creator"
+                />
+            </titleStmt>
+        </fileDesc>
+    </teiHeader>
+    <body>
+        <person
+            xml:id="Ovid44"
+            role="poet"
+            sex="1"
         >
-            17 or 18 AD
-            <tei:placeName>
-                <tei:settlement type="city">Tomis (Constanta)</tei:settlement>
-                <tei:country key="RO">Romania</tei:country>
-            </tei:placeName>
-        </tei:death>
-    </tei:person>
-</tei:TEI>
+            <persName>Ovid</persName>
+            <persName xml:lang="la">Publius Ovidius Naso</persName>
+            <birth when="-0044-03-20">
+                20 March 43 BC
+                <placeName>
+                    <settlement type="city">Sulmona</settlement>
+                    <country key="IT">Italy</country>
+                </placeName>
+            </birth>
+            <death
+                notAfter="0018"
+                notBefore="0017"
+            >
+                17 or 18 AD
+                <placeName>
+                    <settlement type="city">Tomis (Constanta)</settlement>
+                    <country key="RO">Romania</country>
+                </placeName>
+            </death>
+        </person>
+    </body>
+</TEI>
