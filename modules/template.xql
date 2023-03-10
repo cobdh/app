@@ -21,6 +21,8 @@ import module namespace editor="https://data.cobdh.org/editors" at "editor.xql";
 
 import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
 
+import module namespace persons="https://data.cobdh.org/persons" at "persons.xql";
+
 import module namespace tester="https://data.cobdh.org/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
