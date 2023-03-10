@@ -6,6 +6,8 @@ import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 import module namespace templates="http://exist-db.org/xquery/templates" at "config.xqm";
 
+import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -55,7 +57,10 @@ function bibl:missing-item($node as node(), $model as map(*)) {
     return
         if (empty($data)) then
             <p class="alert alert-danger">
-                Could not locate Resource: <b>{$index}</b>
+                <i18n:text key="bibl_record_missing">
+                    Could not locate Resource
+                </i18n:text>:
+                <b>{$index}</b>
             </p>
         else
             ()

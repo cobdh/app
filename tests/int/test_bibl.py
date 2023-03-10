@@ -16,7 +16,7 @@ def test_bibl_1():
     assert FULL in result
 
 
-NOT_FOUND = 'Could not locate Resource:'
+NOT_FOUND = 'Could not locate Resource'
 
 
 def test_bibl_failure():
