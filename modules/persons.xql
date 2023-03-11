@@ -55,7 +55,7 @@ function persons:missing-item($node as node(), $model as map(*)) {
     return
         if (empty($data)) then
             <p class="alert alert-danger">
-                Could not locate Resource
+                Could not locate Person
                 <b>{$index}</b>
             </p>
         else

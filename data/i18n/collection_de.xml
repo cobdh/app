@@ -10,4 +10,6 @@
     <msg key="impressum_contact">Kontakt</msg>
     <msg key="impressum_licence">Lizenz</msg>
     <msg key="persons_persons">Personen</msg>
+    <msg key="persons_record">Person-Eintrag</msg>
+    <msg key="persons_record_missing">Person nicht vorhanden:</msg>
 </catalogue>
