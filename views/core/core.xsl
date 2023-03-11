@@ -5,6 +5,41 @@
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
+    <!--Render persName-->
+    <xsl:template name="person_names">
+        <xsl:param name="newline">0</xsl:param>
+        <xsl:param name="name">0</xsl:param>
+        <xsl:for-each select="//tei:persName">
+            <span>
+                <xsl:if test="$name=1">
+                    <xsl:text>Name: </xsl:text>
+                </xsl:if>
+                <xsl:for-each select="//tei:surname">
+                    <xsl:value-of select="."/>
+                </xsl:for-each>
+                <xsl:if test="//tei:forename">
+                    <xsl:text>, </xsl:text>
+                </xsl:if>
+                <xsl:for-each select="//tei:forename">
+                    <xsl:value-of select="."/>
+                </xsl:for-each>
+                <!--Simple Name-->
+                <xsl:if test="not(tei:surname) and not(tei:forename)">
+                    <xsl:value-of select="."/>
+                </xsl:if>
+            </span>
+            <xsl:choose>
+                <xsl:when test="$newline=1">
+                    <br/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:if test="position() != last()">
+                        <xsl:text>; </xsl:text>
+                    </xsl:if>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:for-each>
+    </xsl:template>
     <!--Render credit information-->
     <xsl:template name="credit">
         <h3>About this Online Entry</h3>

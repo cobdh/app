@@ -5,6 +5,9 @@
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
+    <!-- Import general methods -->
+    <xsl:import href="../core/core.xsl"/>
+    <!--Render list of persons -->
     <xsl:template match="/">
         <ul>
             <xsl:for-each select="//(tei:person)">
@@ -15,7 +18,7 @@
                             <!-- TODO: REPLACE WITH app:abspath -->
                             <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
                         </xsl:attribute>
-                        <xsl:value-of select=".//tei:persName"/>
+                        <xsl:call-template name="person_names"/>
                     </xsl:element>
                 </li>
             </xsl:for-each>

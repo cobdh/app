@@ -10,7 +10,11 @@
     <!-- End of Import -->
     <xsl:template match="tei:person">
         <div class="container">
-            <xsl:value-of select="."/>
+            <h3>Biography</h3>
+            <xsl:call-template name="person_names">
+                <xsl:with-param name="newline" select='1'/>
+                <xsl:with-param name="name" select='1'/>
+            </xsl:call-template>
             <h3>Full Citation Information</h3>
             <xsl:call-template name="credit"/>
             <xsl:call-template name="licence"/>
