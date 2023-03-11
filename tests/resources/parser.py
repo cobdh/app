@@ -20,3 +20,17 @@ def bibl_id(path):
     # TODO: FIX LATER
     value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
     return value
+
+
+def persons_id(path):
+    """\
+    >>> import tests.resources
+    >>> persons_id(tests.resources.PERSONS_1_PATH)  # adjust test after changing data collection
+    'Ovid44'
+    """
+    content = cobdh.file_read(path)
+    data = cobdh.xml.parser.parse(content)
+    parsed = data.find('.//tei:person', namespaces=NS)
+    # TODO: FIX LATER
+    value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
+    return value
