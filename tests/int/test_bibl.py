@@ -1,6 +1,6 @@
 import tests
 import tests.int
-import tests.resources
+import tests.resources.ids
 
 CITATION = 'Preferred Citation'
 FULL = 'Full Citation Information'
@@ -8,7 +8,7 @@ ABOUT = 'About this Online Entry'
 
 
 def test_bibl_1():
-    resource = tests.resources.BIBL_1_ID
+    resource = tests.resources.ids.BIBL_1_ID
     result = tests.int.curl(f'/bibl/{resource}')
     assert tests.contains_hx('Bibliography Record', result), result
     assert ABOUT in result
@@ -20,7 +20,7 @@ NOT_FOUND = 'Could not locate Bibliography'
 
 
 def test_bibl_failure():
-    resource = tests.resources.BIBL_INVALID_ID
+    resource = tests.resources.ids.BIBL_INVALID_ID
     result = tests.int.curl(f'/bibl/{resource}')
     assert tests.contains_hx('Bibliography Record', result), result
     assert NOT_FOUND in result
