@@ -13,7 +13,7 @@ def curl(path: str):
     '...<h1 data-template="config:app-title">cobdh.org data</h1>...'
     """
     url = SERVER + path
-    with urllib.request.urlopen(url) as response:
+    with urllib.request.urlopen(url) as response:  # nosec
         html = response.read()
     html: str = html.decode('utf8')
     return html
@@ -25,7 +25,7 @@ def rest(path: str):
     '<tei:listPerson...horn_cornelia...</tei:listPerson>'
     """
     url = REST + path
-    with urllib.request.urlopen(url) as response:
+    with urllib.request.urlopen(url) as response:  # nosec
         html = response.read()
     html: str = html.decode('utf8')
     return html
