@@ -58,7 +58,7 @@ function bibl:missing-item($node as node(), $model as map(*)) {
         if (empty($data)) then
             <p class="alert alert-danger">
                 <i18n:text key="bibl_record_missing">
-                    Could not locate Resource
+                    Could not locate Bibliography
                 </i18n:text>:
                 <b>{$index}</b>
             </p>
