@@ -15,11 +15,7 @@
         </fileDesc>
     </teiHeader>
     <body>
-        <person
-            xml:id="Ovid44"
-            role="poet"
-            sex="1"
-        >
+        <person xml:id="Ovid44">
             <persName>Ovid</persName>
             <persName xml:lang="la">Publius Ovidius Naso</persName>
             <birth when="-0044-03-20">
@@ -39,6 +35,8 @@
                     <country key="RO">Romania</country>
                 </placeName>
             </death>
+            <sex>1</sex>
+            <role>poet</role>
         </person>
     </body>
 </TEI>
