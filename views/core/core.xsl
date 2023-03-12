@@ -45,7 +45,7 @@
         <h4>Additional Credit</h4>
         <div data-template="bibl:editors-request"/>
         <ul class="list-none">
-            <xsl:for-each select="//tei:editor">
+            <xsl:for-each select="//tei:titleStmt/tei:editor">
                 <li>
                     <xsl:choose>
                         <xsl:when test="@role = 'creator'">
