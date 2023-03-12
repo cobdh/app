@@ -18,8 +18,18 @@
         <biblFull xml:id="BVCP1995">
             <titleStmt>
                 <title>THe second one</title>
-                <author>Blain, Virginia</author>
-                <author>Clements, Patricia</author>
+                <author
+                    xml:id="BlainVirginia"
+                    ref="https://cobdh.org/persons/BlainVirginia"
+                >
+                    Blain, Virginia
+                </author>
+                <author
+                    xml:id="ClementsPatricia"
+                    ref="https://cobdh.org/persons/ClementsPatricia"
+                >
+                    Clements, Patricia
+                </author>
             </titleStmt>
             <editionStmt>
                 <edition>UK edition</edition>
