@@ -34,6 +34,7 @@
     </xsl:template>
     <!--Render header-->
     <xsl:template name="header">
+        <xsl:call-template name="print_formats"/>
         <h2><xsl:value-of select="//tei:title"/></h2>
         <xsl:call-template name="resource_link"/>
     </xsl:template>

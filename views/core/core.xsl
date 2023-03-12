@@ -7,38 +7,37 @@
     >
     <!--Render persName-->
     <xsl:template name="person_names">
-        <xsl:param name="newline">0</xsl:param>
-        <xsl:param name="name">0</xsl:param>
+        <xsl:param name="list">0</xsl:param>
         <xsl:for-each select="//tei:persName">
-            <span>
-                <xsl:if test="$name=1">
-                    <xsl:text>Name: </xsl:text>
-                </xsl:if>
-                <xsl:for-each select="//tei:surname">
-                    <xsl:value-of select="."/>
-                </xsl:for-each>
-                <xsl:if test="//tei:forename">
-                    <xsl:text>, </xsl:text>
-                </xsl:if>
-                <xsl:for-each select="//tei:forename">
-                    <xsl:value-of select="."/>
-                </xsl:for-each>
-                <!--Simple Name-->
-                <xsl:if test="not(tei:surname) and not(tei:forename)">
-                    <xsl:value-of select="."/>
-                </xsl:if>
-            </span>
             <xsl:choose>
-                <xsl:when test="$newline=1">
-                    <br/>
+                <xsl:when test="$list=1">
+                    <li>
+                        <xsl:apply-templates/>
+                    </li>
                 </xsl:when>
                 <xsl:otherwise>
+                    <xsl:apply-templates/>
                     <xsl:if test="position() != last()">
                         <xsl:text>; </xsl:text>
                     </xsl:if>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:for-each>
+    </xsl:template>
+    <xsl:template match="tei:persName">
+        <xsl:for-each select="//tei:surname">
+            <xsl:value-of select="."/>
+        </xsl:for-each>
+        <xsl:if test="//tei:forename">
+            <xsl:text>, </xsl:text>
+        </xsl:if>
+        <xsl:for-each select="//tei:forename">
+            <xsl:value-of select="."/>
+        </xsl:for-each>
+        <!--Simple Name-->
+        <xsl:if test="not(tei:surname) and not(tei:forename)">
+            <xsl:value-of select="."/>
+        </xsl:if>
     </xsl:template>
     <!--Render credit information-->
     <xsl:template name="credit">
@@ -110,37 +109,39 @@
         <xsl:call-template name="copy"/>
         <br/>
     </xsl:template>
+    <!--Render formats-->
     <xsl:template name="print_formats">
-        <div class="container otherFormats">
-            <a
-                class="btn btn-default btn-xs"
-                data-original-title="Click to send this page to the printer."
-                data-toggle="tooltip"
-                href="javascript:window.print();"
-                id="teiBtn"
-                title=""
-                type="button"
-                >
+        <xsl:param name="resource"></xsl:param>
+        <div class="container other_formats">
+            <xsl:element name="a">
+                <xsl:attribute name="class">btn btn-default btn-xs</xsl:attribute>
+                <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
+                <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
+                <xsl:attribute name="id">teiBtn</xsl:attribute>
+                <xsl:attribute name="type">button</xsl:attribute>
+                <xsl:attribute name="href">javascript:window.print();</xsl:attribute>
                 <span
                     aria-hidden="true"
                     class="glyphicon glyphicon-print"
                     />
-            </a>
-            &nbsp;
-            <a
-                class="btn btn-default btn-xs"
-                data-original-title="Click to view the TEI XML data for this record."
-                data-toggle="tooltip"
-                href="https://syriaca.org/person/779.tei"
-                id="teiBtn"
-                title=""
-                >
+            </xsl:element>
+            <xsl:element name="a">
+                <xsl:attribute name="class">btn btn-default btn-xs</xsl:attribute>
+                <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
+                <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
+                <xsl:attribute name="id">teiBtn</xsl:attribute>
+                <xsl:attribute name="type">button</xsl:attribute>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="$resource"/>
+                    <xsl:text>.tei</xsl:text>
+                </xsl:attribute>
                 <span
                     aria-hidden="true"
                     class="glyphicon glyphicon-download-alt"
-                    />
-                TEI/XML
-            </a>
+                    >
+                    TEI/XML
+                </span>
+            </xsl:element>
         </div>
     </xsl:template>
 </xsl:stylesheet>

@@ -7,3 +7,10 @@
 ul.list-none{
     list-style: none;
 }
+.other_formats{
+    width:100%;
+    clear:both;
+    margin-top:1em;
+    margin-bottom:1em;
+    text-align:right;
+}

@@ -10,11 +10,14 @@
     <!-- End of Import -->
     <xsl:template match="tei:person">
         <div class="container">
+            <xsl:call-template name="print_formats"/>
             <h3>Biography</h3>
-            <xsl:call-template name="person_names">
-                <xsl:with-param name="newline" select='1'/>
-                <xsl:with-param name="name" select='1'/>
-            </xsl:call-template>
+            <h4>Names</h4>
+            <ul class="list-none">
+                <xsl:call-template name="person_names">
+                    <xsl:with-param name="list" select='1'/>
+                </xsl:call-template>
+            </ul>
             <h3>Full Citation Information</h3>
             <xsl:call-template name="credit"/>
             <xsl:call-template name="licence"/>
