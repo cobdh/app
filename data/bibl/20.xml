@@ -36,19 +36,31 @@
             </analytic>
             <monogr>
                 <title level="m">The Syriac Renaissance</title>
-                <editor>
+                <editor
+                    xml:id="TeuleHermanGB"
+                    ref="https://cobdh.org/persons/TeuleHermanGB"
+                >
                     <forename>Herman G. B.</forename>
                     <surname>Teule</surname>
                 </editor>
-                <editor>
+                <editor
+                    xml:id="TauwinklCarmenFotescu"
+                    ref="https://cobdh.org/persons/TauwinklCarmenFotescu"
+                >
                     <forename>Carmen Fotescu</forename>
                     <surname>Tauwinkl</surname>
                 </editor>
-                <editor>
+                <editor
+                    xml:id="terHaarRomenyRobertBas"
+                    ref="https://cobdh.org/persons/terHaarRomenyRobertBas"
+                >
                     <forename>Robert Bas</forename>
                     <surname>ter Haar Romeny</surname>
                 </editor>
-                <editor>
+                <editor
+                    xml:id="vanGinkelJan"
+                    ref="https://cobdh.org/persons/vanGinkelJan"
+                >
                     <forename>Jan</forename>
                     <surname>van Ginkel</surname>
                 </editor>

@@ -39,15 +39,24 @@
                 <title level="m">
                     Old Testament Pseudepigrapha: More Noncanonical Scriptures. Volume 1
                 </title>
-                <editor>
+                <editor
+                    xml:id="BauckhamRichard"
+                    ref="https://cobdh.org/persons/BauckhamRichard"
+                >
                     <forename>Richard</forename>
                     <surname>Bauckham</surname>
                 </editor>
-                <editor>
+                <editor
+                    xml:id="DavilaJamesR"
+                    ref="https://cobdh.org/persons/DavilaJamesR"
+                >
                     <forename>James R.</forename>
                     <surname>Davila</surname>
                 </editor>
-                <editor>
+                <editor
+                    xml:id="PanayotovAlexander"
+                    ref="https://cobdh.org/persons/PanayotovAlexander"
+                >
                     <forename>Alexander</forename>
                     <surname>Panayotov</surname>
                 </editor>

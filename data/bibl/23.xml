@@ -36,7 +36,10 @@
                 <title level="m">
                     Iran and Islam: In Memory of the Late Vladimir Minorsky
                 </title>
-                <editor>
+                <editor
+                    xml:id="BosworthCliffordEdmund"
+                    ref="https://cobdh.org/persons/BosworthCliffordEdmund"
+                >
                     <forename>Clifford Edmund</forename>
                     <surname>Bosworth</surname>
                 </editor>

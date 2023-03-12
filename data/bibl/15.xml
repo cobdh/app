@@ -38,7 +38,10 @@
                     International Symposium in Honor of the 40th Anniversary of St Nersess Armenian
                     Seminary
                 </title>
-                <editor>
+                <editor
+                    xml:id="ErvineRobertaR"
+                    ref="https://cobdh.org/persons/ErvineRobertaR"
+                >
                     <forename>Roberta R.</forename>
                     <surname>Ervine</surname>
                 </editor>
