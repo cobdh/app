@@ -110,4 +110,37 @@
         <xsl:call-template name="copy"/>
         <br/>
     </xsl:template>
+    <xsl:template name="print_formats">
+        <div class="container otherFormats">
+            <a
+                class="btn btn-default btn-xs"
+                data-original-title="Click to send this page to the printer."
+                data-toggle="tooltip"
+                href="javascript:window.print();"
+                id="teiBtn"
+                title=""
+                type="button"
+                >
+                <span
+                    aria-hidden="true"
+                    class="glyphicon glyphicon-print"
+                    />
+            </a>
+            &nbsp;
+            <a
+                class="btn btn-default btn-xs"
+                data-original-title="Click to view the TEI XML data for this record."
+                data-toggle="tooltip"
+                href="https://syriaca.org/person/779.tei"
+                id="teiBtn"
+                title=""
+                >
+                <span
+                    aria-hidden="true"
+                    class="glyphicon glyphicon-download-alt"
+                    />
+                TEI/XML
+            </a>
+        </div>
+    </xsl:template>
 </xsl:stylesheet>
