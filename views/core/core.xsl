@@ -8,7 +8,7 @@
     <!--Render persName-->
     <xsl:template name="person_names">
         <xsl:param name="list">0</xsl:param>
-        <xsl:for-each select="//tei:persName">
+        <xsl:for-each select="tei:persName">
             <xsl:choose>
                 <xsl:when test="$list=1">
                     <li>
