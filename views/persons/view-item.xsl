@@ -12,6 +12,11 @@
     <xsl:template match="tei:person">
         <div class="container">
             <xsl:call-template name="print_formats"/>
+            <small>
+                <xsl:call-template name="resource_link">
+                    <xsl:with-param name="collection">persons</xsl:with-param>
+                </xsl:call-template>
+            </small>
             <h3>Biography</h3>
             <h4>Names</h4>
             <ul class="list-none">
