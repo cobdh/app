@@ -36,7 +36,9 @@
     <xsl:template name="header">
         <xsl:call-template name="print_formats"/>
         <h2><xsl:value-of select="//tei:title"/></h2>
-        <xsl:call-template name="resource_link"/>
+        <small>
+            <xsl:call-template name="resource_link"/>
+        </small>
     </xsl:template>
     <!--Render citation-->
     <xsl:template name="citation">
