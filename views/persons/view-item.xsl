@@ -31,10 +31,10 @@
         </div>
     </xsl:template>
     <xsl:template name="details">
-        <xsl:if test="tei:sex or tei:death or tei:birth or tei:floruit">
+        <xsl:if test="tei:state | tei:birth | tei:death | tei:floruit | tei:sex | tei:langKnowledge">
             <h4>Details</h4>
             <ul class="list-none">
-                <xsl:apply-templates select="tei:sex | tei:death | tei:birth | tei:floruit"/>
+                <xsl:apply-templates select="tei:state | tei:birth | tei:death | tei:floruit | tei:sex | tei:langKnowledge"/>
             </ul>
         </xsl:if>
     </xsl:template>
