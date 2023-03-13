@@ -60,7 +60,11 @@
                 Title: <xsl:value-of select="//tei:title"/>
             </li>
             <xsl:for-each select="//tei:author">
-                <li>Author: <xsl:value-of select="."/></li>
+                <li>
+                    Author:
+                    <xsl:text> </xsl:text>
+                    <xsl:value-of select="."/>
+                </li>
             </xsl:for-each>
             <li>
                 URI: <xsl:call-template name="resource_link"/>
