@@ -73,7 +73,13 @@
         <li>
             Author:
             <xsl:text> </xsl:text>
-            <xsl:value-of select="."/>
+            <xsl:element name="a">
+                <xsl:attribute name="href">
+                    <!-- TODO: REPLACE WITH app:abspath -->
+                    <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
+                </xsl:attribute>
+                <xsl:value-of select="."/>
+            </xsl:element>
         </li>
     </xsl:template>
 </xsl:stylesheet>
