@@ -24,4 +24,21 @@
             excludes="${build.dir}/* docker/*"
         />
     </target>
+    <target name="mini">
+        <mkdir dir="${build.dir}"/>
+        <zip
+            basedir="."
+            destfile="${build.dir}/${project.app}-${project.version}.xar"
+            excludes="${build.dir}/* docker/* data/bibl/*.xml data/persons/*.xml"
+        >
+            <zipfileset
+                dir="tests/mini/bibl"
+                prefix="data/bibl"
+            />
+            <zipfileset
+                dir="tests/mini/persons"
+                prefix="data/persons"
+            />
+        </zip>
+    </target>
 </project>
