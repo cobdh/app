@@ -7,6 +7,7 @@
     >
     <!-- Import general methods -->
     <xsl:import href="../core/core.xsl"/>
+    <xsl:import href="../core/href.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:biblStruct">
         <div class="container">
@@ -64,11 +65,7 @@
             <li>
                 URI: <xsl:call-template name="resource_link"/>
             </li>
-            <xsl:if test="//tei:biblStruct/@corresp">
-                <li>
-                    Zotero: <xsl:value-of select="//tei:biblStruct/@corresp"/>
-                </li>
-            </xsl:if>
+            <xsl:call-template name="external_links"/>
         </ul>
     </xsl:template>
     <!--Render publication-->
