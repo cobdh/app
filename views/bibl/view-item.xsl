@@ -64,9 +64,11 @@
             <li>
                 URI: <xsl:call-template name="resource_link"/>
             </li>
-            <li>
-                Zotero: http://zotero.org/groups/392292/items/R9EAZRI3
-            </li>
+            <xsl:if test="//tei:biblStruct/@corresp">
+                <li>
+                    Zotero: <xsl:value-of select="//tei:biblStruct/@corresp"/>
+                </li>
+            </xsl:if>
         </ul>
     </xsl:template>
     <!--Render publication-->
