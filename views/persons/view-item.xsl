@@ -24,13 +24,16 @@
                     <xsl:with-param name="list" select='1'/>
                 </xsl:call-template>
             </ul>
-            <h4>Details</h4>
-            <ul class="list-none">
-                <xsl:apply-templates select="tei:sex | tei:death | tei:birth | tei:floruit"/>
-            </ul>
+            <xsl:call-template name="details"/>
             <h3>Full Citation Information</h3>
             <xsl:call-template name="credit"/>
             <xsl:call-template name="licence"/>
         </div>
+    </xsl:template>
+    <xsl:template name="details">
+        <h4>Details</h4>
+        <ul class="list-none">
+            <xsl:apply-templates select="tei:sex | tei:death | tei:birth | tei:floruit"/>
+        </ul>
     </xsl:template>
 </xsl:stylesheet>
