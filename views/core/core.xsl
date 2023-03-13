@@ -48,7 +48,7 @@
                 <!-- TODO: REPLACE WITH app:abspath -->
                 <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', @xml:id)"/>
             </xsl:attribute>
-            https://cobdh.org/bibl/<xsl:value-of select=".//@xml:id"/>
+            https://cobdh.org/bibl/<xsl:value-of select="@xml:id"/>
         </xsl:element>
         <!-- <xsl:call-template name="copy"/> -->
         <br/>
