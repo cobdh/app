@@ -42,10 +42,11 @@
     </xsl:template>
     <!--Render resource resource_link-->
     <xsl:template name="resource_link">
+        <xsl:param name="collection">bibl</xsl:param>
         <xsl:element name="a">
             <xsl:attribute name="href">
                 <!-- TODO: REPLACE WITH app:abspath -->
-                <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'bibl/', @xml:id)"/>
+                <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', @xml:id)"/>
             </xsl:attribute>
             https://cobdh.org/bibl/<xsl:value-of select=".//@xml:id"/>
         </xsl:element>
