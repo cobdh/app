@@ -12,10 +12,7 @@ ABOUT = 'About this Online Entry'
 def test_bibl_biblfull():
     resource = tests.resources.ids.BIBL_1_ID
     result = tests.int.curl(f'/bibl/{resource}')
-    assert tests.contains_hx('Bibliography Record', result), result
-    assert ABOUT in result
-    assert CITATION in result
-    assert FULL in result
+    assert_bibl_record(result)
     # a single hyperlink in the header of the bib item
     expected = 1
     counted = result.count('https://cobdh.org/bibl/BVCP1990')
@@ -34,9 +31,13 @@ def test_bibl_biblfull():
 def test_bibl_struct(pattern, expected):
     resource = tests.resources.ids.BIBL_2_ID
     result = tests.int.curl(f'/bibl/{resource}')
-    assert tests.contains_hx('Bibliography Record', result), result
-    assert ABOUT in result
-    assert CITATION in result
-    assert FULL in result
+    assert_bibl_record(result)
     counted = result.count(pattern)
     assert counted == expected
+
+
+def assert_bibl_record(content: str):
+    assert tests.contains_hx('Bibliography Record', content), content
+    assert ABOUT in content
+    assert CITATION in content
+    assert FULL in content
