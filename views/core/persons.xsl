@@ -69,4 +69,11 @@
             <!-- <xsl:sequence select="local:add-footnotes(@source,.)"/> -->
         </li>
     </xsl:template>
+    <xsl:template match="tei:author">
+        <li>
+            Author:
+            <xsl:text> </xsl:text>
+            <xsl:value-of select="."/>
+        </li>
+    </xsl:template>
 </xsl:stylesheet>
