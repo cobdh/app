@@ -6,7 +6,15 @@
     <xsl:template name="external_links">
         <xsl:if test="//tei:biblStruct/@corresp">
             <li>
-                Zotero: <xsl:value-of select="//tei:biblStruct/@corresp"/>
+                Zotero:
+                <xsl:text> </xsl:text>
+                <xsl:element name="a">
+                    <xsl:attribute name="href">
+                        <xsl:sequence select="//tei:biblStruct/@corresp"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="target">blank</xsl:attribute>
+                    <xsl:value-of select="//tei:biblStruct/@corresp"/>
+                </xsl:element>
             </li>
         </xsl:if>
     </xsl:template>
