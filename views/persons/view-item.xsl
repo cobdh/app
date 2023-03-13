@@ -7,6 +7,8 @@
     >
     <!-- Import general methods -->
     <xsl:import href="../core/core.xsl"/>
+    <xsl:import href="../core/href.xsl"/>
+    <xsl:import href="../core/mono.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:person">

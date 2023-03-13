@@ -18,4 +18,18 @@
             </li>
         </xsl:if>
     </xsl:template>
+    <!--Render resource resource_link-->
+    <xsl:template name="resource_link">
+        <xsl:param name="collection">bibl</xsl:param>
+        <xsl:param name="resource" select="@xml:id"/>
+        <xsl:element name="a">
+            <xsl:attribute name="href">
+                <!-- TODO: REPLACE WITH app:abspath -->
+                <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', $resource)"/>
+            </xsl:attribute>
+            https://cobdh.org/bibl/<xsl:value-of select="$resource"/>
+        </xsl:element>
+        <!-- <xsl:call-template name="copy"/> -->
+        <br/>
+    </xsl:template>
 </xsl:stylesheet>

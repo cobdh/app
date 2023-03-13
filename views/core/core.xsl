@@ -40,19 +40,6 @@
             </xsl:choose>
         </p>
     </xsl:template>
-    <!--Render resource resource_link-->
-    <xsl:template name="resource_link">
-        <xsl:param name="collection">bibl</xsl:param>
-        <xsl:element name="a">
-            <xsl:attribute name="href">
-                <!-- TODO: REPLACE WITH app:abspath -->
-                <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', @xml:id)"/>
-            </xsl:attribute>
-            https://cobdh.org/bibl/<xsl:value-of select="@xml:id"/>
-        </xsl:element>
-        <!-- <xsl:call-template name="copy"/> -->
-        <br/>
-    </xsl:template>
     <!--Render resource copy-->
     <xsl:template name="copy">
         <xsl:param name="text">copy</xsl:param>
