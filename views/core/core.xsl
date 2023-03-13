@@ -58,7 +58,7 @@
         <xsl:param name="text">copy</xsl:param>
         <button
             type="button"
-            class="btn btn-sm btn-default copy-sm clipboard"
+            class="btn btn-default btn-xs"
             title="Copies URI to clipboard"
             >
             <xsl:value-of select="$text"/>
