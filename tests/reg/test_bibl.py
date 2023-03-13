@@ -41,3 +41,9 @@ def assert_bibl_record(content: str):
     assert ABOUT in content
     assert CITATION in content
     assert FULL in content
+
+
+def test_bibl_list():
+    result = tests.int.curl('/bibl')
+    assert tests.contains_hx('Bibliography', result), result
+    assert 'More Noncanonical Scriptures. Volume 1' not in result
