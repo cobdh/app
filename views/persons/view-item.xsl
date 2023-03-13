@@ -31,9 +31,11 @@
         </div>
     </xsl:template>
     <xsl:template name="details">
-        <h4>Details</h4>
-        <ul class="list-none">
-            <xsl:apply-templates select="tei:sex | tei:death | tei:birth | tei:floruit"/>
-        </ul>
+        <xsl:if test="tei:sex or tei:death or tei:birth or tei:floruit">
+            <h4>Details</h4>
+            <ul class="list-none">
+                <xsl:apply-templates select="tei:sex | tei:death | tei:birth | tei:floruit"/>
+            </ul>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
