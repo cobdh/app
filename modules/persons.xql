@@ -6,6 +6,8 @@ import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
 import module namespace templates="http://exist-db.org/xquery/templates" at "config.xqm";
 
+import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -60,4 +62,14 @@ function persons:missing-item($node as node(), $model as map(*)) {
             </p>
         else
             ()
+};
+
+(: Display bibliography elements where editor contributed some changes. :)
+declare function persons:edited-request($node as node(), $model as map(*)){
+    (: `selected` is determined in app:determine_resource :)
+    let $editor := $model("selected")
+    let $data := bibl:list-items()//tei:TEI[contains(.//tei:author/@ref, $editor) or contains(.//tei:editor/@ref, $editor)]
+    let $xsl := config:resolve("views/bibl/list-items.xsl")
+    return
+        transform:transform($data, $xsl, ())
 };
