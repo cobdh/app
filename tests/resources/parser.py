@@ -12,11 +12,14 @@ def bibl_id(path):
     >>> bibl_id(tests.resources.BIBL_1_PATH)  # adjust test after changing data collection
     'BVCP1990'
     >>> bibl_id(tests.resources.BIBL_2_PATH)
-    'BVCP1995'
+    'Hovhanessian2013'
     """
     content = cobdh.file_read(path)
     data = cobdh.xml.parser.parse(content)
     parsed = data.find('.//tei:biblFull', namespaces=NS)
+    if not parsed:
+        # backup parser
+        parsed = data.find('.//tei:biblStruct', namespaces=NS)
     # TODO: FIX LATER
     value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
     return value
@@ -26,7 +29,7 @@ def persons_id(path):
     """\
     >>> import tests.resources
     >>> persons_id(tests.resources.PERSONS_1_PATH)  # adjust test after changing data collection
-    'Ovid44'
+    'HovhanessianVahan'
     """
     content = cobdh.file_read(path)
     data = cobdh.xml.parser.parse(content)
