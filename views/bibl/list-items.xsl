@@ -15,9 +15,9 @@
                             <!-- TODO: REPLACE WITH app:abspath -->
                             <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'bibl/', @xml:id)"/>
                         </xsl:attribute>
-                        <xsl:value-of select=".//tei:title"/>
-                        ;
                         <xsl:value-of select=".//tei:date"/>
+                        <xsl:text>: </xsl:text>
+                        <xsl:value-of select="descendant::tei:title[1]"/>
                     </xsl:element>
                 </li>
             </xsl:for-each>
