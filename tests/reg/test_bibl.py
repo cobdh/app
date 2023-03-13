@@ -47,3 +47,15 @@ def test_bibl_list():
     result = tests.int.curl('/bibl')
     assert tests.contains_hx('Bibliography', result), result
     assert 'More Noncanonical Scriptures. Volume 1' not in result
+
+
+def test_bibl_title_order():
+    result = tests.int.curl('/bibl/Thomson1995')
+    assert_bibl_record(result)
+    expected = 2
+    monogr = result.count('A Bibliography of Classical Armenian Literature')
+    assert monogr == expected
+    # # TODO: ADD SERIES INFORMATION
+    # series = result.find('Corpus Christianorum')
+    # # display monograph headline before series headline
+    # assert monogr < series
