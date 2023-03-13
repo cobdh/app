@@ -50,7 +50,7 @@
             </xsl:attribute>
             https://cobdh.org/bibl/<xsl:value-of select=".//@xml:id"/>
         </xsl:element>
-        <xsl:call-template name="copy"/>
+        <!-- <xsl:call-template name="copy"/> -->
         <br/>
     </xsl:template>
     <!--Render resource copy-->
@@ -73,7 +73,7 @@
             </xsl:attribute>
             <xsl:value-of select=".//@xml:id"/>
         </xsl:element>
-        <xsl:call-template name="copy"/>
+        <!-- <xsl:call-template name="copy"/> -->
         <br/>
     </xsl:template>
     <!--Render formats-->
