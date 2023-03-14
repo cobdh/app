@@ -32,7 +32,13 @@ else if ($exist:path eq "/bibl"
         <forward url="views/{$exist:path}/index.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
-else if (matches($exist:path, '/(bibl|editors|authors|persons)/[a-zA-Z_0-9]+')) then
+else if (matches($exist:path, '/(bibl|editors|authors|persons)/[a-zA-Z_0-9%]+')) then
+    (: Require % to match encoded names like Řoutil2017 -> %C5%98outil2017
+       % is required to match at the beginning like above.
+
+       Hint: MaclerFr%C3%A9d%C3%A9ric works without %
+    :)
+    (: TODO: IMPROVE REGEX :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         (: THERE MUST BE A BETTER WAY :)
         <forward url="{$exist:controller}/views/{tokenize($exist:path, '/')[2]}/record.html"/>
