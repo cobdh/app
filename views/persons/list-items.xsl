@@ -12,17 +12,20 @@
     <xsl:template match="/">
         <ul>
             <xsl:for-each select="//(tei:person)">
-                <li>
-                    <!-- Example: cobdh.org/persons/Ovid121-->
-                    <xsl:element name="a">
-                        <xsl:attribute name="href">
-                            <!-- TODO: REPLACE WITH app:abspath -->
-                            <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
-                        </xsl:attribute>
-                        <xsl:call-template name="person_names"/>
-                    </xsl:element>
-                </li>
+                <xsl:call-template name="person_href"/>
             </xsl:for-each>
         </ul>
+    </xsl:template>
+    <xsl:template name="person_href">
+        <li>
+            <!-- Example: cobdh.org/persons/Ovid121-->
+            <xsl:element name="a">
+                <xsl:attribute name="href">
+                    <!-- TODO: REPLACE WITH app:abspath -->
+                    <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
+                </xsl:attribute>
+                <xsl:call-template name="person_names"/>
+            </xsl:element>
+        </li>
     </xsl:template>
 </xsl:stylesheet>
