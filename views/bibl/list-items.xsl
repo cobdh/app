@@ -5,7 +5,13 @@
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
+    <!--TODO: THERE MUST BE A BETTER WAY TO AVOID THIS GLOBAL PARAMETER-->
+    <xsl:param name="headline" select="''"/>
     <xsl:template match="/">
+        <!--Pass headline to draw optional headline  -->
+        <xsl:if test="$headline and //(tei:biblFull|tei:biblStruct)">
+            <h3><xsl:value-of select="$headline"/></h3>
+        </xsl:if>
         <ul>
             <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
                 <li>

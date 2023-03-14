@@ -70,6 +70,9 @@ declare function persons:edited-request($node as node(), $model as map(*)){
     let $editor := $model("selected")
     let $data := bibl:list-items()//tei:TEI[contains(.//tei:author/@ref, $editor) or contains(.//tei:editor/@ref, $editor)]
     let $xsl := config:resolve("views/bibl/list-items.xsl")
+    let $parameters := <parameters>
+        <param name="headline" value="Work"/>
+    </parameters>
     return
-        transform:transform($data, $xsl, ())
+        transform:transform($data, $xsl, $parameters)
 };
