@@ -29,7 +29,10 @@ declare function app:href($node as node(), $model as map(*), $text as xs:string,
     <a href="/exist/apps/cobdh-data{$path}">{$text}</a>
 };
 
-declare function app:abspath($path as xs:string){
+declare
+    %test:arg("path", "bibl/1234")
+    %test:assertEquals('/exist/apps/cobdh-data/bibl/1234')
+function app:abspath($path as xs:string){
     let $result := concat("/exist/apps/cobdh-data/", $path)
     return
         $result
