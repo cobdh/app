@@ -23,9 +23,14 @@ declare function tester:link-to-home($node as node(), $model as map(*)){
 };
 
 declare function tester:run-tests($node as node(), $model as map(*)){
-    let $results := test:suite(inspect:module-functions(xs:anyURI("../tests/data-tests.xql")))
-    return
-        test:to-html($results)
+    for $path in (
+        "app.xql",
+        "../tests/data-tests.xql"
+    )
+        let $todo := inspect:module-functions(xs:anyURI($path))
+        let $results := test:suite($todo)
+        return
+            test:to-html($results)
 };
 
 declare function tester:display-source($node as node(), $model as map(*), $lang as xs:string?, $type as xs:string?){

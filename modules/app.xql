@@ -6,6 +6,8 @@ import module namespace templates="http://exist-db.org/xquery/templates";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
+declare namespace test="http://exist-db.org/xquery/xqsuite";
+
 declare namespace request="http://exist-db.org/xquery/request";
 
 (:~
@@ -47,4 +49,32 @@ declare function app:determine_resource($node as node(), $model as map(*)){
             "content" : $content,
             "type" : $type
         }
+};
+
+declare
+    (:Access TEI-Resource in bibl-Collection:)
+    %test:arg("url", "exist/apps/cobdh-data/bibl/Hovhanessian2013.tei")
+    %test:assertEquals('bibl', 'Hovhanessian2013', 'tei')
+
+    (:No special resource format is defined:)
+    %test:arg("url", "exist/apps/cobdh-data/persons/Helmutus")
+    %test:assertEquals('persons', 'Helmutus')
+
+    (:Allow simple index access:)
+    %test:arg("url", "https://data.cobdh.org/persons/123")
+    %test:assertEquals('persons', '123')
+
+    (:Non-Data-Collection-page:)
+    %test:arg("url", "exist/apps/cobdh-data/about")
+    %test:assertEmpty
+function app:parse_resource_url($url) {
+    let $parsed := analyze-string(
+        $url,
+        "/(bibl|persons|editors)/([\w\d_]+)(.(tei))?$"
+    )
+    let $collection := $parsed//fn:group[@nr=1]//text()
+    let $resource := $parsed//fn:group[@nr=2]//text()
+    let $type := $parsed//fn:group[@nr=4]//text()
+    return
+        ($collection, $resource, $type)
 };
