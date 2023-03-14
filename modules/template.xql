@@ -15,7 +15,7 @@ import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
-import module namespace app="https://data.cobdh.org/templates" at "app.xql";
+import module namespace app="https://data.cobdh.org/app" at "app.xql";
 
 import module namespace editor="https://data.cobdh.org/editors" at "editor.xql";
 

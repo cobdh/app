@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-module namespace app="https://data.cobdh.org/templates";
+module namespace app="https://data.cobdh.org/app";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 
