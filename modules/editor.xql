@@ -11,6 +11,8 @@ import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
+declare namespace templates="http://exist-db.org/xquery/templates";
+
 declare function editor:index($node as node(), $model as map(*)){
     let $input := editors:list-items()
     let $xsl := config:resolve("views/editors/list-items.xsl")
@@ -31,6 +33,21 @@ declare function editor:view-item-request($node as node(), $model as map(*)){
     let $index := $model("selected")
     return
         editor:view-item($node, $model, $index)
+};
+
+declare
+    %templates:wrap
+function editor:missing-item($node as node(), $model as map(*)) {
+    let $index := $model("selected")
+    let $data := editors:list-items()/tei:TEI/tei:person[@xml:id eq $index]
+    return
+        if (empty($data)) then
+            <p class="alert alert-danger">
+                Could not locate Editor
+                <b>{$index}</b>
+            </p>
+        else
+            ()
 };
 
 (: Display bibliography elements where editor contributed some changes. :)
