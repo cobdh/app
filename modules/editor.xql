@@ -39,6 +39,9 @@ declare function editor:edited-request($node as node(), $model as map(*)){
     let $editor := $model("selected")
     let $data := bibl:list-items()//tei:TEI[contains(tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref, $editor)]/tei:body
     let $xsl := config:resolve("views/bibl/list-items.xsl")
+    let $parameters := <parameters>
+        <param name="headline" value="Edited"/>
+    </parameters>
     return
-        transform:transform($data, $xsl, ())
+        transform:transform($data, $xsl, $parameters)
 };
