@@ -11,7 +11,7 @@ def bibl_id(path):
     >>> import tests.resources
     >>> bibl_id(tests.resources.BIBL_1_PATH)  # adjust test after changing data collection
     'BVCP1990'
-    >>> bibl_id(tests.resources.BIBL_2_PATH)
+    >>> bibl_id(tests.resources.BIBL_10_PATH)
     'Hovhanessian2013'
     """
     content = cobdh.file_read(path)
@@ -28,7 +28,7 @@ def bibl_id(path):
 def persons_id(path):
     """\
     >>> import tests.resources
-    >>> persons_id(tests.resources.PERSONS_1_PATH)  # adjust test after changing data collection
+    >>> persons_id(tests.resources.PERSONS_2_PATH)  # adjust test after changing data collection
     'HovhanessianVahan'
     """
     content = cobdh.file_read(path)

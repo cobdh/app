@@ -7,7 +7,7 @@ from tests.int.test_bibl import FULL
 
 
 def test_persons_1():
-    resource = tests.resources.ids.PERSONS_1_ID
+    resource = tests.resources.ids.PERSONS_2_ID
     result = tests.int.curl(f'/persons/{resource}')
     assert tests.contains_hx('Persons Record', result), result
     assert ABOUT in result

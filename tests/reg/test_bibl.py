@@ -29,7 +29,7 @@ def test_bibl_biblfull():
     ('Zotero:', 1),
 ])
 def test_bibl_struct(pattern, expected):
-    resource = tests.resources.ids.BIBL_2_ID
+    resource = tests.resources.ids.BIBL_10_ID
     result = tests.int.curl(f'/bibl/{resource}')
     assert_bibl_record(result)
     counted = result.count(pattern)
