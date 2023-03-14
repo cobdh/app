@@ -25,6 +25,10 @@
                     <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
                 </xsl:attribute>
                 <xsl:call-template name="person_names"/>
+                <xsl:if test="./role">
+                    <xsl:text> </xsl:text>
+                    <small>(<xsl:sequence select="./role/text()"/>)</small>
+                </xsl:if>
             </xsl:element>
         </li>
     </xsl:template>
