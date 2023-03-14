@@ -38,7 +38,13 @@ declare function app:abspath($path as xs:string){
 :)
 declare function app:determine_resource($node as node(), $model as map(*)){
     let $resource := tokenize(request:get-uri(), '/')[position() = last()]
+    let $type := 'html'
+    let $content := ()
     return
         (: Store in `model` to use in further template procesing. :)
-        map {"selected" : $resource }
+        map{
+            "selected" : $resource,
+            "content" : $content,
+            "type" : $type
+        }
 };
