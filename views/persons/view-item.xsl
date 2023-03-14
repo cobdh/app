@@ -27,7 +27,8 @@
                 </xsl:call-template>
             </ul>
             <xsl:call-template name="details"/>
-            <h3>Full Citation Information</h3>
+            <!-- May enable later -->
+            <!-- <h3>Full Citation Information</h3> -->
             <xsl:call-template name="credit"/>
             <xsl:call-template name="licence"/>
         </div>
