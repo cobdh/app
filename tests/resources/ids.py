@@ -7,3 +7,4 @@ BIBL_INVALID_ID = '0'
 
 PERSONS_1_ID = tests.resources.parser.persons_id(tests.resources.PERSONS_1_PATH)
 PERSONS_2_ID = tests.resources.parser.persons_id(tests.resources.PERSONS_2_PATH)
+PERSONS_4_ID = tests.resources.parser.persons_id(tests.resources.PERSONS_4_PATH)
