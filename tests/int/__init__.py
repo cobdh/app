@@ -1,6 +1,8 @@
 import os
 import urllib.request
 
+import werkzeug.urls
+
 # front end
 SERVER = os.environ['SERVER_TEST'].rstrip('/')
 # REST API
@@ -13,6 +15,7 @@ def curl(path: str):
     '...<h1 data-template="config:app-title">cobdh.org data</h1>...'
     """
     url = SERVER + path
+    url = werkzeug.urls.url_fix(url)
     with urllib.request.urlopen(url) as response:  # nosec
         html = response.read()
     html: str = html.decode('utf8')

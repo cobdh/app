@@ -1,5 +1,6 @@
 import tests.int
 import tests.resources.ids
+from tests.int.test_persons import NOT_FOUND
 
 
 def test_persons_list_role():
@@ -26,3 +27,11 @@ def test_persons_noworks_listed():
     result = tests.int.curl(f'/persons/{ovid}')
     # no works inserted
     assert '>Work<' not in result
+
+
+def test_persons_unicode_xml_id():
+    unicode = tests.resources.ids.PERSONS_4_ID
+    result = tests.int.curl(f'/persons/{unicode}')
+    # no works inserted
+    assert '/persons/MaclerFrédéric' in result
+    assert NOT_FOUND not in result
