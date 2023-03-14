@@ -42,8 +42,9 @@ function app:abspath($path as xs:string){
  : For example: https://data.cobdh.org/bibl/123 the resource is 123.
 :)
 declare function app:determine_resource($node as node(), $model as map(*)){
-    let $resource := tokenize(request:get-uri(), '/')[position() = last()]
-    let $type := 'html'
+    let $parsed := app:parse_resource_url(request:get-uri())
+    let $resource := $parsed[2]
+    let $type := if (empty($parsed[3])) then 'html' else $parsed[3]
     let $content := ()
     return
         (: Store in `model` to use in further template procesing. :)
