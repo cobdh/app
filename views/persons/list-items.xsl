@@ -7,6 +7,7 @@
     >
     <!-- Import general methods -->
     <xsl:import href="../core/core.xsl"/>
+    <xsl:import href="../core/href.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
     <!--Render list of persons -->
     <xsl:template match="/">

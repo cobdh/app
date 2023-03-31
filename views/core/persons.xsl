@@ -74,14 +74,10 @@
         <li>
             Author:
             <xsl:text> </xsl:text>
-            <!-- Hide href if no xml:id/address is given -->
-            <xsl:element name="{if (empty(@xml:id)) then 'span' else 'a'}">
-                <xsl:attribute name="href">
-                    <!-- TODO: REPLACE WITH app:abspath -->
-                    <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
-                </xsl:attribute>
-                <xsl:value-of select="."/>
-            </xsl:element>
+            <xsl:call-template name="resource_link">
+                <xsl:with-param name="collection">persons</xsl:with-param>
+                <xsl:with-param name="resource" select="@xml:id"/>
+            </xsl:call-template>
         </li>
     </xsl:template>
     <xsl:template match="tei:editor[not(ancestor::tei:teiHeader)]">
@@ -89,14 +85,10 @@
         <li>
             Editor:
             <xsl:text> </xsl:text>
-            <!-- Hide href if no xml:id/address is given -->
-            <xsl:element name="{if (empty(@xml:id)) then 'span' else 'a'}">
-                <xsl:attribute name="href">
-                    <!-- TODO: REPLACE WITH app:abspath -->
-                    <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
-                </xsl:attribute>
-                <xsl:value-of select="."/>
-            </xsl:element>
+            <xsl:call-template name="resource_link">
+                <xsl:with-param name="collection">persons</xsl:with-param>
+                <xsl:with-param name="resource" select="@xml:id"/>
+            </xsl:call-template>
         </li>
     </xsl:template>
 </xsl:stylesheet>
