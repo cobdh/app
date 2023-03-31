@@ -59,3 +59,11 @@ def test_bibl_title_order():
     # series = result.find('Corpus Christianorum')
     # # display monograph headline before series headline
     # assert monogr < series
+
+
+def test_bibl_editor_link():
+    """Ensure that clickable link of editors is displayed."""
+    result = tests.int.curl('/bibl/Hovhanessian2013')
+    assert '/persons/BauckhamRichard">' in result
+    assert '/persons/DavilaJamesR">' in result
+    assert '/persons/PanayotovAlexander">' in result
