@@ -67,3 +67,11 @@ def test_bibl_editor_link():
     assert '/persons/BauckhamRichard">' in result
     assert '/persons/DavilaJamesR">' in result
     assert '/persons/PanayotovAlexander">' in result
+
+
+def test_bibl_editor_names():
+    """Ensure that clickable link of editors is displayed."""
+    result = tests.int.curl('/bibl/Hovhanessian2013')
+    assert 'Richard Bauckham' in result
+    assert 'James R. Davila' in result
+    assert 'Alexander Panayotov' in result

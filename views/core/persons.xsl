@@ -77,6 +77,7 @@
             <xsl:call-template name="resource_link">
                 <xsl:with-param name="collection">persons</xsl:with-param>
                 <xsl:with-param name="resource" select="@xml:id"/>
+                <xsl:with-param name="text" select="."/>
             </xsl:call-template>
         </li>
     </xsl:template>
@@ -88,6 +89,7 @@
             <xsl:call-template name="resource_link">
                 <xsl:with-param name="collection">persons</xsl:with-param>
                 <xsl:with-param name="resource" select="@xml:id"/>
+                <xsl:with-param name="text" select="."/>
             </xsl:call-template>
         </li>
     </xsl:template>
