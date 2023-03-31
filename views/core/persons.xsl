@@ -74,7 +74,8 @@
         <li>
             Author:
             <xsl:text> </xsl:text>
-            <xsl:element name="a">
+            <!-- Hide href if no xml:id/address is given -->
+            <xsl:element name="{if (empty(@xml:id)) then 'span' else 'a'}">
                 <xsl:attribute name="href">
                     <!-- TODO: REPLACE WITH app:abspath -->
                     <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
@@ -88,7 +89,8 @@
         <li>
             Editor:
             <xsl:text> </xsl:text>
-            <xsl:element name="a">
+            <!-- Hide href if no xml:id/address is given -->
+            <xsl:element name="{if (empty(@xml:id)) then 'span' else 'a'}">
                 <xsl:attribute name="href">
                     <!-- TODO: REPLACE WITH app:abspath -->
                     <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>

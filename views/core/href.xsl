@@ -22,7 +22,8 @@
     <xsl:template name="resource_link">
         <xsl:param name="collection">bibl</xsl:param>
         <xsl:param name="resource" select="@xml:id"/>
-        <xsl:element name="a">
+        <!-- Hide href if no xml:id/address is given -->
+        <xsl:element name="{if (empty($resource)) then 'span' else 'a'}">
             <xsl:attribute name="href">
                 <!-- TODO: REPLACE WITH app:abspath -->
                 <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', $resource)"/>
