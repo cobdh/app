@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
+                    xml:id="schewe_helmut_konrad"
+                    ref="https://cobdh.org/editors/schewe_helmut_konrad"
+                    role="creator"
+                />
+            </titleStmt>
+        </fileDesc>
+    </teiHeader>
+    <body>
+        <biblStruct xml:id="Barsoum1991">
+            <monogr>
+                <author ref="http://syriaca.org/person/372">
+                    <persName xml:lang="en">
+                        <forename>Ignatius</forename>
+                        <forename>Afram</forename>
+                        <surname>Barsoum</surname>
+                    </persName>
+                    <persName xml:lang="syr">
+                        <forename>ܐܝܓܢܐܛܝܘܣ</forename>
+                        <forename>ܐܦܪܝܡ</forename>
+                        <addName>ܩܕܡܝܐ</addName>
+                        <surname>ܕܒܝܬ ܒܪܨܘܡ</surname>
+                    </persName>
+                </author>
+                <editor
+                    ref="http://syriaca.org/person/454"
+                    role="translator"
+                >
+                    <persName xml:lang="en">
+                        <forename>Philoxenos</forename>
+                        <forename>Yuḥanon</forename>
+                        <surname>Dolabani</surname>
+                    </persName>
+                    <persName xml:lang="syr">
+                        <forename>ܦܝܠܠܘܟܣܝܢܘܣ</forename>
+                        <forename>ܝܘܚܢܢ</forename>
+                        <surname>ܕܘܠܒܐܢܝ</surname>
+                    </persName>
+                </editor>
+                <title
+                    xml:lang="syr"
+                    level="m"
+                >
+                    ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ
+                </title>
+                <title
+                    xml:lang="en"
+                    level="m"
+                    type="parallel"
+                >
+                    Berule bdire d-ʿal yulpone suryoye hdire
+                </title>
+                <edition xml:lang="syr">ܚܬܳܡܳܐ ܬܪܰܝܳܢܳܐ</edition>
+                <edition xml:lang="en">2nd ed.</edition>
+                <imprint>
+                    <publisher xml:lang="syr">ܡܛܒܥܬܐ ܣܘܪܝܝܬܐ ܕܒܪ ܥܒܪܝܐ</publisher>
+                    <publisher xml:lang="en">Bar Hebraeus Verlag</publisher>
+                    <pubPlace ref="http://syriaca.org/place/842">Holland</pubPlace>
+                    <date>1991</date>
+                </imprint>
+            </monogr>
+            <idno type="URI">http://syriaca.org/bibl/3</idno>
+        </biblStruct>
+    </body>
+</TEI>
