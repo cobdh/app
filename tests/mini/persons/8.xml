@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
+                    xml:id="schewe_helmut_konrad"
+                    ref="https://cobdh.org/editors/schewe_helmut_konrad"
+                    role="creator"
+                />
+            </titleStmt>
+        </fileDesc>
+    </teiHeader>
+    <body>
+        <person xml:id="BarsoumIgnatiusAfram">
+            <persName>
+                <surname>Barsoum</surname>
+                <forename>Ignatius</forename>
+                <forename>Afram</forename>
+            </persName>
+            <persName xml:lang="syr">
+                <surname>ܕܒܝܬ</surname>
+                <surname>ܒܪܨܘܡ</surname>
+                <forename>ܐܝܓܢܐܛܝܘܣ</forename>
+                <forename>ܐܦܪܝܡ</forename>
+            </persName>
+        </person>
+    </body>
+</TEI>
