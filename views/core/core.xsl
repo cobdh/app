@@ -85,9 +85,9 @@
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
                 <xsl:attribute name="type">button</xsl:attribute>
+                <xsl:attribute name="target">_blank</xsl:attribute>
                 <xsl:attribute name="href">
-                    <xsl:value-of select="$resource"/>
-                    <xsl:text>.tei</xsl:text>
+                    <xsl:text>?format=tei</xsl:text>
                 </xsl:attribute>
                 <span
                     aria-hidden="true"
