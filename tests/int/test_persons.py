@@ -14,6 +14,14 @@ def test_persons_1():
     # assert FULL in result
 
 
+def test_export_tei_persons():
+    resource = tests.resources.ids.PERSONS_2_ID
+    result = tests.int.curl(f'/persons/{resource}?format=tei')
+    assert '<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">' in result
+    assert '<persName xml:lang="la">Publius Ovidius Naso</persName>' in result
+    assert '</body></TEI>' in result
+
+
 NOT_FOUND = 'Could not locate Person'
 
 
