@@ -39,11 +39,19 @@ else if (matches($exist:path, '/(bibl|editors|authors|persons)/[a-zA-Z_0-9%]+'))
        Hint: MaclerFr%C3%A9d%C3%A9ric works without %
     :)
     (: TODO: IMPROVE REGEX :)
-    <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        (: THERE MUST BE A BETTER WAY :)
-        <forward url="{$exist:controller}/views/{tokenize($exist:path, '/')[2]}/record.html"/>
-        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
-    </dispatch>
+    if(equals(lower-case(request:get-parameter('format', '')) ,'tei')) then
+        <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+            <forward url="{$exist:controller}/modules/export.xql">
+                <add-parameter name="format" value="tei"/>
+                <add-parameter name="collection" value="{tokenize($exist:path, '/')[2]}"/>
+            </forward>
+        </dispatch>
+    else
+        <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
+            (: THERE MUST BE A BETTER WAY :)
+            <forward url="{$exist:controller}/views/{tokenize($exist:path, '/')[2]}/record.html"/>
+            <view><forward url="{$exist:controller}/modules/template.xql"/></view>
+        </dispatch>
 else if (ends-with($exist:resource, ".html")) then
     (: the html page is run through template.xql to expand templates :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
