@@ -10,14 +10,18 @@ SERVER = os.environ['SERVER_TEST'].rstrip('/')
 REST = os.environ['SERVER_REST'].rstrip('/')
 
 
-def curl(path: str, optimize: bool = True):
+def curl(
+    path: str,
+    optimize: bool = True,
+    timeout=5.0,
+):
     """\
     >>> curl('/')
     '...<h1 data-template="config:app-title">cobdh.org data</h1>...'
     """
     url = SERVER + path
     url = werkzeug.urls.url_fix(url)
-    with urllib.request.urlopen(url) as response:  # nosec
+    with urllib.request.urlopen(url, timeout=timeout) as response:  # nosec
         html = response.read()
     html: str = html.decode('utf8')
     if optimize:
