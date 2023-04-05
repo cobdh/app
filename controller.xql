@@ -17,8 +17,9 @@ else if ($exist:path eq "/" or $exist:path eq "index.html") then
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
 else if ($exist:path eq "/impressum"
-    or $exist:path eq "/validation"
     or $exist:path eq "/contribution"
+    or $exist:path eq "/search"
+    or $exist:path eq "/validation"
     ) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="views/{$exist:path}.html"/>

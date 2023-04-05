@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<div
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:i18n="http://exist-db.org/xquery/i18n"
+    xmlns:search="https://data.cobdh.org/search"
+    data-template="templates:surround"
+    data-template-at="content"
+    data-template-with="templates/page.html"
+>
+    <div data-template="i18n:translate">
+        <h1>
+            <i18n:text key="search_headline">Search</i18n:text>
+        </h1>
+        <!--<form data-template="search:search-form" data-template-collection="OPTIONAL: COLLECTION NAME"/>-->
+        <!-- <div
+            data-template="search:search-data"
+            data-template-collection="bibl"
+            id="search-results-panel"
+        >
+            <div class="container padding-top">
+                <br/>
+                <div
+                    data-template="app:pageination"
+                    data-template-collection="bibl"
+                    data-template-search-string="yes"
+                    data-template-sort-options="title,author,pubDate,pubPlace"
+                />
+                <div
+                    data-template="search:show-hits"
+                    data-template-collection="bibl"
+                />
+                <div class="page-bottom">
+                    <div
+                        data-template="app:pageination"
+                        data-template-collection="bibl"
+                    />
+                </div>
+                <br/>
+            </div>
+        </div> -->
+        <div class="search:search">
+            <div class="search:formular"/>
+            <div class="search:view_bibls"/>
+            <div class="search:view_persons"/>
+            <div class="search:no_result"/>
+        </div>
+    </div>
+</div>

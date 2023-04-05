@@ -12,4 +12,12 @@
     <msg key="persons_persons">Personen</msg>
     <msg key="persons_record">Person-Eintrag</msg>
     <msg key="persons_record_missing">Person nicht vorhanden:</msg>
+    <!-- Search a better word -->
+    <msg key="search_clear">!Clear!</msg>
+    <msg key="search_doit">Suchen</msg>
+    <msg key="search_headline">Suche</msg>
+    <msg key="search_keyword">Schlagwort</msg>
+    <msg key="search_person">Person</msg>
+    <msg key="search_title">Titel</msg>
+    <msg key="search_bibliography">Bibliographie</msg>
 </catalogue>

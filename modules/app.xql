@@ -87,3 +87,7 @@ function app:parse_resource_url($url) {
     return
         ($collection, $resource, $type)
 };
+
+declare function app:get_parameter($node as node(), $model as map(*), $parameter as xs:string){
+    request:get-parameter($parameter, '')
+};
