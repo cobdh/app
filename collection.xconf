@@ -18,9 +18,6 @@
         <create qname="@xml:lang" type="xs:string"/>
         <create qname="@type" type="xs:string"/>
         <create qname="@ana" type="xs:string"/>
-        <create qname="@syriaca-tags" type="xs:string"/>
-        <create qname="@syriaca-computed-start" type="xs:date"/>
-        <create qname="@syriaca-computed-end" type="xs:date"/>
         <create qname="@when" type="xs:string"/>
         <create qname="@target" type="xs:string"/>
         <create qname="@who" type="xs:string"/>
@@ -30,8 +27,5 @@
         <create qname="@active" type="xs:string"/>
         <create qname="@passive" type="xs:string"/>
         <create qname="@name" type="xs:string"/>
-        <create qname="tei:geo" type="xs:string"/>
-        <create qname="tei:relation" type="xs:string"/>
-        <create qname="tei:idno" type="xs:string"/>
     </index>
 </collection>
