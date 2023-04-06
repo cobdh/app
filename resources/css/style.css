@@ -4,6 +4,9 @@
 #header a#logo{
     background: none;
 }
+.navbar-default{
+    background: none;
+}
 ul.list-none{
     list-style: none;
 }
