@@ -4,7 +4,7 @@ module namespace bibl="https://data.cobdh.org/bibl";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
-import module namespace templates="http://exist-db.org/xquery/templates" at "config.xqm";
+import module namespace templates="http://exist-db.org/xquery/templates" at "template.xql";
 
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
