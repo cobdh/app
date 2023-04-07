@@ -10,6 +10,8 @@ import module namespace persons="https://data.cobdh.org/persons" at "persons.xqm
 
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
+import module namespace app="https://data.cobdh.org/app" at "app.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 declare namespace templates="http://exist-db.org/xquery/templates";
@@ -60,11 +62,22 @@ declare
     %templates:wrap
 function search:view_bibls($node as node(), $model as map(*)) {
     let $bibls := if ($model("searched") eq "bibl") then $model("hits") else ()
+    (: Select current search result for pagination :)
+    let $perpage := $app:perpage
+    let $pagination := app:pageination(
+            $node,
+            $model,
+            $bibls,
+            $perpage
+        )
+    let $start := $app:start
+    let $bibls := subsequence($bibls, $start, $perpage)
     let $headline := if ($bibls) then <h2>Bibliography</h2> else ()
     let $bibls := if ($bibls) then <tei:listBibl>{$bibls}</tei:listBibl> else ()
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     return
         $headline|
+        $pagination|
         transform:transform($bibls, $xsl, ())
 };
 
@@ -104,7 +117,7 @@ function search:formular($node as node(), $model as map(*)) {
         <div class="tab-pane {$bibl_active}" id="bibliography">
             <form
                 class="form-horizontal indent"
-                method="post"
+                method="get"
                 role="form"
             >
             <div class="tab-content col-md-8">
@@ -194,7 +207,7 @@ function search:formular($node as node(), $model as map(*)) {
         <div class="tab-pane {$person_active}" id="persons">
             <form
                 class="form-horizontal indent"
-                method="post"
+                method="get"
                 role="form"
             >
             <div class="tab-content col-md-8">
