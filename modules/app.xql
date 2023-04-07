@@ -10,6 +10,10 @@ declare namespace test="http://exist-db.org/xquery/xqsuite";
 
 declare namespace request="http://exist-db.org/xquery/request";
 
+(: Global Variables:)
+declare variable $app:start {request:get-parameter('start', 1) cast as xs:integer};
+declare variable $app:perpage {request:get-parameter('perpage', 25) cast as xs:integer};
+
 (:~
  : This is a sample templating function. It will be called by the templating module if
  : it encounters an HTML element with an attribute: data-template="app:test" or class="app:test" (deprecated).
