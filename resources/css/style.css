@@ -13,6 +13,14 @@
 ul.list-none{
     list-style: none;
 }
+.tab-pane{
+    display:none;
+    padding:25px;
+    width:100%;
+}
+.active{
+    display:inline-block;
+}
 #footer{
     position:fixed;
     left:0px;
