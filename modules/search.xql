@@ -28,12 +28,17 @@ declare function search:search($node as node(), $model as map(*)){
     return
         if ($searched eq "bibl") then
             map{
-                "hits": collection($config:data-bibl)[fn:contains(.//tei:title, $bibl_title)][fn:contains(., $bibl_keyword)],
+                "hits": collection($config:data-bibl)
+                    [fn:contains(.//tei:title, search:build-ft-query($bibl_title))]
+                    [fn:contains(.//tei:persName, search:build-ft-query($bibl_person))]
+                    [fn:contains(., search:build-ft-query($bibl_keyword))],
                 "searched": "bibl"
             }
         else if ($searched eq "person") then
             map{
-                "hits": collection($config:data-persons)[fn:contains(.//tei:persName, $person_person)][fn:contains(., $person_keyword)],
+                "hits": collection($config:data-persons)
+                    [fn:contains(.//tei:persName, search:build-ft-query($person_person))]
+                    [fn:contains(., search:build-ft-query($person_keyword))],
                 "searched": "person"
             }
         else
@@ -279,21 +284,23 @@ function search:formular($node as node(), $model as map(*)) {
 </div>
 };
 
-declare function search:build-ft-query(){
-    <query>
-        {
-            if ($search:mode eq 'any') then
-                for $term in tokenize($search:q, '\s')
-                return
-                    <term occur="should">{$term}</term>
-            else if ($search:mode eq 'all') then
-                for $term in tokenize($search:q, '\s')
-                return
-                    <term occur="must">{$term}</term>
-            else if ($search:mode eq 'phrase') then
-                <phrase>{$search:q}</phrase>
-            else
-                <near>{$search:q}</near>
-        }
+declare function search:build-ft-query($token){
+    let $mode:='any'
+    return
+        <query>
+            {
+                if ($mode eq 'any') then
+                    for $term in tokenize($token, '\s')
+                    return
+                        <term occur="should">{$term}</term>
+                else if ($mode eq 'all') then
+                    for $term in tokenize($token, '\s')
+                    return
+                        <term occur="must">{$term}</term>
+                else if ($mode eq 'phrase') then
+                    <phrase>{$token}</phrase>
+                else
+                    <near>{$token}</near>
+            }
         </query>
 };
