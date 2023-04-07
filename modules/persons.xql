@@ -8,17 +8,25 @@ import module namespace templates="http://exist-db.org/xquery/templates" at "con
 
 import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
 
+import module namespace app="https://data.cobdh.org/app" at "app.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 (: Global Variables:)
 declare variable $persons:data := $config:app-root || "/data/persons";
 
+(: Display list of persons. Use pagination to display huge amount of data. :)
 declare function persons:index($node as node(), $model as map(*)){
-    let $input := persons:list-items()
+    let $start := $app:start
+    let $perpage := $app:perpage
+    let $persons := persons:list-items()
+    (: Select current data for pagination :)
+    let $persons := subsequence($persons, $start, $perpage)
+    let $persons := <tei:listPerson>{$persons}</tei:listPerson>
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
-        transform:transform($input, $xsl, ())
+        transform:transform($persons, $xsl, ())
 };
 
 declare function persons:view-item($node as node(), $model as map(*), $index as xs:string){
@@ -40,13 +48,9 @@ declare function persons:view-item-request($node as node(), $model as map(*)){
 };
 
 declare function persons:list-items(){
-    <tei:listPerson>
-    {
-        for $item in collection($persons:data)/tei:TEI
-        return
-            $item
-    }
-    </tei:listPerson>
+    for $item in collection($persons:data)/tei:TEI
+    return
+        $item
 };
 
 declare
@@ -62,6 +66,21 @@ function persons:missing-item($node as node(), $model as map(*)) {
             </p>
         else
             ()
+};
+
+(: Provide persons pagination :)
+declare
+    %templates:wrap
+function persons:paging($node as node(), $model as map(*)) {
+    let $hits := persons:list-items()
+    let $perpage := $app:perpage
+    return
+        app:pageination(
+            $node,
+            $model,
+            $hits,
+            $perpage
+        )
 };
 
 (: Display bibliography elements where editor contributed some changes. :)

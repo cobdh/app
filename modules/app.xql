@@ -6,6 +6,8 @@ import module namespace templates="http://exist-db.org/xquery/templates";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
+import module namespace page="https://data.cobdh.org/page" at "lib/paging.xqm";
+
 declare namespace test="http://exist-db.org/xquery/xqsuite";
 
 declare namespace request="http://exist-db.org/xquery/request";
@@ -94,4 +96,21 @@ function app:parse_resource_url($url) {
 
 declare function app:get_parameter($node as node(), $model as map(*), $parameter as xs:string){
     request:get-parameter($parameter, '')
+};
+
+(:~
+ : Display paging functions in html templates.
+:)
+declare %templates:wrap function app:pageination(
+    $node as node()*,
+    $model as map(*),
+    $hits,
+    $collection as xs:string?
+){
+    page:pages(
+        $hits,
+        $collection,
+        $app:start,
+        $app:perpage
+    )
 };
