@@ -60,11 +60,9 @@ function search:view_persons($node as node(), $model as map(*)) {
         )
     let $start := $app:start
     let $persons := subsequence($persons, $start, $perpage)
-    let $headline := if ($persons) then <h2>Persons</h2> else ()
     let $persons := if ($persons) then <tei:listPerson>{$persons}</tei:listPerson> else ()
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
-        $headline|
         $pagination|
         transform:transform($persons, $xsl, ())
 };
@@ -83,11 +81,9 @@ function search:view_bibls($node as node(), $model as map(*)) {
         )
     let $start := $app:start
     let $bibls := subsequence($bibls, $start, $perpage)
-    let $headline := if ($bibls) then <h2>Bibliography</h2> else ()
     let $bibls := if ($bibls) then <tei:listBibl>{$bibls}</tei:listBibl> else ()
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     return
-        $headline|
         $pagination|
         transform:transform($bibls, $xsl, ())
 };
