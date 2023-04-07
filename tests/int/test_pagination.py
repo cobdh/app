@@ -7,6 +7,7 @@ import tests.int
     'bibl',
     'persons',
     'search?bibl_keyword=a',
+    'search?person_keyword=a',
 ))
 def test_paging(collection):
     """Ensure that forward and backward button, e.g. pagination is rendered."""
@@ -23,6 +24,7 @@ def test_paging(collection):
     'bibl',
     'persons',
     'search?bibl_keyword=a',
+    'search?person_keyword=a',
 ))
 def test_nopaging(collection):
     """All elements are on the same page."""
