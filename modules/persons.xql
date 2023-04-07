@@ -13,9 +13,6 @@ import module namespace app="https://data.cobdh.org/app" at "app.xql";
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-(: Global Variables:)
-declare variable $persons:data := $config:app-root || "/data/persons";
-
 (: Display list of persons. Use pagination to display huge amount of data. :)
 declare function persons:index($node as node(), $model as map(*)){
     let $start := $app:start
@@ -30,7 +27,7 @@ declare function persons:index($node as node(), $model as map(*)){
 };
 
 declare function persons:view-item($node as node(), $model as map(*), $index as xs:string){
-    let $data := collection($persons:data)//tei:person[@xml:id eq $index]
+    let $data := collection($config:data-persons)//tei:person[@xml:id eq $index]
     (: select root node to render header information :)
     let $data := $data/../..
     (: select template :)
@@ -48,7 +45,7 @@ declare function persons:view-item-request($node as node(), $model as map(*)){
 };
 
 declare function persons:list-items(){
-    for $item in collection($persons:data)/tei:TEI
+    for $item in collection($config:data-persons)/tei:TEI
     return
         $item
 };
@@ -57,7 +54,7 @@ declare
     %templates:wrap
 function persons:missing-item($node as node(), $model as map(*)) {
     let $index := $model("selected")
-    let $data := collection($persons:data)//tei:person[@xml:id eq $index]
+    let $data := collection($config:data-persons)//tei:person[@xml:id eq $index]
     return
         if (empty($data)) then
             <p class="alert alert-danger">

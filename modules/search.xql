@@ -4,16 +4,13 @@ module namespace search="https://data.cobdh.org/search";
 
 import module namespace config="https://data.cobdh.org/config" at "config.xqm";
 
-import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xqm";
-
-import module namespace persons="https://data.cobdh.org/persons" at "persons.xqm";
-
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
 import module namespace app="https://data.cobdh.org/app" at "app.xql";
 
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
+
 declare namespace templates="http://exist-db.org/xquery/templates";
 
 declare function search:search($node as node(), $model as map(*)){
@@ -31,12 +28,12 @@ declare function search:search($node as node(), $model as map(*)){
     return
         if ($searched eq "bibl") then
             map{
-                "hits": collection($bibl:data)[fn:contains(.//tei:title, $bibl_title)][fn:contains(., $bibl_keyword)],
+                "hits": collection($config:data-bibl)[fn:contains(.//tei:title, $bibl_title)][fn:contains(., $bibl_keyword)],
                 "searched": "bibl"
             }
         else if ($searched eq "person") then
             map{
-                "hits": collection($persons:data)[fn:contains(.//tei:persName, $person_person)][fn:contains(., $person_keyword)],
+                "hits": collection($config:data-persons)[fn:contains(.//tei:persName, $person_person)][fn:contains(., $person_keyword)],
                 "searched": "person"
             }
         else

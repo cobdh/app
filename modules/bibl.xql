@@ -13,9 +13,6 @@ import module namespace app="https://data.cobdh.org/app" at "app.xql";
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-(: Global Variables:)
-declare variable $bibl:data := $config:app-root || "/data/bibl";
-
 declare function bibl:index($node as node(), $model as map(*)){
     let $start := $app:start
     let $perpage := $app:perpage
@@ -29,7 +26,7 @@ declare function bibl:index($node as node(), $model as map(*)){
 };
 
 declare function bibl:view-item($node as node(), $model as map(*), $index as xs:string){
-    let $data := collection($bibl:data)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
+    let $data := collection($config:data-bibl)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
     (: select root node to render header information :)
     let $data := $data/../..
     (: select template :)
@@ -48,7 +45,7 @@ declare function bibl:view-item-request($node as node(), $model as map(*)){
 
 declare function bibl:list-items(){
     (: Determine list of bibl, sort newest items first. :)
-    for $item in collection($bibl:data)/tei:TEI
+    for $item in collection($config:data-bibl)/tei:TEI
     order by $item//tei:date descending
     return
         $item
@@ -73,7 +70,7 @@ declare
     %templates:wrap
 function bibl:missing-item($node as node(), $model as map(*)) {
     let $index := $model("selected")
-    let $data := collection($bibl:data)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
+    let $data := collection($config:data-bibl)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
     return
         if (empty($data)) then
             <p class="alert alert-danger">
