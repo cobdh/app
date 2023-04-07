@@ -37,7 +37,7 @@ def test_bibl_struct(pattern, expected):
 
 
 def assert_bibl_record(content: str):
-    assert tests.contains_hx('Bibliography Record', content), content
+    assert tests.contains_hx('Bibliographic Record', content), content
     assert ABOUT in content
     assert CITATION in content
     assert FULL in content
