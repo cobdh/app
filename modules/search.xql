@@ -197,18 +197,18 @@ function search:formular($node as node(), $model as map(*)) {
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="pull-right">
+                        <button
+                            class="btn btn-info"
+                            type="submit"
+                        >
+                            <i18n:text key="search_doit">Search</i18n:text>
+                        </button>
+                    </div>
+                </div>
                 <!--end col-->
             </div>
-            <div class="pull-right">
-                <button
-                    class="btn btn-info"
-                    type="submit"
-                >
-                    <i18n:text key="search_doit">Search</i18n:text>
-                </button>
-            </div>
-            <br class="clearfix"/>
-            <br/>
             </form>
         </div>
         <div class="tab-pane {$person_active}" id="persons">
@@ -264,18 +264,18 @@ function search:formular($node as node(), $model as map(*)) {
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <div class="pull-right">
+                        <button
+                            class="btn btn-info"
+                            type="submit"
+                        >
+                            <i18n:text key="search_doit">Search</i18n:text>
+                        </button>
+                    </div>
+                </div>
                 <!--end col-->
             </div>
-            <div class="pull-right">
-                <button
-                    class="btn btn-info"
-                    type="submit"
-                >
-                    <i18n:text key="search_doit">Search</i18n:text>
-                </button>
-            </div>
-            <br class="clearfix"/>
-            <br/>
             </form>
         </div>
     </div>
