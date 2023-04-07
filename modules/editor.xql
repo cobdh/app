@@ -54,7 +54,8 @@ function editor:missing-item($node as node(), $model as map(*)) {
 declare function editor:edited-request($node as node(), $model as map(*)){
     (: `selected` is determined in app:determine_resource :)
     let $editor := $model("selected")
-    let $data := bibl:list-items()//tei:TEI[contains(tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref, $editor)]/tei:body
+    let $data := <tei:listBibl>{bibl:list-items()}</tei:listBibl>
+    let $data := $data//tei:TEI[contains(tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref, $editor)]/tei:body
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     let $parameters := <parameters>
         <param name="headline" value="Edited"/>

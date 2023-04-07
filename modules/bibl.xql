@@ -41,14 +41,10 @@ declare function bibl:view-item-request($node as node(), $model as map(*)){
 
 declare function bibl:list-items(){
     (: Determine list of bibl, sort newest items first. :)
-    <tei:listBibl>
-    {
-        for $item in collection($bibl:data)/tei:TEI
-        order by $item//tei:date descending
-        return
-            $item
-    }
-    </tei:listBibl>
+    for $item in collection($bibl:data)/tei:TEI
+    order by $item//tei:date descending
+    return
+        $item
 };
 
 declare

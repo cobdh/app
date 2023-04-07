@@ -87,7 +87,8 @@ function persons:paging($node as node(), $model as map(*)) {
 declare function persons:edited-request($node as node(), $model as map(*)){
     (: `selected` is determined in app:determine_resource :)
     let $editor := $model("selected")
-    let $data := bibl:list-items()//tei:TEI[contains(.//tei:author/@ref, $editor) or contains(.//tei:editor/@ref, $editor)]
+    let $data := <tei:listBibl>{bibl:list-items()}</tei:listBibl>
+    let $data := $data//tei:TEI[contains(.//tei:author/@ref, $editor) or contains(.//tei:editor/@ref, $editor)]
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     let $parameters := <parameters>
         <param name="headline" value="Work"/>
