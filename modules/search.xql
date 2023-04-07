@@ -50,11 +50,22 @@ declare
     %templates:wrap
 function search:view_persons($node as node(), $model as map(*)) {
     let $persons := if ($model("searched") eq "person") then $model("hits") else ()
+    (: Select current search result for pagination :)
+    let $perpage := $app:perpage
+    let $pagination := app:pageination(
+            $node,
+            $model,
+            $persons,
+            $perpage
+        )
+    let $start := $app:start
+    let $persons := subsequence($persons, $start, $perpage)
     let $headline := if ($persons) then <h2>Persons</h2> else ()
     let $persons := if ($persons) then <tei:listPerson>{$persons}</tei:listPerson> else ()
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
         $headline|
+        $pagination|
         transform:transform($persons, $xsl, ())
 };
 
