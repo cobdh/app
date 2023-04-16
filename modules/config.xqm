@@ -6,10 +6,11 @@ xquery version "3.0";
  :)
 module namespace config="https://data.cobdh.org/config";
 
-declare namespace templates="http://exist-db.org/xquery/templates";
-
-declare namespace repo="http://exist-db.org/xquery/repo";
+(: namespaces :)
 declare namespace expath="http://expath.org/ns/pkg";
+declare namespace repo="http://exist-db.org/xquery/repo";
+declare namespace req="http://exquery.org/ns/request";
+declare namespace templates="http://exist-db.org/xquery/templates";
 
 (:
     Determine the application root collection from the current module load path.
@@ -101,4 +102,17 @@ declare function config:app-info($node as node(), $model as map(*)){
                 <td>{ request:get-attribute("$exist:controller") }</td>
             </tr>
         </table>
+};
+
+declare function config:lang-selector($node as node(), $model as map(*)){
+    let $default_lang := 'en'
+    let $lang := request:get-cookie-value('language')
+    let $lang := if (empty($lang)) then $default_lang else $lang
+    return
+        <span>
+            <select name="lang" id="lang_selector" class="pull-right">
+            <option value="en" selected="{if ($lang eq 'en') then 'selected' else ''}">English</option>
+            <option value="de" selected="{if ($lang eq 'de') then 'selected' else ''}">German</option>
+            </select>
+        </span>
 };
