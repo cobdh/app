@@ -27,3 +27,11 @@ def test_bibl_failure():
     assert ABOUT not in result
     assert CITATION not in result
     assert FULL not in result
+
+
+def test_export_tei_bibl():
+    resource = tests.resources.ids.BIBL_1_ID
+    result = tests.int.curl(f'/bibl/{resource}?format=tei')
+    assert '<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">' in result
+    assert '<biblFull xml:id="BVCP1990">' in result
+    assert '</body></TEI>' in result
