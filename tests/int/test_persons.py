@@ -15,7 +15,7 @@ def test_persons_1():
 
 
 def test_export_tei_persons():
-    resource = tests.resources.ids.PERSONS_2_ID
+    resource = tests.resources.ids.PERSONS_1_ID
     result = tests.int.curl(f'/persons/{resource}?format=tei')
     assert '<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">' in result
     assert '<persName xml:lang="la">Publius Ovidius Naso</persName>' in result

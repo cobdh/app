@@ -45,6 +45,7 @@ else if (matches($exist:path, '/(bibl|editors|authors|persons)/[a-zA-Z_0-9%]+'))
             <forward url="{$exist:controller}/modules/export.xql">
                 <add-parameter name="format" value="tei"/>
                 <add-parameter name="collection" value="{tokenize($exist:path, '/')[2]}"/>
+                <add-parameter name="resource" value="{$exist:resource}"/>
             </forward>
         </dispatch>
     else
