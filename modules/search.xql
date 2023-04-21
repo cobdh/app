@@ -50,7 +50,7 @@ declare function search:search($node as node(), $model as map(*)){
 
 declare
     %templates:wrap
-function search:view_persons($node as node(), $model as map(*)) {
+function search:view_persons($node as node(), $model as map(*)){
     let $persons := if ($model("searched") eq "person") then $model("hits") else ()
     (: Select current search result for pagination :)
     let $perpage := $app:perpage
@@ -71,7 +71,7 @@ function search:view_persons($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function search:view_bibls($node as node(), $model as map(*)) {
+function search:view_bibls($node as node(), $model as map(*)){
     let $bibls := if ($model("searched") eq "bibl") then $model("hits") else ()
     (: Select current search result for pagination :)
     let $perpage := $app:perpage
@@ -92,7 +92,7 @@ function search:view_bibls($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function search:no_result($node as node(), $model as map(*)) {
+function search:no_result($node as node(), $model as map(*)){
     let $searched := $model("searched")
     let $result := $model("hits")
     return
@@ -106,7 +106,7 @@ function search:no_result($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function search:formular($node as node(), $model as map(*)) {
+function search:formular($node as node(), $model as map(*)){
     let $person_keyword := request:get-parameter('person_keyword', '')
     let $person_person := request:get-parameter('person_person', '')
 

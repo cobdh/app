@@ -37,7 +37,7 @@ declare function editor:view-item-request($node as node(), $model as map(*)){
 
 declare
     %templates:wrap
-function editor:missing-item($node as node(), $model as map(*)) {
+function editor:missing-item($node as node(), $model as map(*)){
     let $index := $model("selected")
     let $data := editors:list-items()/tei:TEI/tei:person[@xml:id eq $index]
     return

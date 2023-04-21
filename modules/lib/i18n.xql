@@ -19,7 +19,7 @@ module namespace i18n = 'http://exist-db.org/xquery/i18n';
  : @param $model a sequence of items which will be passed to all called template functions. Use this to pass
  : information between templating instructions.
 :)
-declare function i18n:apply($content as node()+, $modules as element(modules), $model as item()*) {
+declare function i18n:apply($content as node()+, $modules as element(modules), $model as item()*){
     let $null := (
         request:set-attribute("$i18n:modules", $modules)
     )
@@ -36,7 +36,7 @@ declare function i18n:apply($content as node()+, $modules as element(modules), $
  : @param $model a sequence of items which will be passed to all called template functions. Use this to pass
  : information between templating instructions.
 :)
-declare function i18n:process($nodes as node()*, $selectedLang as xs:string,$pathToCatalogues as xs:string, $defaultLang as xs:string?) {
+declare function i18n:process($nodes as node()*, $selectedLang as xs:string,$pathToCatalogues as xs:string, $defaultLang as xs:string?){
     for $node in $nodes
         let $selectedCatalogue := i18n:getLanguageCollection($nodes,$selectedLang, $pathToCatalogues,$defaultLang)
         return
@@ -50,7 +50,7 @@ declare function i18n:process($nodes as node()*, $selectedLang as xs:string,$pat
  : @param $model a sequence of items which will be passed to all called template functions. Use this to pass
  : information between templating instructions.
 :)
-declare function i18n:process($node as node(), $selectedCatalogue as node()) {
+declare function i18n:process($node as node(), $selectedCatalogue as node()){
     typeswitch ($node)
         case document-node() return
             for $child in $node/node() return i18n:process($child, $selectedCatalogue)
@@ -114,7 +114,7 @@ declare function i18n:getLocalizedText($textNode as node(), $selectedCatalogue a
  : @param $node i18n:translate node enclosing i18n:text and parameters to substitute
  : @param $text the processed(!) content of i18n:text
 :)
-declare function i18n:translate($node as node(),$text as xs:string,$selectedCatalogue as node()) {
+declare function i18n:translate($node as node(),$text as xs:string,$selectedCatalogue as node()){
     if(contains($text,'{')) then
         (: text contains parameters to substitute :)
         let $params := $node//i18n:param
@@ -146,7 +146,7 @@ declare function i18n:translate($node as node(),$text as xs:string,$selectedCata
  : @param $paramKey currently processed parameterKey (numerical or alphabetical)
  : @param $text     the processed(!) content of i18n:text
 :)
-declare function i18n:replaceParam($node as node(), $param as node(),$paramKey as xs:string, $text as xs:string,$selectedCatalogue as node()) {
+declare function i18n:replaceParam($node as node(), $param as node(),$paramKey as xs:string, $text as xs:string,$selectedCatalogue as node()){
     if(exists($param/i18n:text)) then
         (: the parameter has to be translated as well :)
         let $translatedParam := i18n:getLocalizedText($param/i18n:text, $selectedCatalogue)
@@ -159,7 +159,7 @@ declare function i18n:replaceParam($node as node(), $param as node(),$paramKey a
             i18n:translate($node, $result,$selectedCatalogue)
 };
 
-declare function i18n:getLanguageCollection($node as node()*,$selectedLang as xs:string,$pathToCatalogues as xs:string, $defaultLang as xs:string?) {
+declare function i18n:getLanguageCollection($node as node()*,$selectedLang as xs:string,$pathToCatalogues as xs:string, $defaultLang as xs:string?){
   let $tmpNode :=  typeswitch ($node)
         case document-node() return $node/node()
         default return $node
@@ -188,7 +188,7 @@ declare function i18n:getPathToCatalogues($node as node()*,$pathToCatalogues as 
     else 'ERROR: no path to language catalogues given'
 };
 
-declare function i18n:getSelectedLanguage($node as node()*,$selectedLang as xs:string) {
+declare function i18n:getSelectedLanguage($node as node()*,$selectedLang as xs:string){
     if(string-length(request:get-parameter("lang", "")) gt 0) then
         (: use http parameter lang as selected language :)
         request:get-parameter("lang", "")

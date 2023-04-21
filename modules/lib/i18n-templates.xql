@@ -18,7 +18,7 @@ import module namespace config="https://data.cobdh.org/config" at "../config.xqm
 declare
     %templates:wrap %templates:default("lang", "en")
     %templates:wrap %templates:default("catalogues", "data/i18n")
-function intl:translate($node as node(), $model as map(*), $lang as xs:string?, $catalogues as xs:string?) {
+function intl:translate($node as node(), $model as map(*), $lang as xs:string?, $catalogues as xs:string?){
     let $cpath :=
         (: if path to catalogues is relative, resolve it relative to the app root :)
         if (starts-with($catalogues, "/")) then

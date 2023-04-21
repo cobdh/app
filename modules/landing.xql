@@ -11,7 +11,7 @@ declare namespace templates="http://exist-db.org/xquery/templates";
 
 declare
     %templates:wrap
-function landing:region_select($node as node(), $model as map(*)) {
+function landing:region_select($node as node(), $model as map(*)){
     let $age := xs:dayTimeDuration("PT24H")
     let $region := request:get-parameter("collection", "")
     (: TODO: REMOVE INVALID LANGUAGES :)

@@ -15,6 +15,6 @@ declare
     %rest:GET
     %rest:path("/bibl")
     %output:method("xml")
-function bibl:index_xml() {
+function bibl:index_xml(){
     bibl_data:list-items()
 };

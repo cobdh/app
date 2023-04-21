@@ -21,7 +21,7 @@ declare
     %rest:produces("application/xml", "text/xml")
     %output:media-type("application/xml")
     %output:method("xhtml")
-function editors:index() {
+function editors:index(){
   <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
         <h1>Editors</h1>
@@ -33,7 +33,7 @@ declare
     %rest:GET
     %rest:path("/editors")
     %output:method("xml")
-function editors:index_xml() {
+function editors:index_xml(){
     editors:list-items()
 };
 

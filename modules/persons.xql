@@ -52,7 +52,7 @@ declare function persons:list-items(){
 
 declare
     %templates:wrap
-function persons:missing-item($node as node(), $model as map(*)) {
+function persons:missing-item($node as node(), $model as map(*)){
     let $index := $model("selected")
     let $data := collection($config:data-persons)//tei:person[@xml:id eq $index]
     return
@@ -68,7 +68,7 @@ function persons:missing-item($node as node(), $model as map(*)) {
 (: Provide persons pagination :)
 declare
     %templates:wrap
-function persons:paging($node as node(), $model as map(*)) {
+function persons:paging($node as node(), $model as map(*)){
     let $hits := persons:list-items()
     let $perpage := $app:perpage
     return
@@ -82,7 +82,7 @@ function persons:paging($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function persons:countby_region($node as node(), $model as map(*), $region as xs:string) {
+function persons:countby_region($node as node(), $model as map(*), $region as xs:string){
     if ($region eq 'ar') then
         123
     else if ($region eq 'ge') then

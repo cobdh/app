@@ -81,7 +81,7 @@ declare
     (:Non-Unicode url:)
     %test:arg("url", "cobdh-data/persons/MaclerFr%C3%A9d%C3%A9ric")
     %test:assertEquals('persons', 'MaclerFrédéric')
-function app:parse_resource_url($url) {
+function app:parse_resource_url($url){
     let $url := xmldb:decode($url)
     let $parsed := analyze-string(
         $url,

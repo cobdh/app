@@ -54,7 +54,7 @@ declare function bibl:list-items(){
 (: Provide bibl pagination :)
 declare
     %templates:wrap
-function bibl:paging($node as node(), $model as map(*)) {
+function bibl:paging($node as node(), $model as map(*)){
     let $hits := bibl:list-items()
     let $perpage := $app:perpage
     return
@@ -68,7 +68,7 @@ function bibl:paging($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function bibl:missing-item($node as node(), $model as map(*)) {
+function bibl:missing-item($node as node(), $model as map(*)){
     let $index := $model("selected")
     let $data := collection($config:data-bibl)//(tei:biblFull|tei:biblStruct)[@xml:id eq $index]
     return
@@ -85,7 +85,7 @@ function bibl:missing-item($node as node(), $model as map(*)) {
 
 declare
     %templates:wrap
-function bibl:countby_region($node as node(), $model as map(*), $region as xs:string) {
+function bibl:countby_region($node as node(), $model as map(*), $region as xs:string){
     if ($region eq 'ar') then
         23
     else if ($region eq 'ge') then
