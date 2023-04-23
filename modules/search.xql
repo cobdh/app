@@ -30,11 +30,29 @@ declare function search:search($node as node(), $model as map(*)){
             map{
                 "hits": collection($config:data-bibl)
                     [
-                        ($bibl_title and fn:contains(.//tei:title, search:build-ft-query($bibl_title)))
+                        (
+                            $bibl_title and fn:contains
+                            (
+                                lower-case(string-join(.//tei:title)),
+                                search:build-ft-query($bibl_title)
+                            )
+                        )
                             or
-                        ($bibl_person and fn:contains(.//tei:persName, search:build-ft-query($bibl_person)))
+                        (
+                            $bibl_person and fn:contains
+                            (
+                                lower-case(string-join(.//tei:author)),
+                                search:build-ft-query($bibl_person)
+                            )
+                        )
                             or
-                        ($bibl_keyword and fn:contains(., search:build-ft-query($bibl_keyword)))
+                        (
+                            $bibl_keyword and fn:contains
+                            (
+                                lower-case(.),
+                                search:build-ft-query($bibl_keyword)
+                            )
+                        )
                     ],
                 "searched": "bibl"
             }
@@ -42,9 +60,21 @@ declare function search:search($node as node(), $model as map(*)){
             map{
                 "hits": collection($config:data-persons)
                     [
-                        ($person_person and fn:contains(.//tei:persName, search:build-ft-query($person_person)))
+                        (
+                            $person_person and fn:contains
+                            (
+                                lower-case(string-join(.//tei:persName)),
+                                search:build-ft-query($person_person)
+                            )
+                        )
                             or
-                        ($person_keyword and fn:contains(., search:build-ft-query($person_keyword)))
+                        (
+                            $person_keyword and fn:contains
+                            (
+                                lower-case(.),
+                                search:build-ft-query($person_keyword)
+                            )
+                        )
                     ],
                 "searched": "person"
             }
@@ -293,6 +323,7 @@ function search:formular($node as node(), $model as map(*)){
 
 declare function search:build-ft-query($token){
     let $mode:='any'
+    let $token:=lower-case($token)
     return
         <query>
             {
