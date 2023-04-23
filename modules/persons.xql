@@ -29,7 +29,7 @@ declare function persons:index($node as node(), $model as map(*)){
 declare function persons:view-item($node as node(), $model as map(*), $index as xs:string){
     let $data := collection($config:data-persons)//tei:person[@xml:id eq $index]
     (: select root node to render header information :)
-    let $data := $data/../..
+    let $data := root($data)
     (: select template :)
     let $xsl := config:resolve("views/persons/view-item.xsl")
     return
