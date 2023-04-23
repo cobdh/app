@@ -25,7 +25,7 @@ declare function tester:link-to-home($node as node(), $model as map(*)){
 declare function tester:run-tests($node as node(), $model as map(*)){
     for $path in (
         "app.xql",
-        "tests/data-tests.xql"
+        "tests/sample.xql"
     )
         let $todo := inspect:module-functions(xs:anyURI($path))
         let $results := test:suite($todo)
