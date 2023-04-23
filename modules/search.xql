@@ -29,16 +29,23 @@ declare function search:search($node as node(), $model as map(*)){
         if ($searched eq "bibl") then
             map{
                 "hits": collection($config:data-bibl)
-                    [fn:contains(.//tei:title, search:build-ft-query($bibl_title))]
-                    [fn:contains(.//tei:persName, search:build-ft-query($bibl_person))]
-                    [fn:contains(., search:build-ft-query($bibl_keyword))],
+                    [
+                        ($bibl_title and fn:contains(.//tei:title, search:build-ft-query($bibl_title)))
+                            or
+                        ($bibl_person and fn:contains(.//tei:persName, search:build-ft-query($bibl_person)))
+                            or
+                        ($bibl_keyword and fn:contains(., search:build-ft-query($bibl_keyword)))
+                    ],
                 "searched": "bibl"
             }
         else if ($searched eq "person") then
             map{
                 "hits": collection($config:data-persons)
-                    [fn:contains(.//tei:persName, search:build-ft-query($person_person))]
-                    [fn:contains(., search:build-ft-query($person_keyword))],
+                    [
+                        ($person_person and fn:contains(.//tei:persName, search:build-ft-query($person_person)))
+                            or
+                        ($person_keyword and fn:contains(., search:build-ft-query($person_keyword)))
+                    ],
                 "searched": "person"
             }
         else
