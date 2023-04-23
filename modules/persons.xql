@@ -46,8 +46,19 @@ declare function persons:view-item-request($node as node(), $model as map(*)){
 
 declare function persons:list-items(){
     for $item in collection($config:data-persons)/tei:TEI
+    order by persons:orderby_name($item)
     return
         $item
+};
+
+declare function persons:orderby_name($item){
+    if($item//tei:surname) then
+        lower-case(string-join($item//tei:surname))
+    else if($item//tei:persName) then
+        lower-case(string-join($item//tei:persName))
+    else
+    (: sort item without naming to the end :)
+        'zzz'
 };
 
 declare
