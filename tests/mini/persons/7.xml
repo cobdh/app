@@ -13,6 +13,14 @@
                 />
             </titleStmt>
         </fileDesc>
+        <encodingDesc>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="GEORGIA"/>
+                    <category xml:id="ARMENIA"/>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
     </teiHeader>
     <body>
         <person xml:id="ClementsPatricia">
