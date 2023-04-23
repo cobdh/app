@@ -82,3 +82,17 @@ function bibl:missing-item($node as node(), $model as map(*)) {
         else
             ()
 };
+
+declare
+    %templates:wrap
+function bibl:countby_region($node as node(), $model as map(*), $region as xs:string) {
+    if ($region eq 'ar') then
+        23
+    else if ($region eq 'ge') then
+        20
+    else if (empty($region)) then
+        (: TODO COUNT THEM :)
+        0
+    else
+        -1
+};

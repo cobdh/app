@@ -20,6 +20,7 @@ else if ($exist:path eq "/impressum"
     or $exist:path eq "/contribution"
     or $exist:path eq "/search"
     or $exist:path eq "/validation"
+    or $exist:path eq "/landing"
     ) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="views/{$exist:path}.html"/>

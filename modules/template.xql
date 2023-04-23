@@ -25,6 +25,8 @@ import module namespace persons="https://data.cobdh.org/persons" at "persons.xql
 
 import module namespace search="https://data.cobdh.org/search" at "search.xql";
 
+import module namespace landing="https://data.cobdh.org/landing" at "landing.xql";
+
 import module namespace tester="https://data.cobdh.org/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";

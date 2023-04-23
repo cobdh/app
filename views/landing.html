@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html
+    xmlns="http://www.w3.org/1999/xhtml"
+    data-template="app:determine_resource"
+>
+    <head>
+        <title data-template="config:app-title">App Title</title>
+        <meta
+            content="width=device-width, initial-scale=1.0"
+            name="viewport"
+        />
+        <meta data-template="config:app-meta"/>
+        <link
+            href="$shared/resources/css/exist-2.2.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="$resources/resources/css/style.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <link
+            href="$resources/resources/css/landing.css"
+            rel="stylesheet"
+            type="text/css"
+        />
+        <script
+            src="$shared/resources/scripts/jquery/jquery-1.7.1.min.js"
+            type="text/javascript"
+        />
+        <script
+            src="$shared/resources/scripts/bootstrap-3.0.3.min.js"
+            type="text/javascript"
+        />
+        <script
+            src="$shared/resources/scripts/loadsource.js"
+            type="text/javascript"
+        />
+    </head>
+    <body>
+        <div class="well">
+            <div class="pricing-header mx-auto text-center">
+                <h1 class="display-4">
+                    Christlicher Orient and Byzanz - Digital Humanities
+                </h1>
+                <p class="lead">
+                    a ac accumsan ad adipiscing aenean aliquam aliquet amet ante aptent arcu at
+                    auctor augue bibendum blandit class commodo condimentum congue consectetuer
+                    consequat conubia convallis cras cubilia cum curabitur curae cursus dapibus
+                </p>
+            </div>
+            <div class="container">
+                <div class="card-deck mb-3 text-center">
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h3 class="my-0 font-weight-normal">Armenia</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>
+                                    Bibliography:
+                                    <span
+                                        data-template="bibl:countby_region"
+                                        data-template-region="ar"
+                                    />
+                                </li>
+                                <li>
+                                    Persons:
+                                    <span
+                                        data-template="persons:countby_region"
+                                        data-template-region="ar"
+                                    />
+                                </li>
+                            </ul>
+                            <a
+                                class="btn btn-md btn-primary"
+                                href="./?collection=ar"
+                            >
+                                Open
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h3 class="my-0 font-weight-normal">Georgia</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>
+                                    Bibliography:
+                                    <span
+                                        data-template="bibl:countby_region"
+                                        data-template-region="ge"
+                                    />
+                                </li>
+                                <li>
+                                    Persons:
+                                    <span
+                                        data-template="persons:countby_region"
+                                        data-template-region="ge"
+                                    />
+                                </li>
+                            </ul>
+                            <a
+                                class="btn btn-md btn-primary"
+                                href="./?collection=ge"
+                            >
+                                Open
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card mb-4 shadow-sm">
+                        <div class="card-header">
+                            <h3 class="my-0 font-weight-normal">All</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>
+                                    Bibliography:
+                                    <span
+                                        data-template="bibl:countby_region"
+                                        data-template-region=""
+                                    />
+                                </li>
+                                <li>
+                                    Persons:
+                                    <span
+                                        data-template="persons:countby_region"
+                                        data-template-region=""
+                                    />
+                                </li>
+                            </ul>
+                            <a
+                                class="btn btn-md btn-primary"
+                                href="./?collection=all"
+                            >
+                                Open
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

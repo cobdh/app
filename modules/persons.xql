@@ -80,6 +80,20 @@ function persons:paging($node as node(), $model as map(*)) {
         )
 };
 
+declare
+    %templates:wrap
+function persons:countby_region($node as node(), $model as map(*), $region as xs:string) {
+    if ($region eq 'ar') then
+        123
+    else if ($region eq 'ge') then
+        40
+    else if (empty($region)) then
+        (: TODO COUNT THEM :)
+        0
+    else
+        -1
+};
+
 (: Display bibliography elements where editor contributed some changes. :)
 declare function persons:edited-request($node as node(), $model as map(*)){
     (: `selected` is determined in app:determine_resource :)

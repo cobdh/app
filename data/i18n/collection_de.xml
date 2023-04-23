@@ -12,7 +12,7 @@
     <msg key="persons_persons">Personen</msg>
     <msg key="persons_record">Person-Eintrag</msg>
     <msg key="persons_record_missing">Person nicht vorhanden:</msg>
-    <!-- Search a better word -->
+    <!--Search a better word-->
     <msg key="search_clear">!Clear!</msg>
     <msg key="search_doit">Suchen</msg>
     <msg key="search_headline">Suche</msg>
