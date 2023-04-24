@@ -31,7 +31,7 @@ function landing:region_select($node as node(), $model as map(*)){
             )
 };
 
-declare function landing:filter_collection($items){
+declare function landing:select_category($items){
     let $region := lower-case(request:get-cookie-value('collection'))
     let $category := if ($region eq 'ar') then 'ARMENIA'
     else (
