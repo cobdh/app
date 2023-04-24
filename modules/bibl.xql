@@ -10,13 +10,15 @@ import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib
 
 import module namespace app="https://data.cobdh.org/app" at "app.xql";
 
+import module namespace landing="https://data.cobdh.org/landing" at "landing.xql";
+
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 declare function bibl:index($node as node(), $model as map(*)){
     let $start := $app:start
     let $perpage := $app:perpage
-    let $bibls := bibl:list-items()
+    let $bibls := landing:filter_collection(bibl:list-items())
     (: Select current data for pagination :)
     let $bibls := subsequence($bibls, $start, $perpage)
     let $bibls := <tei:listBibl>{$bibls}</tei:listBibl>
@@ -55,7 +57,7 @@ declare function bibl:list-items(){
 declare
     %templates:wrap
 function bibl:paging($node as node(), $model as map(*)){
-    let $hits := bibl:list-items()
+    let $hits := landing:filter_collection(bibl:list-items())
     let $perpage := $app:perpage
     return
         app:pageination(
