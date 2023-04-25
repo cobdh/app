@@ -41,7 +41,12 @@ declare function search:search($node as node(), $model as map(*)){
                         (
                             $bibl_person and fn:contains
                             (
-                                lower-case(string-join(.//tei:author)),
+                                lower-case(string-join(.//
+                                (
+                                    tei:author|
+                                    (:Skip document header:)
+                                    tei:editor[not(ancestor::tei:teiHeader)]
+                                ))),
                                 search:build-ft-query($bibl_person)
                             )
                         )
