@@ -97,3 +97,16 @@ function bibl:countby_region($node as node(), $model as map(*), $region as xs:st
     else
         -1
 };
+
+declare
+    %templates:wrap
+function bibl:countby_editor($editor as xs:string) as xs:int{
+    let $data := bibl:list-items()
+    let $data := $data//tei:TEI[
+        contains(
+            tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref,
+            $editor
+        )
+    ]
+    return count($data)
+};
