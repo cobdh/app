@@ -7,6 +7,8 @@ module namespace editors="https://data.cobdh.org/rest/editors";
 
 import module namespace config="https://data.cobdh.org/config" at "../modules/config.xqm";
 
+import module namespace persons="https://data.cobdh.org/persons" at "../modules/persons.xql";
+
 (: Namespaces :)
 declare namespace rest="http://exquery.org/ns/restxq";
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
@@ -49,6 +51,7 @@ declare function editors:list-items(){
     <tei:listPerson>
     {
         for $editor in collection($editors:data)/tei:TEI
+        order by persons:orderby_name($editor)
         return
             $editor
     }
