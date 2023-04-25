@@ -7,6 +7,11 @@
         <fileDesc>
             <titleStmt>
                 <editor
+                    xml:id="phenix_robert"
+                    ref="https://cobdh.org/editors/phenix_robert"
+                    role="general"
+                />
+                <editor
                     xml:id="schewe_helmut_konrad"
                     ref="https://cobdh.org/editors/schewe_helmut_konrad"
                     role="creator"
