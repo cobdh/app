@@ -1,3 +1,5 @@
+import re
+
 import pytest
 
 import tests
@@ -75,3 +77,11 @@ def test_bibl_editor_names():
     assert 'Richard Bauckham' in result
     assert 'James R. Davila' in result
     assert 'Alexander Panayotov' in result
+
+
+def test_collection_sortedby_year():
+    """Ensure that bibl is sorted by date when collection is selected."""
+    result = tests.int.curl('/bibl?collection=ar')
+    numbers = re.findall(r'(\d{4}):', result)
+    numbers = [int(item) for item in numbers]
+    assert numbers == sorted(numbers, reverse=True)
