@@ -10,6 +10,7 @@
     <xsl:import href="../core/href.xsl"/>
     <xsl:import href="../core/mono.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
+    <xsl:import href="../core/citation.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:biblStruct">
         <div class="container">
@@ -46,16 +47,5 @@
         <small>
             <xsl:call-template name="resource_link"/>
         </small>
-    </xsl:template>
-    <!--Render citation-->
-    <xsl:template name="citation">
-        <p>
-            Paul Peeters, "Le martyrologe de Rabban Ṣalība." Analecta
-            <br/>
-            Bollandiana, vol. 27 (1908): 129-200.
-            <xsl:call-template name="copy" >
-                <xsl:with-param name="text">cite</xsl:with-param>
-            </xsl:call-template>
-        </p>
     </xsl:template>
 </xsl:stylesheet>
