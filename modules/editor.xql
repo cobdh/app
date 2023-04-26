@@ -53,13 +53,29 @@ function editor:missing-item($node as node(), $model as map(*)){
 (: Display bibliography elements where editor contributed some changes. :)
 declare function editor:edited-request($node as node(), $model as map(*)){
     (: `selected` is determined in app:determine_resource :)
-    let $editor := $model("selected")
-    let $data := <tei:listBibl>{bibl:list-items()}</tei:listBibl>
-    let $data := $data//tei:TEI[contains(tei:teiHeader/tei:fileDesc/tei:titleStmt/tei:editor/@ref, $editor)]/tei:body
+    let $selected := $model("selected")
+    let $data := bibl:list-items()//tei:titleStmt/tei:editor[@xml:id eq $selected]
+    let $generals := <tei:listBibl>{
+        for $item in $data
+        where $item/@role eq 'general'
+        order by root($item)//tei:date descending
+        return root($item)//(tei:biblStruct|tei:biblFull)
+    }</tei:listBibl>
+    let $creators := <tei:listBibl>{
+        for $item in $data
+        where $item/@role eq 'creator'
+        order by root($item)//tei:date descending
+        return root($item)//(tei:biblStruct|tei:biblFull)
+    }</tei:listBibl>
     let $xsl := config:resolve("views/bibl/list-items.xsl")
-    let $parameters := <parameters>
+    let $headline_generals := <parameters>
         <param name="headline" value="Edited"/>
     </parameters>
+    let $headline_creators := <parameters>
+        <param name="headline" value="XML coded"/>
+    </parameters>
     return
-        transform:transform($data, $xsl, $parameters)
+        transform:transform($generals, $xsl, $headline_generals)
+        |
+        transform:transform($creators, $xsl, $headline_creators)
 };

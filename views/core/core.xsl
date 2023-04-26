@@ -17,6 +17,9 @@
                         <xsl:when test="@role = 'creator'">
                             XML coded by <xsl:call-template name="editor_link"/>
                         </xsl:when>
+                        <xsl:when test="@role = 'general'">
+                            Data entered by <xsl:call-template name="editor_link"/>
+                        </xsl:when>
                         <xsl:otherwise>
                             <xsl:value-of select="."/>
                         </xsl:otherwise>
