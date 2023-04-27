@@ -93,4 +93,11 @@
             </xsl:call-template>
         </li>
     </xsl:template>
+    <xsl:template match="tei:editor[not(ancestor::tei:teiHeader)]" mode="plain">
+        <!--Do not display editor from header with this template-->
+        <xsl:value-of select="."/>
+    </xsl:template>
+    <xsl:template match="tei:author" mode="plain">
+        <xsl:value-of select="."/>
+    </xsl:template>
 </xsl:stylesheet>

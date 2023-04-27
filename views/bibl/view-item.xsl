@@ -13,7 +13,7 @@
     <xsl:import href="../core/citation.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:biblStruct">
-        <div class="container">
+        <div class="col-md-8 col-lg-8">
             <xsl:call-template name="header"/>
             <h3>Preferred Citation</h3>
             <xsl:call-template name="citation"/>
@@ -25,7 +25,7 @@
         </div>
     </xsl:template>
     <xsl:template match="tei:biblFull">
-        <div class="container">
+        <div class="col-md-8 col-lg-8">
             <xsl:call-template name="header"/>
             <h3>Preferred Citation</h3>
             <xsl:call-template name="citation"/>

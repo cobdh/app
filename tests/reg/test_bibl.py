@@ -54,7 +54,7 @@ def test_bibl_list():
 def test_bibl_title_order():
     result = tests.int.curl('/bibl/Thomson1995')
     assert_bibl_record(result)
-    expected = 2
+    expected = 3
     monogr = result.count('A Bibliography of Classical Armenian Literature')
     assert monogr == expected
     # # TODO: ADD SERIES INFORMATION
