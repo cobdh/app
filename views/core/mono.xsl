@@ -64,6 +64,10 @@
             <xsl:if test=".//tei:edition">
                 <li>Edition: <xsl:value-of select="//tei:edition"/></li>
             </xsl:if>
+            <!--Workaround to display Series information outside of tei:imprint-->
+            <xsl:if test="./../..//tei:series/tei:title">
+                <li>Series: <xsl:value-of select="./../..//tei:series/tei:title"/></li>
+            </xsl:if>
         </ul>
     </xsl:template>
 </xsl:stylesheet>
