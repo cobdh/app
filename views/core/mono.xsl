@@ -7,12 +7,11 @@
     <xsl:template match="tei:monogr">
         <h4>
             <xsl:if test="count(tei:editor) &gt; 0">
-                <xsl:text>Published in "</xsl:text>
+                <xsl:text>Published in: </xsl:text>
             </xsl:if>
-            <xsl:value-of select=".//tei:title"/>
-            <xsl:if test="count(tei:editor) &gt; 0">
-                <xsl:text>"</xsl:text>
-            </xsl:if>
+            <i>
+                <xsl:value-of select=".//tei:title"/>
+            </i>
         </h4>
         <ul class="list-none">
             <xsl:for-each select=".//tei:author">
