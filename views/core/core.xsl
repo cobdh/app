@@ -30,7 +30,7 @@
     </xsl:template>
     <!--Render licence-->
     <xsl:template name="licence">
-        <h3>Licence</h3>
+        <h4>Licence</h4>
         <p>
             <xsl:choose>
                 <xsl:when test="//tei:licence">
