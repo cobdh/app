@@ -25,7 +25,7 @@
                         </xsl:attribute>
                         <xsl:value-of select=".//tei:date"/>
                         <xsl:text>: </xsl:text>
-                        <xsl:value-of select="descendant::tei:title[1]"/>
+                        <xsl:apply-templates select="descendant::tei:title[1]"/>
                     </xsl:element>
                 </li>
             </xsl:for-each>

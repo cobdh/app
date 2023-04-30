@@ -43,7 +43,7 @@
         <h2>
             <!-- TODO: IMPROVE -->
             <!--Do not render monogr title-->
-            <xsl:value-of select="descendant::tei:title[1]"/>
+            <xsl:apply-templates select="descendant::tei:title[1]"/>
         </h2>
         <small>
             <xsl:call-template name="resource_link"/>

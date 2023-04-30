@@ -11,7 +11,7 @@
                 <xsl:text>Published in: </xsl:text>
             </xsl:if>
             <i>
-                <xsl:value-of select=".//tei:title"/>
+                <xsl:apply-templates select=".//tei:title"/>
             </i>
         </h4>
         <ul class="list-none">
@@ -72,6 +72,6 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:title">
-        <xsl:value-of select="utils:strip(.)"/>
+        <xsl:value-of select="utils:improve(.)"/>
     </xsl:template>
 </xsl:stylesheet>
