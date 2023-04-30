@@ -4,6 +4,7 @@ import cobdh.xmlx.parser
 NS = {
     'tei': 'http://www.tei-c.org/ns/1.0',
 }
+XMLID = '{http://www.w3.org/XML/1998/namespace}id'
 
 
 def bibl_id(path):
@@ -20,8 +21,7 @@ def bibl_id(path):
     if not parsed:
         # backup parser
         parsed = data.find('.//tei:biblStruct', namespaces=NS)
-    # TODO: FIX LATER
-    value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
+    value = parsed.get(XMLID)
     return value
 
 
@@ -34,6 +34,5 @@ def persons_id(path):
     content = cobdh.file_read(path)
     data = cobdh.xmlx.parser.parse(content)
     parsed = data.find('.//tei:person', namespaces=NS)
-    # TODO: FIX LATER
-    value = parsed.get('{http://www.w3.org/XML/1998/namespace}id')
+    value = parsed.get(XMLID)
     return value
