@@ -2,9 +2,12 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:app="https://data.cobdh.org/app"
+    xmlns:core="https://data.cobdh.org/core"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
+    <!--Import general methods-->
+    <xsl:import href="../core/core.xsl"/>
     <!--TODO: THERE MUST BE A BETTER WAY TO AVOID THIS GLOBAL PARAMETER-->
     <xsl:param name="headline" select="''"/>
     <xsl:template match="/">
@@ -18,8 +21,7 @@
                     <!-- Example: cobdh.org/bibl/1-->
                     <xsl:element name="a">
                         <xsl:attribute name="href">
-                            <!-- TODO: REPLACE WITH app:abspath -->
-                            <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'bibl/', @xml:id)"/>
+                            <xsl:sequence select="core:hyper('bibl', @xml:id)"/>
                         </xsl:attribute>
                         <xsl:value-of select=".//tei:date"/>
                         <xsl:text>: </xsl:text>

@@ -1,6 +1,7 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:core="https://data.cobdh.org/core"
     version="1.0"
     >
     <xsl:template name="external_links">
@@ -26,8 +27,7 @@
         <!-- Hide href if no xml:id/address is given -->
         <xsl:element name="{if (empty($resource)) then 'span' else 'a'}">
             <xsl:attribute name="href">
-                <!-- TODO: REPLACE WITH app:abspath -->
-                <xsl:sequence select="concat('/exist/apps/cobdh-data/', $collection, '/', $resource)"/>
+                <xsl:sequence select="core:hyper($collection, $resource)"/>
             </xsl:attribute>
             <xsl:value-of select="$text"/>
         </xsl:element>

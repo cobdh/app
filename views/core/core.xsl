@@ -2,6 +2,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:bibl="https://data.cobdh.org/bibl"
+    xmlns:core="https://data.cobdh.org/core"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
@@ -58,8 +59,7 @@
     <xsl:template name="editor_link">
         <xsl:element name="a">
             <xsl:attribute name="href">
-                <!-- TODO: REPLACE WITH app:abspath -->
-                <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'editors/', @xml:id)"/>
+                <xsl:sequence select="core:hyper('editors', @xml:id)"/>
             </xsl:attribute>
             <xsl:value-of select=".//@xml:id"/>
         </xsl:element>
@@ -101,4 +101,10 @@
             </xsl:element>
         </div>
     </xsl:template>
+    <!--Create absolute hyperlink to automate collection and item-->
+    <xsl:function name="core:hyper">
+        <xsl:param name="collection"/>
+        <xsl:param name="item"/>
+        <xsl:value-of select="concat('/exist/apps/cobdh-data/', $collection, '/', $item)"/>
+    </xsl:function>
 </xsl:stylesheet>

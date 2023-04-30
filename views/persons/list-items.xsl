@@ -2,6 +2,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:app="https://data.cobdh.org/app"
+    xmlns:core="https://data.cobdh.org/core"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
@@ -9,6 +10,7 @@
     <xsl:import href="../core/core.xsl"/>
     <xsl:import href="../core/href.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
+    <xsl:import href="../core/utils.xsl"/>
     <!--Render list of persons -->
     <xsl:template match="/">
         <ul>
@@ -23,7 +25,7 @@
             <xsl:element name="a">
                 <xsl:attribute name="href">
                     <!-- TODO: REPLACE WITH app:abspath -->
-                    <xsl:sequence select="concat('/exist/apps/cobdh-data/', 'persons/', @xml:id)"/>
+                    <xsl:sequence select="core:hyper('persons', @xml:id)"/>
                 </xsl:attribute>
                 <xsl:call-template name="person_names"/>
                 <xsl:if test="./role">
