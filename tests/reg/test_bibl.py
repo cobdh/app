@@ -94,6 +94,7 @@ def test_collection_sortedby_year():
         'Hovhanessian2013',
         'edited by Richard Bauckham, James R. Davila and Alexander Panayotov',
     ),
+    ('Hovhanessian2013', 'Panayotov (Grand Rapids, Michigan:'),
 ])
 def test_bibl_view_fix_spaces(source, expected):
     result = tests.int.curl(f'/bibl/{source}')

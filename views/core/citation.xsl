@@ -67,6 +67,7 @@
         </i>
         <xsl:text>, edited by </xsl:text>
         <xsl:call-template name="editors_plain"/>
+        <xsl:text> </xsl:text>
         <xsl:apply-templates select=".//tei:monogr/tei:imprint" mode="plain"/>
         <xsl:text>.</xsl:text>
     </xsl:template>
