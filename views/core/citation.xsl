@@ -90,7 +90,7 @@
         <xsl:choose>
             <xsl:when test="count(.//tei:author) &gt; 1">
                 <xsl:for-each select=".//tei:author">
-                    <xsl:apply-templates mode="plain"/>
+                    <xsl:apply-templates select="." mode="plain"/>
                     <xsl:if test="position() eq last()-2">, </xsl:if>
                     <xsl:if test="position() eq last()-1"> and </xsl:if>
                 </xsl:for-each>
@@ -105,7 +105,7 @@
         <xsl:choose>
             <xsl:when test="count(.//tei:editor) &gt; 1">
                 <xsl:for-each select=".//tei:editor">
-                    <xsl:apply-templates mode="plain"/>
+                    <xsl:apply-templates select="." mode="plain"/>
                     <xsl:if test="position() eq last()-2">, </xsl:if>
                     <xsl:if test="position() eq last()-1"> and </xsl:if>
                 </xsl:for-each>

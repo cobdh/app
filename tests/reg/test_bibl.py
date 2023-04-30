@@ -85,3 +85,16 @@ def test_collection_sortedby_year():
     numbers = re.findall(r'(\d{4}):', result)
     numbers = [int(item) for item in numbers]
     assert numbers == sorted(numbers, reverse=True)
+
+
+@pytest.mark.parametrize('source, expected', [
+    ('Muyldermans1946', 'Joseph Muyldermans, "Sur les Séraphins'),
+    ('Muyldermans1946', ', vol. 59 (1946), 367-379.'),
+    (
+        'Hovhanessian2013',
+        'edited by Richard Bauckham, James R. Davila and Alexander Panayotov',
+    ),
+])
+def test_bibl_view_fix_spaces(source, expected):
+    result = tests.int.curl(f'/bibl/{source}')
+    assert expected in result

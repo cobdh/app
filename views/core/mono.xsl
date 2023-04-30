@@ -70,4 +70,7 @@
             </xsl:if>
         </ul>
     </xsl:template>
+    <xsl:template match="tei:title">
+        <xsl:value-of select="normalize-space(string-join(.))"/>
+    </xsl:template>
 </xsl:stylesheet>
