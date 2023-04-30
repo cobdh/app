@@ -45,3 +45,11 @@ def test_bibl_sortedby_year():
     numbers = re.findall(r'(\d{4}):', result)
     numbers = [int(item) for item in numbers]
     assert numbers == sorted(numbers, reverse=True)
+
+
+def test_biblstruct_without_type():
+    """Without strategy all xml data is printed in citation field."""
+    # TODO: MAY EXTEND TEST LATER
+    result = tests.int.curl('/bibl/Barsoum1987')
+    no_fallback = 'Bar Hebraeus Verlag Holland 1987'
+    assert no_fallback not in result
