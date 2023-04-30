@@ -23,7 +23,7 @@
     <xsl:template name="resource_link">
         <xsl:param name="collection">bibl</xsl:param>
         <xsl:param name="resource" select="@xml:id"/>
-        <xsl:param name="text">https://cobdh.org/bibl/<xsl:value-of select="$resource"/></xsl:param>
+        <xsl:param name="text">https://cobdh.org/<xsl:value-of select="$collection"/>/<xsl:value-of select="$resource"/></xsl:param>
         <!-- Hide href if no xml:id/address is given -->
         <xsl:element name="{if (empty($resource)) then 'span' else 'a'}">
             <xsl:attribute name="href">
