@@ -7,10 +7,11 @@
     >
     <!-- Import general methods -->
     <xsl:import href="../core/core.xsl"/>
+    <xsl:import href="../core/citation.xsl"/>
     <xsl:import href="../core/href.xsl"/>
     <xsl:import href="../core/mono.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
-    <xsl:import href="../core/citation.xsl"/>
+    <xsl:import href="../core/utils.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:biblStruct">
         <div class="col-md-8 col-lg-8">

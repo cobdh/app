@@ -1,5 +1,6 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:utils="https://data.cobdh.org/utils"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="2.0"
     >
@@ -71,6 +72,6 @@
         </ul>
     </xsl:template>
     <xsl:template match="tei:title">
-        <xsl:value-of select="normalize-space(string-join(.))"/>
+        <xsl:value-of select="utils:strip(.)"/>
     </xsl:template>
 </xsl:stylesheet>

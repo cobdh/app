@@ -1,8 +1,10 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns:utils="https://data.cobdh.org/utils"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="2.0"
     >
+    <xsl:import href="../core/utils.xsl"/>
     <!--Render persName-->
     <xsl:template name="person_names">
         <xsl:param name="list">0</xsl:param>
@@ -95,11 +97,9 @@
     </xsl:template>
     <xsl:template match="tei:editor[not(ancestor::tei:teiHeader)]" mode="plain">
         <!--Do not display editor from header with this template-->
-        <!--TODO: IMPROVE STRIP-->
-        <xsl:value-of select="normalize-space(string-join(.))"/>
+        <xsl:value-of select="utils:strip(.)"/>
     </xsl:template>
     <xsl:template match="tei:author" mode="plain">
-        <!--TODO: IMPROVE STRIP-->
-        <xsl:value-of select="normalize-space(string-join(.))"/>
+        <xsl:value-of select="utils:strip(.)"/>
     </xsl:template>
 </xsl:stylesheet>
