@@ -15,4 +15,16 @@
         <xsl:param name="text"/>
         <xsl:value-of select="replace(utils:strip($text), ' : ', ': ')"/>
     </xsl:function>
+    <xsl:function name="utils:single">
+        <!--Prefer latin characters -->
+        <!--TODO:WHILE IMPROVING MULTIPLE LANG APROACH, PREFER SELECTED LANG -->
+        <xsl:param name="nodes"/>
+        <xsl:variable name="selected">
+            <xsl:value-of select="if (empty($nodes[@xml:lang eq 'en'][1])) then
+                    $nodes[1] else
+                    $nodes[@xml:lang eq 'en'][1]
+                            "/>
+        </xsl:variable>
+        <xsl:value-of select="utils:improve($selected)"/>
+    </xsl:function>
 </xsl:stylesheet>
