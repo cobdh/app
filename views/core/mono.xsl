@@ -28,7 +28,7 @@
         <h4>Article</h4>
         <ul class="list-none">
             <li>
-                Title: <xsl:value-of select=".//tei:title"/>
+                Title: <xsl:apply-templates select=".//tei:title"/>
             </li>
             <xsl:for-each select=".//tei:author">
                 <xsl:apply-templates select="."/>
