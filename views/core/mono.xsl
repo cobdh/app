@@ -60,7 +60,7 @@
                 <li>Pages: <xsl:value-of select=".//tei:biblScope[@unit='page']"/></li>
             </xsl:if>
             <xsl:if test=".//tei:publisher">
-                <li>Publisher: <xsl:value-of select="//tei:publisher"/>(<xsl:value-of select="//tei:pubPlace"/>)</li>
+                <li>Publisher: <xsl:value-of select="//tei:publisher"/> (<xsl:value-of select="//tei:pubPlace"/>)</li>
             </xsl:if>
             <xsl:if test=".//tei:edition">
                 <li>Edition: <xsl:value-of select="//tei:edition"/></li>
