@@ -101,4 +101,14 @@
     <xsl:template match="tei:author" mode="plain">
         <xsl:value-of select="utils:strip(.)"/>
     </xsl:template>
+    <xsl:template match="tei:author" mode="plain_single">
+        <xsl:choose>
+            <xsl:when test="count(//tei:persName) &gt; 0">
+                <xsl:apply-templates select="utils:single(//tei:persName)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="utils:strip(.)"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
 </xsl:stylesheet>
