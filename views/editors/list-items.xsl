@@ -1,9 +1,11 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:utils="https://data.cobdh.org/utils"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
+    <xsl:import href="../core/utils.xsl"/>
     <xsl:template match="/">
         <ul>
             <xsl:for-each select="//tei:person">
@@ -13,7 +15,7 @@
                         <xsl:attribute name="href">
                             editors/<xsl:value-of select="@xml:id"/>
                         </xsl:attribute>
-                        <xsl:value-of select="."/>
+                        <xsl:apply-templates select="utils:single(.)"/>
                     </xsl:element>
                 </li>
             </xsl:for-each>
