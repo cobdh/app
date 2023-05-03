@@ -36,7 +36,7 @@
         <xsl:value-of select=".//tei:monogr/tei:imprint/tei:biblScope[@unit='page']"/>
         <xsl:text>.</xsl:text>
     </xsl:template>
-    <!-- book and tei:biblstruct-fallback-->
+    <!-- book and tei:biblStruct-fallback-->
     <xsl:template match="tei:biblStruct[@type='book'] | tei:biblStruct" mode="citation">
         <xsl:call-template name="authors_plain"/>
         <xsl:text>, </xsl:text>
