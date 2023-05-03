@@ -2,6 +2,7 @@
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:bibl="https://data.cobdh.org/bibl"
+    xmlns:utils="https://data.cobdh.org/utils"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
@@ -43,7 +44,7 @@
         <h2>
             <!-- TODO: IMPROVE -->
             <!--Do not render monogr title-->
-            <xsl:apply-templates select="descendant::tei:title[1]"/>
+            <xsl:apply-templates select="utils:single(descendant::tei:title)"/>
         </h2>
         <small>
             <xsl:call-template name="resource_link"/>

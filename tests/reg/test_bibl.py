@@ -51,6 +51,13 @@ def test_bibl_list():
     assert 'More Noncanonical Scriptures. Volume 1' not in result
 
 
+def test_bibl_list_latin_title():
+    """Ensure that Latin/Transcribed title is used instead of arabic one."""
+    result = tests.int.curl('/bibl')
+    expected = '1987: al-Luʼluʼ al-manthūr fī tārīkh al-ʻulūm wa-al-ādāb al-Suryāniyyah'
+    assert expected in result
+
+
 def test_bibl_title_order():
     result = tests.int.curl('/bibl/Thomson1995')
     assert_bibl_record(result)
@@ -61,6 +68,14 @@ def test_bibl_title_order():
     # series = result.find('Corpus Christianorum')
     # # display monograph headline before series headline
     # assert monogr < series
+
+
+def test_bibl_item_headline():
+    """Bibl item starts with transcribed headline."""
+    result = tests.int.curl('/bibl/Barsoum1987')
+    assert_bibl_record(result)
+    expected = 'al-Luʼluʼ al-manthūr fī tārīkh al-ʻulūm wa-al-ādāb al-Suryāniyyah'
+    assert tests.contains_hx(expected, result, level=2), result
 
 
 def test_bibl_editor_link():
