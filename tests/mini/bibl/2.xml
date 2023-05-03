@@ -58,10 +58,10 @@
                 <edition xml:lang="ar">الطبعة الرابعة</edition>
                 <edition xml:lang="en">4th ed.</edition>
                 <imprint>
+                    <publisher xml:lang="en">Bar Hebraeus Verlag</publisher>
                     <publisher xml:lang="ar">
                         مطبعة ابن العبري بدير مار افرام السرياني
                     </publisher>
-                    <publisher xml:lang="en">Bar Hebraeus Verlag</publisher>
                     <pubPlace ref="http://syriaca.org/place/842">Holland</pubPlace>
                     <date>1987</date>
                 </imprint>

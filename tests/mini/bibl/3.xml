@@ -64,23 +64,23 @@
                     </persName>
                 </editor>
                 <title
-                    xml:lang="syr"
-                    level="m"
-                >
-                    ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ
-                </title>
-                <title
                     xml:lang="en"
                     level="m"
                     type="parallel"
                 >
                     Berule bdire d-ʿal yulpone suryoye hdire
                 </title>
+                <title
+                    xml:lang="syr"
+                    level="m"
+                >
+                    ܒܪ̈ܘܠܐ ܒܕܝܪ̈ܐ ܕܥܠ ܡܪܕܘܬ ܝܘܠܦܢ̈ܐ ܣܘܪ̈ܝܝܐ ܗܕܝܪ̈ܐ
+                </title>
                 <edition xml:lang="syr">ܚܬܳܡܳܐ ܬܪܰܝܳܢܳܐ</edition>
                 <edition xml:lang="en">2nd ed.</edition>
                 <imprint>
-                    <publisher xml:lang="syr">ܡܛܒܥܬܐ ܣܘܪܝܝܬܐ ܕܒܪ ܥܒܪܝܐ</publisher>
                     <publisher xml:lang="en">Bar Hebraeus Verlag</publisher>
+                    <publisher xml:lang="syr">ܡܛܒܥܬܐ ܣܘܪܝܝܬܐ ܕܒܪ ܥܒܪܝܐ</publisher>
                     <pubPlace ref="http://syriaca.org/place/842">Holland</pubPlace>
                     <date>1991</date>
                 </imprint>
