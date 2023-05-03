@@ -47,9 +47,9 @@
         <xsl:text> </xsl:text>
         <!--(Yale University Press, 1990).-->
         <xsl:text>(</xsl:text>
-        <xsl:value-of select="//tei:pubPlace"/>
+        <xsl:value-of select="utils:single(//tei:pubPlace)"/>
         <xsl:text>: </xsl:text>
-        <xsl:value-of select="//tei:publisher"/>
+        <xsl:value-of select="utils:single(//tei:publisher)"/>
         <xsl:text>, </xsl:text>
         <xsl:value-of select="//tei:date"/>
         <xsl:text>)</xsl:text>
