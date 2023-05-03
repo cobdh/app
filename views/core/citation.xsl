@@ -1,6 +1,7 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:utils="https://data.cobdh.org/utils"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >
@@ -19,10 +20,10 @@
         <xsl:call-template name="authors_plain"/>
         <xsl:text>, </xsl:text>
         <xsl:text>"</xsl:text>
-        <xsl:apply-templates select=".//tei:analytic/tei:title"/>
+        <xsl:apply-templates select="utils:single(.//tei:analytic/tei:title)"/>
         <xsl:text>," </xsl:text>
         <i>
-            <xsl:apply-templates select=".//tei:monogr/tei:title"/>
+            <xsl:apply-templates select="utils:single(.//tei:monogr/tei:title)"/>
         </i>
         <xsl:text>, </xsl:text>
         <xsl:text>vol. </xsl:text>
@@ -41,7 +42,7 @@
         <xsl:text>, </xsl:text>
         <!--title-->
         <i>
-            <xsl:apply-templates select=".//tei:title"/>
+            <xsl:apply-templates select="utils:single(.//tei:title)"/>
         </i>
         <xsl:text> </xsl:text>
         <!--(Yale University Press, 1990).-->
@@ -59,11 +60,11 @@
         <xsl:call-template name="authors_plain"/>
         <xsl:text>, "</xsl:text>
         <!--title-->
-        <xsl:apply-templates select=".//tei:analytic/tei:title"/>
+        <xsl:apply-templates select="utils:single(.//tei:analytic/tei:title)"/>
         <xsl:text>," </xsl:text>
         <xsl:text>in </xsl:text>
         <i>
-            <xsl:apply-templates select=".//tei:monogr/tei:title"/>
+            <xsl:apply-templates select="utils:single(.//tei:monogr/tei:title)"/>
         </i>
         <xsl:text>, edited by </xsl:text>
         <xsl:call-template name="editors_plain"/>
@@ -77,7 +78,7 @@
         <xsl:text>, </xsl:text>
         <!--title-->
         <i>
-            <xsl:apply-templates select=".//tei:title"/>
+            <xsl:apply-templates select="utils:single(.//tei:title)"/>
         </i>
         <!--(Yale University Press, 1990).-->
         <xsl:text> (</xsl:text>
