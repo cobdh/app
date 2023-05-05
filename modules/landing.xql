@@ -43,5 +43,9 @@ declare function landing:filter_collection($items){
         else
             for $item in $items
             where $item //tei:category[@xml:id eq $category]
+            (:Select Category is not stable, to ensure ordering we have to
+            order it. Investiate to make it stable and remove the hack. :)
+            (:TODO: REMOVE ORDER BY HACK :)
+            order by $item//tei:date descending
             return $item
 };
