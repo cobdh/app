@@ -118,5 +118,8 @@ def test_collection_sortedby_year():
     ('Barsoum1991', 'Ignatius Afram Barsoum,'),
 ])
 def test_bibl_view_fix_spaces(source, expected):
-    result = tests.int.curl(f'/bibl/{source}')
+    result = tests.int.curl(
+        f'/bibl/{source}',
+        plain=True,
+    )
     assert expected in result

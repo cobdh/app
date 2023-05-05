@@ -14,6 +14,7 @@ def curl(
     path: str,
     optimize: bool = True,
     timeout=5.0,
+    plain: bool = False,
 ):
     """\
     >>> curl('/')
@@ -29,7 +30,25 @@ def curl(
         html = html.replace('\n', '')
         # reduce multiple white spaces
         html = re.sub(r'[ ]+', ' ', html)
+    if plain:
+        html = plainme(html)
     return html
+
+
+REMOVE_FORMATTING = re.compile(r'\</?[ibu]\>')
+
+
+def plainme(raw: str) -> str:
+    """Remove text formatting elements to ease testing.
+
+    >>> plainme('<i>Removed')
+    'Removed'
+    """
+    raw = REMOVE_FORMATTING.sub(
+        '',
+        raw,
+    )
+    return raw
 
 
 def rest(path: str):
