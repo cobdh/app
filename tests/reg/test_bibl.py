@@ -115,6 +115,7 @@ def test_collection_sortedby_year():
         'Publisher: William B. Eerdmans (Grand Rapids, Michigan)',
     ),
     ('Barsoum1991', '(Holland: Bar Hebraeus Verlag, 1991).'),
+    ('Barsoum1991', 'Ignatius Afram Barsoum,'),
 ])
 def test_bibl_view_fix_spaces(source, expected):
     result = tests.int.curl(f'/bibl/{source}')

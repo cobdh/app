@@ -98,7 +98,7 @@
                 </xsl:for-each>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:apply-templates select=".//tei:author" mode="plain"/>
+                <xsl:apply-templates select=".//tei:author" mode="plain_single"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
