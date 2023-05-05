@@ -34,6 +34,7 @@
             <h3>Full Citation Information</h3>
             <xsl:apply-templates select="tei:analytic"/>
             <xsl:apply-templates select="tei:monogr"/>
+            <xsl:call-template name="biblfull_no_analytic_monogr"/>
             <xsl:call-template name="credit"/>
             <xsl:call-template name="licence"/>
         </div>
@@ -49,5 +50,44 @@
         <small>
             <xsl:call-template name="resource_link"/>
         </small>
+    </xsl:template>
+    <xsl:template name="biblfull_no_analytic_monogr">
+        <xsl:if test="empty(.//tei:analytic) and empty(.//tei:monogr)">
+            <!--TODO: UNITE WITH MONO -->
+            <ul class="list-none">
+                <li>
+                    Title: <xsl:apply-templates select=".//tei:title"/>
+                </li>
+                <xsl:for-each select=".//tei:author">
+                    <xsl:apply-templates select="."/>
+                </xsl:for-each>
+                <xsl:for-each select=".//tei:editor">
+                    <xsl:apply-templates select="."/>
+                </xsl:for-each>
+            </ul>
+            <ul class="list-none">
+                <xsl:if test=".//tei:date">
+                    <li>Date of Publication: <xsl:value-of select="//tei:date"/></li>
+                </xsl:if>
+                <xsl:if test=".//tei:volume">
+                    <li>Volume: <xsl:value-of select="//tei:volume"/></li>
+                </xsl:if>
+                <xsl:if test=".//tei:biblScope[@unit='volume']">
+                    <li>Volume: <xsl:value-of select=".//tei:biblScope[@unit='volume']"/></li>
+                </xsl:if>
+                <xsl:if test=".//tei:extent">
+                    <li>Pages: <xsl:value-of select="//tei:extent"/></li>
+                </xsl:if>
+                <xsl:if test=".//tei:biblScope[@unit='page']">
+                    <li>Pages: <xsl:value-of select=".//tei:biblScope[@unit='page']"/></li>
+                </xsl:if>
+                <xsl:if test=".//tei:publisher">
+                    <li>Publisher: <xsl:value-of select="//tei:publisher"/> (<xsl:value-of select="//tei:pubPlace"/>)</li>
+                </xsl:if>
+                <xsl:if test=".//tei:edition">
+                    <li>Edition: <xsl:value-of select="//tei:edition"/></li>
+                </xsl:if>
+            </ul>
+        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

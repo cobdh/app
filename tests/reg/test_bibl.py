@@ -94,6 +94,14 @@ def test_bibl_editor_names():
     assert 'Alexander Panayotov' in result
 
 
+def test_bibl_fullbibl_without_mono_and_analytic():
+    """Ensure that clickable link of editors is displayed."""
+    result = tests.int.curl('/bibl/BVCP1990')
+    assert 'Date of Publication: 1990' in result
+    assert 'Pages: 1231 pp' in result
+    assert 'Title: The Feminist Companion to Literature in English' in result
+
+
 def test_collection_sortedby_year():
     """Ensure that bibl is sorted by date when collection is selected."""
     result = tests.int.curl('/bibl?collection=ar')
