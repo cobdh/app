@@ -13,21 +13,21 @@ import module namespace templates="http://exist-db.org/xquery/templates";
  :)
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
-import module namespace app="https://data.cobdh.org/app" at "app.xql";
+import module namespace app="https://cobdh.org/app" at "app.xql";
 
-import module namespace editor="https://data.cobdh.org/editors" at "editor.xql";
+import module namespace editor="https://cobdh.org/editors" at "editor.xql";
 
-import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+import module namespace bibl="https://cobdh.org/bibl" at "bibl.xql";
 
-import module namespace persons="https://data.cobdh.org/persons" at "persons.xql";
+import module namespace persons="https://cobdh.org/persons" at "persons.xql";
 
-import module namespace search="https://data.cobdh.org/search" at "search.xql";
+import module namespace search="https://cobdh.org/search" at "search.xql";
 
-import module namespace landing="https://data.cobdh.org/landing" at "landing.xql";
+import module namespace landing="https://cobdh.org/landing" at "landing.xql";
 
-import module namespace tester="https://data.cobdh.org/tester" at "tester.xql";
+import module namespace tester="https://cobdh.org/tester" at "tester.xql";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 

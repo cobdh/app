@@ -7,7 +7,7 @@ import module namespace i18n="http://exist-db.org/xquery/i18n" at "i18n.xql";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 
-import module namespace config="https://data.cobdh.org/config" at "../config.xqm";
+import module namespace config="https://cobdh.org/config" at "../config.xqm";
 
 (:~
  : Template function: calls i18n:process on the child nodes of $node.

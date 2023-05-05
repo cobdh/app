@@ -1,8 +1,8 @@
 xquery version "3.0";
 
-module namespace tester="https://data.cobdh.org/tester";
+module namespace tester="https://cobdh.org/tester";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
 import module namespace test="http://exist-db.org/xquery/xqsuite" at "resource:org/exist/xquery/lib/xqsuite/xqsuite.xql";
 

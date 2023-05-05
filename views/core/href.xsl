@@ -1,7 +1,7 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:core="https://data.cobdh.org/core"
+    xmlns:core="https://cobdh.org/core"
     version="1.0"
     >
     <xsl:template name="external_links">

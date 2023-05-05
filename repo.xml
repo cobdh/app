@@ -5,7 +5,7 @@
     <website>https://cobdh.org</website>
     <copyright>true</copyright>
     <type>application</type>
-    <target>cobdh-data</target>
+    <target>cobdh</target>
     <prepare>pre-install.xql</prepare>
     <finish>post-install.xql</finish>
 </meta>

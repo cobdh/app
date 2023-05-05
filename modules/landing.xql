@@ -1,6 +1,6 @@
 xquery version "3.1";
 
-module namespace landing="https://data.cobdh.org/landing";
+module namespace landing="https://cobdh.org/landing";
 
 import module namespace request = "http://exist-db.org/xquery/request";
 

@@ -1,12 +1,12 @@
 xquery version "3.0";
 
-module namespace editor="https://data.cobdh.org/editors";
+module namespace editor="https://cobdh.org/editors";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
-import module namespace editors="https://data.cobdh.org/rest/editors" at "../rest/editors.xq";
+import module namespace editors="https://cobdh.org/rest/editors" at "../rest/editors.xq";
 
-import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+import module namespace bibl="https://cobdh.org/bibl" at "bibl.xql";
 
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";

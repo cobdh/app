@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project
     default="xar"
-    name="cobdh-data"
+    name="cobdh"
 >
     <xmlproperty file="expath-pkg.xml"/>
     <property
@@ -10,7 +10,7 @@
     />
     <property
         name="project.app"
-        value="cobdh-data"
+        value="cobdh"
     />
     <property
         name="build.dir"

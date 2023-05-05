@@ -1,12 +1,12 @@
 xquery version "3.0";
 
-module namespace search="https://data.cobdh.org/search";
+module namespace search="https://cobdh.org/search";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
-import module namespace app="https://data.cobdh.org/app" at "app.xql";
+import module namespace app="https://cobdh.org/app" at "app.xql";
 
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";

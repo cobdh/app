@@ -1,8 +1,8 @@
 <xsl:stylesheet
     xmlns:tei="http://www.tei-c.org/ns/1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-    xmlns:bibl="https://data.cobdh.org/bibl"
-    xmlns:utils="https://data.cobdh.org/utils"
+    xmlns:bibl="https://cobdh.org/bibl"
+    xmlns:utils="https://cobdh.org/utils"
     xpath-default-namespace="http://www.tei-c.org/ns/1.0"
     version="2.0"
     >

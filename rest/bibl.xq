@@ -1,10 +1,10 @@
 xquery version "3.0";
 
-module namespace bibl="https://data.cobdh.org/rest/bibl";
+module namespace bibl="https://cobdh.org/rest/bibl";
 
-import module namespace config="https://data.cobdh.org/config" at "../modules/config.xqm";
+import module namespace config="https://cobdh.org/config" at "../modules/config.xqm";
 
-import module namespace bibl_data="https://data.cobdh.org/bibl" at "../modules/bibl.xql";
+import module namespace bibl_data="https://cobdh.org/bibl" at "../modules/bibl.xql";
 
 (: Namespaces :)
 declare namespace rest="http://exquery.org/ns/restxq";

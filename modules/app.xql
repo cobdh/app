@@ -1,12 +1,12 @@
 xquery version "3.0";
 
-module namespace app="https://data.cobdh.org/app";
+module namespace app="https://cobdh.org/app";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
-import module namespace page="https://data.cobdh.org/page" at "lib/paging.xqm";
+import module namespace page="https://cobdh.org/page" at "lib/paging.xqm";
 
 declare namespace test="http://exist-db.org/xquery/xqsuite";
 
@@ -32,20 +32,20 @@ declare function app:test($node as node(), $model as map(*)){
 
 declare function app:href($node as node(), $model as map(*), $text as xs:string, $path as xs:string){
     (: TODO CONFIGURABLE LATER :)
-    <a href="/exist/apps/cobdh-data{$path}">{$text}</a>
+    <a href="/exist/apps/cobdh{$path}">{$text}</a>
 };
 
 declare
     %test:arg("path", "bibl/1234")
-    %test:assertEquals('/exist/apps/cobdh-data/bibl/1234')
+    %test:assertEquals('/exist/apps/cobdh/bibl/1234')
 function app:abspath($path as xs:string){
-    let $result := concat("/exist/apps/cobdh-data/", $path)
+    let $result := concat("/exist/apps/cobdh/", $path)
     return
         $result
 };
 
 (:~ Determine resource based on passed url.
- : For example: https://data.cobdh.org/bibl/123 the resource is 123.
+ : For example: https://cobdh.org/bibl/123 the resource is 123.
 :)
 declare function app:determine_resource($node as node(), $model as map(*)){
     let $parsed := app:parse_resource_url(request:get-uri())
@@ -63,23 +63,23 @@ declare function app:determine_resource($node as node(), $model as map(*)){
 
 declare
     (:Access TEI-Resource in bibl-Collection:)
-    %test:arg("url", "exist/apps/cobdh-data/bibl/Hovhanessian2013.tei")
+    %test:arg("url", "exist/apps/cobdh/bibl/Hovhanessian2013.tei")
     %test:assertEquals('bibl', 'Hovhanessian2013', 'tei')
 
     (:No special resource format is defined:)
-    %test:arg("url", "exist/apps/cobdh-data/persons/Helmutus")
+    %test:arg("url", "exist/apps/cobdh/persons/Helmutus")
     %test:assertEquals('persons', 'Helmutus')
 
     (:Allow simple index access:)
-    %test:arg("url", "https://data.cobdh.org/persons/123")
+    %test:arg("url", "https://cobdh.org/persons/123")
     %test:assertEquals('persons', '123')
 
     (:Non-Data-Collection-page:)
-    %test:arg("url", "exist/apps/cobdh-data/about")
+    %test:arg("url", "exist/apps/cobdh/about")
     %test:assertEmpty
 
     (:Non-Unicode url:)
-    %test:arg("url", "cobdh-data/persons/MaclerFr%C3%A9d%C3%A9ric")
+    %test:arg("url", "cobdh/persons/MaclerFr%C3%A9d%C3%A9ric")
     %test:assertEquals('persons', 'MaclerFrédéric')
 function app:parse_resource_url($url){
     let $url := xmldb:decode($url)

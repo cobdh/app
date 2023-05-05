@@ -7,7 +7,7 @@
 
 xquery version "3.0";
 
-module namespace m="https://data.cobdh.org/sample/unittests";
+module namespace m="https://cobdh.org/sample/unittests";
 
 declare namespace test="http://exist-db.org/xquery/xqsuite";
 

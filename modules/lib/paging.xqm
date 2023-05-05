@@ -2,7 +2,7 @@ xquery version "3.0";
 (:~
  : Adds page numbers to large collections.
  :)
-module namespace page="https://data.cobdh.org/page";
+module namespace page="https://cobdh.org/page";
 
 (:~
  : Build paging menu for search results, includes search string

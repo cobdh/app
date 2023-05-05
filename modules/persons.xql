@@ -1,16 +1,16 @@
 xquery version "3.0";
 
-module namespace persons="https://data.cobdh.org/persons";
+module namespace persons="https://cobdh.org/persons";
 
-import module namespace config="https://data.cobdh.org/config" at "config.xqm";
+import module namespace config="https://cobdh.org/config" at "config.xqm";
 
 import module namespace templates="http://exist-db.org/xquery/templates" at "template.xql";
 
-import module namespace bibl="https://data.cobdh.org/bibl" at "bibl.xql";
+import module namespace bibl="https://cobdh.org/bibl" at "bibl.xql";
 
-import module namespace app="https://data.cobdh.org/app" at "app.xql";
+import module namespace app="https://cobdh.org/app" at "app.xql";
 
-import module namespace landing="https://data.cobdh.org/landing" at "landing.xql";
+import module namespace landing="https://cobdh.org/landing" at "landing.xql";
 
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
