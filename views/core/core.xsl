@@ -61,7 +61,7 @@
             <xsl:attribute name="href">
                 <xsl:sequence select="core:hyper('editors', @xml:id)"/>
             </xsl:attribute>
-            <xsl:value-of select=".//@xml:id"/>
+            <xsl:value-of select="core:id_to_name(.//@xml:id)"/>
         </xsl:element>
         <!-- <xsl:call-template name="copy"/> -->
         <br/>
@@ -106,5 +106,10 @@
         <xsl:param name="collection"/>
         <xsl:param name="item"/>
         <xsl:value-of select="concat('/exist/apps/cobdh/', $collection, '/', $item)"/>
+    </xsl:function>
+    <!--Userid to name-->
+    <xsl:function name="core:id_to_name">
+        <xsl:param name="xmlid"/>
+        <xsl:value-of select="replace($xmlid, '_', ' ')"/>
     </xsl:function>
 </xsl:stylesheet>
