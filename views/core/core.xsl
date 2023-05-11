@@ -50,7 +50,9 @@
         <button
             type="button"
             class="btn btn-default btn-xs"
-            title="Copies URI to clipboard"
+            title="Copies to clipboard"
+            data-clipboard-action="copy"
+            data-clipboard-text="{normalize-space($text)}"
             >
             <xsl:value-of select="$text"/>
         </button>
