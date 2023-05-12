@@ -49,7 +49,7 @@
         <xsl:param name="text">copy</xsl:param>
         <button
             type="button"
-            class="btn btn-default btn-xs"
+            class="btn btn-default btn-xs copy-sm clipboard"
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{normalize-space($text)}"
