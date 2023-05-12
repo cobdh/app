@@ -47,12 +47,13 @@
     <!--Render resource copy-->
     <xsl:template name="copy">
         <xsl:param name="text">copy</xsl:param>
+        <xsl:param name="value"></xsl:param>
         <button
             type="button"
             class="btn btn-default btn-xs copy-sm clipboard"
             title="Copies to clipboard"
             data-clipboard-action="copy"
-            data-clipboard-text="{normalize-space($text)}"
+            data-clipboard-text="{core:no_html($value)}"
             >
             <xsl:value-of select="$text"/>
         </button>
@@ -113,5 +114,10 @@
     <xsl:function name="core:id_to_name">
         <xsl:param name="xmlid"/>
         <xsl:value-of select="replace($xmlid, '_', ' ')"/>
+    </xsl:function>
+    <!--Remove html styling elements out of text-->
+    <xsl:function name="core:no_html">
+        <xsl:param name="text"/>
+        <xsl:value-of select="replace($text, '&lt;/?(ibu)&gt;', '')"/>
     </xsl:function>
 </xsl:stylesheet>

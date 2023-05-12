@@ -12,6 +12,9 @@
             <xsl:text> </xsl:text>
             <xsl:call-template name="copy" >
                 <xsl:with-param name="text">cite</xsl:with-param>
+                <xsl:with-param name="value">
+                    <xsl:apply-templates select="." mode="citation"/>
+                </xsl:with-param>
             </xsl:call-template>
         </p>
     </xsl:template>
