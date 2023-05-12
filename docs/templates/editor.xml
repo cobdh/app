@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="XXXXXXX"
+>
+    <person xml:id="XXXXXXX">
+        <persName>
+            <surname>XXXXXXX</surname>
+            <forename>XXXXXXX</forename>
+            <forename>XXXXXXX</forename>
+        </persName>
+    </person>
+</TEI>
