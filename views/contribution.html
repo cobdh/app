@@ -61,5 +61,48 @@
                 wait for feedback and solve the requested changes
             </li>
         </ol>
+        <h2>Tools</h2>
+        <p>
+            The following tools eases working with xml-files inside cobdh-project. These
+            tools require python. Use `python -mpip install cob_dev` to install the dev-
+            package.
+        </p>
+        <h3>cob_persons</h3>
+        <p>
+            Generate persons based on bibliographic database.
+        </p>
+        <ol>
+            <li>cd to data/persons</li>
+            <li>
+                run cob_persons data/bibl to generate new persons
+            </li>
+        </ol>
+        <h3>cob_format</h3>
+        <p>
+            Run formatter to ensure standarized source code.
+        </p>
+        <ol>
+            <li>cd to project directory</li>
+            <li>
+                cob_format . --ext html --ext xml to format html and xml files
+            </li>
+        </ol>
+        <h3>cob_split</h3>
+        <p>
+            Split a single xml file into separate xml-files by node-name.
+        </p>
+        <ol>
+            <li>cd to data/bibl</li>
+            <li>
+                cob_split --src base.xml --node .//biblStruct
+            </li>
+        </ol>
+        <h3>cob_enrich</h3>
+        <p>
+            Inject TEI-Header into a single file or multiple files inside a directory.
+        </p>
+        <ul>
+            <li>cob_enrich [file or directory]</li>
+        </ul>
     </div>
 </div>
