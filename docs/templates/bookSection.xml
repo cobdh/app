@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
+                    xml:id="XXXXXX"
+                    ref="https://cobdh.org/editors/XXXXXX"
+                    role="general"
+                />
+                <editor
+                    xml:id="XXXXXX"
+                    ref="https://cobdh.org/editors/XXXXXX"
+                    role="creator"
+                />
+            </titleStmt>
+        </fileDesc>
+    </teiHeader>
+    <body>
+        <biblStruct
+            xml:id="XXXXXX"
+            type="bookSection"
+        >
+            <analytic>
+                <title level="a">XXXXXX</title>
+                <author
+                    xml:id="XXXXXX"
+                    ref="https://cobdh.org/persons/XXXXXX"
+                >
+                    <forename>XXXXXX</forename>
+                    <surname>XXXXXX</surname>
+                </author>
+            </analytic>
+            <monogr>
+                <title level="m">XXXXXX</title>
+                <editor
+                    xml:id="XXXXXX"
+                    ref="https://cobdh.org/persons/XXXXXX"
+                >
+                    <forename>XXXXXX</forename>
+                    <surname>XXXXXX</surname>
+                </editor>
+                <imprint>
+                    <pubPlace>XXXXXX</pubPlace>
+                    <biblScope unit="page">XXXXXX</biblScope>
+                    <publisher>XXXXXX</publisher>
+                    <date>XXXXXX</date>
+                </imprint>
+            </monogr>
+        </biblStruct>
+    </body>
+</TEI>
