@@ -39,3 +39,7 @@ ul.list-none{
 .grey-bot{
     margin-bottom:30px;
 }
+h3{
+    /* TODO: REMOVE AFTER FIX EXIST.DB */
+    font-family: "QuicksandBook", "Arial", Helvetica, sans-serif;
+}
