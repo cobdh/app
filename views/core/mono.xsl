@@ -39,7 +39,6 @@
                     <xsl:with-param name="resource" select="../@xml:id"/>
                 </xsl:call-template>
             </li>
-            <xsl:call-template name="external_links"/>
         </ul>
     </xsl:template>
     <xsl:template match="tei:imprint">

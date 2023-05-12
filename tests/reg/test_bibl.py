@@ -28,7 +28,7 @@ def test_bibl_biblfull():
     ('Date of Publication: 2013', 1),
     ('Pages: 326-345', 1),
     ('Publisher: William B. Eerdmans', 1),
-    ('Zotero:', 1),
+    ('Based on', 1),
 ])
 def test_bibl_struct(pattern, expected):
     resource = tests.resources.ids.BIBL_10_ID
