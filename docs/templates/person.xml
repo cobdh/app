@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TEI
+    xmlns="http://www.tei-c.org/ns/1.0"
+    xml:lang="en"
+>
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <editor
+                    xml:id="XXXXXX"
+                    ref="https://cobdh.org/editors/XXXXXX"
+                    role="creator"
+                />
+            </titleStmt>
+        </fileDesc>
+        <encodingDesc>
+            <classDecl>
+                <taxonomy>
+                    <category xml:id="XXXXXX"/>
+                </taxonomy>
+            </classDecl>
+        </encodingDesc>
+    </teiHeader>
+    <body>
+        <person xml:id="XXXXXX">
+            <persName>
+                <surname>XXXXXX</surname>
+                <forename>XXXXXX</forename>
+                <forename>XXXXXX</forename>
+            </persName>
+            <persName xml:lang="syr">
+                <surname>XXXXXX</surname>
+                <surname>XXXXXX</surname>
+                <forename>XXXXXX</forename>
+                <forename>XXXXXX</forename>
+            </persName>
+        </person>
+    </body>
+</TEI>
