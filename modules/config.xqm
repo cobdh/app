@@ -40,6 +40,9 @@ declare variable $config:data-bibl := $config:data-root || "/bibl";
 
 declare variable $config:data-persons := $config:data-root || "/persons";
 
+declare variable $config:data-editors := $config:data-root || "/editors";
+
+
 (:~
  : Resolve the given path using the current application context.
  : If the app resides in the file system,

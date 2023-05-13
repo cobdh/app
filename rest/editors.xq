@@ -14,9 +14,6 @@ declare namespace rest="http://exquery.org/ns/restxq";
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-(: Global Variables:)
-declare variable $editors:data := $config:app-root || "/data/editors";
-
 declare
     %rest:GET
     %rest:path("/editors")
@@ -43,14 +40,14 @@ declare
     %rest:GET
     %rest:path("/editors/{$index}")
 function editors:view-item($index as xs:string*){
-    let $result := collection($editors:data)/tei:TEI/tei:person[@xml:id eq $index]
+    let $result := collection($config:data-editors)/tei:TEI/tei:person[@xml:id eq $index]
     return $result
 };
 
 declare function editors:list-items(){
     <tei:listPerson>
     {
-        for $editor in collection($editors:data)/tei:TEI
+        for $editor in collection($config:data-editors)/tei:TEI
         order by persons:orderby_name($editor)
         return
             $editor
