@@ -8,14 +8,14 @@ ROOT=$(pwd)
 rm -r "${ROOT}/build"
 
 CURRENT=$(git describe --tags)
-TAG="cobdh/data:${CURRENT}"
+TAG="cobdh/view:${CURRENT}pre"
 
 NAME="tmp_cobdh_${CURRENT}"
 docker rm $NAME
 
 # build
 docker run -it\
-    -v "${ROOT}/../":/var/src \
+    -v "${ROOT}/../../":/var/src \
     -e VERSION="$CURRENT" \
     --name ${NAME}\
     ${BUILDER}
