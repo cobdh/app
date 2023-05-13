@@ -39,6 +39,10 @@
                 dir="tests/mini/persons"
                 prefix="data/persons"
             />
+            <zipfileset
+                dir="tests/mini/editors"
+                prefix="data/editors"
+            />
         </zip>
     </target>
 </project>
