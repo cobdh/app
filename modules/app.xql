@@ -114,3 +114,16 @@ declare %templates:wrap function app:pageination(
         $app:perpage
     )
 };
+
+declare
+    %templates:wrap
+function app:view_template($node as node(), $model as map(*), $template as xs:string){
+    let $root := '/db/apps/cobdh/'
+    let $path := concat('docs/templates/', $template, '.xml')
+    let $data := doc(concat($root, $path))
+    return
+        <div>
+            <h4>{$path}</h4>
+            <textarea lang="xml" rows="8" cols="80" style="border:none;">{$data}</textarea>
+        </div>
+};
