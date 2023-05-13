@@ -15,3 +15,8 @@ import tests.int
 def test_static(url, expected):
     result = tests.int.curl(url)
     assert tests.contains_hx(title=expected, content=result), result
+
+
+def test_contribution():
+    result = tests.int.curl('/contribution')
+    assert 'docs/templates/bookSection.xml' in result
