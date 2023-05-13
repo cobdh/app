@@ -120,10 +120,11 @@ declare
 function app:view_template($node as node(), $model as map(*), $template as xs:string){
     let $root := '/db/apps/cobdh/'
     let $path := concat('docs/templates/', $template, '.xml')
-    let $data := doc(concat($root, $path))
+    let $src := concat($root, $path)
+    let $data := doc($src)
     return
         <div>
-            <h4>{$path}</h4>
+            <h4><a href="{app:abspath($path)}" target="_blank">{$path}</a></h4>
             <textarea lang="xml" rows="8" cols="80" style="border:none;">{$data}</textarea>
         </div>
 };
