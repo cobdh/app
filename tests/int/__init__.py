@@ -18,7 +18,7 @@ def curl(
 ):
     """\
     >>> curl('/')
-    '...<h1 data-template="config:app-title">cobdh.org data</h1>...'
+    '...<h1 data-template="config:app-title">cobdh.org</h1>...'
     """
     url = SERVER + path
     url = werkzeug.urls.url_fix(url)

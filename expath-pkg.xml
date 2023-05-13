@@ -6,6 +6,6 @@
     spec="1.0"
     version="XXX"
 >
-    <title>cobdh.org data</title>
+    <title>cobdh.org</title>
     <!--<dependency package="http://exist-db.org/apps/shared" />-->
 </package>
