@@ -130,6 +130,8 @@ def test_collection_sortedby_year():
         'Ignatius Afram Barsoum, Berule bdire d-ʿal yulpone suryoye hdire '
         '(Holland: Bar Hebraeus Verlag, 1991).',
     ),
+    ('BVCP1990', 'Phenix Robert'),
+    ('BVCP1990', 'Schewe Helmut Konrad'),
 ])
 def test_bibl_view_fix_spaces(source, expected):
     result = tests.int.curl(

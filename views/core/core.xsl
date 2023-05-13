@@ -114,7 +114,7 @@
     <!--Userid to name-->
     <xsl:function name="core:id_to_name">
         <xsl:param name="xmlid"/>
-        <xsl:value-of select="replace($xmlid, '_', ' ')"/>
+        <xsl:value-of select="core:titleCase(replace($xmlid, '_', ' '))"/>
     </xsl:function>
     <!--Remove html styling elements out of text-->
     <xsl:function name="core:no_html">
@@ -136,4 +136,15 @@
             </li>
         </xsl:if>
     </xsl:template>
+    <!--Convert to title case, make every first word character upper case.-->
+    <xsl:function name="core:titleCase">
+        <xsl:param name="text" />
+        <xsl:for-each select="tokenize($text,' ')">
+            <xsl:value-of select="upper-case(substring(.,1,1))" />
+            <xsl:value-of select="lower-case(substring(.,2))" />
+            <xsl:if test="position() ne last()">
+                <xsl:text> </xsl:text>
+            </xsl:if>
+        </xsl:for-each>
+    </xsl:function>
 </xsl:stylesheet>
