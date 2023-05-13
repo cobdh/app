@@ -1,0 +1,3 @@
+FROM cobdh/nano_db:v0.2.0
+
+COPY build/*.xar /exist/autodeploy
