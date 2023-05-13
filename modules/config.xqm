@@ -11,6 +11,7 @@ declare namespace expath="http://expath.org/ns/pkg";
 declare namespace repo="http://exist-db.org/xquery/repo";
 declare namespace req="http://exquery.org/ns/request";
 declare namespace templates="http://exist-db.org/xquery/templates";
+declare namespace xmldb="http://exist-db.org/xquery/xmldb";
 
 (:
     Determine the application root collection from the current module load path.
@@ -30,7 +31,12 @@ declare variable $config:app-root :=
         substring-before($modulePath, "/modules")
 ;
 
-declare variable $config:data-root := $config:app-root || "/data";
+declare variable $config:data-root :=
+    if (xmldb:collection-available($config:app-root || '/../collection/data')) then
+        $config:app-root || '/../collection/data'
+    else
+        $config:app-root || "/data"
+;
 
 declare variable $config:repo-descriptor := doc(concat($config:app-root, "/repo.xml"))/repo:meta;
 
