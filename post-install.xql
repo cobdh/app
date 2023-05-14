@@ -1,4 +1,4 @@
-xquery version "3.0";
+(: xquery version "3.0";
 
 import module namespace xrest="http://exquery.org/ns/restxq/exist" at "java:org.exist.extensions.exquery.restxq.impl.xquery.exist.ExistRestXqModule";
 
@@ -9,4 +9,4 @@ declare variable $target external;
 
 (: Register restxq modules. Should be done automatically, but there seems to be an occasional bug :)
 xrest:register-module(xs:anyURI($target || "/rest/editors.xq")),
-xrest:register-module(xs:anyURI($target || "/rest/bibl.xq"))
+xrest:register-module(xs:anyURI($target || "/rest/bibl.xq")) :)

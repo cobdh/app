@@ -1,4 +1,4 @@
-xquery version "3.0";
+(: xquery version "3.0";
 
 module namespace bibl="https://cobdh.org/rest/bibl";
 
@@ -17,4 +17,4 @@ declare
     %output:method("xml")
 function bibl:index_xml(){
     bibl_data:list-items()
-};
+}; :)

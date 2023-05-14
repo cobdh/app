@@ -1,4 +1,4 @@
-xquery version "3.0";
+(: xquery version "3.0";
 
 (:
  : Defines all the RestXQ endpoints used by the XForms.
@@ -42,4 +42,4 @@ declare
 function editors:view-item($index as xs:string*){
     let $result := collection($config:data-editors)/tei:TEI/tei:person[@xml:id eq $index]
     return $result
-};
+}; :)
