@@ -34,35 +34,45 @@ let $pagination-links :=
         <div>
             {
             if($total-result-count gt $perpage) then
-            <ul class="pagination pull-right">
+                <ul class="pagination pull-right">
                 {(: Show 'Previous' for all but the 1st page of results :)
-                    if ($current-page = 1) then ()
-                    else <li><a href="{concat($param-string, $perpage * ($current-page - 2)) }">Prev</a></li>,
+                    if ($current-page = 1) then
+                        ()
+                    else
+                        <li><a href="{concat($param-string, $perpage * ($current-page - 2)) }">Prev</a></li>,
                     (: Show links to each page of results :)
                     let $max-pages-to-show := 8
                     let $padding := xs:integer(round($max-pages-to-show div 2))
                     let $start-page :=
-                                  if ($current-page le ($padding + 1)) then
-                                      1
-                                  else $current-page - $padding
+                                    if ($current-page le ($padding + 1)) then
+                                        1
+                                    else
+                                        $current-page - $padding
                     let $end-page :=
-                                  if ($number-of-pages le ($current-page + $padding)) then
-                                      $number-of-pages
-                                  else $current-page + $padding - 1
+                                    if ($number-of-pages le ($current-page + $padding)) then
+                                        $number-of-pages
+                                    else
+                                        $current-page + $padding - 1
                     for $page in ($start-page to $end-page)
-                    let $newstart :=
-                                  if($page = 1) then 1
-                                  else $perpage * ($page - 1)
-                    return
-                        if ($newstart eq $start) then <li class="active"><a href="#" >{$page}</a></li>
-                         else <li><a href="{concat($param-string, $newstart)}">{$page}</a></li>,
+                        let $newstart :=
+                                    if($page = 1) then
+                                        1
+                                    else
+                                        $perpage * ($page - 1)
+                        return
+                            if ($newstart eq $start) then
+                                <li class="active"><a href="#" >{$page}</a></li>
+                            else
+                                <li><a href="{concat($param-string, $newstart)}">{$page}</a></li>,
                     (: Shows 'Next' for all but the last page of results :)
-                    if ($start + $perpage ge $total-result-count) then ()
-                    else <li><a href="{concat($param-string, $start + $perpage)}">Next</a></li>
+                    if ($start + $perpage ge $total-result-count) then
+                        ()
+                    else
+                        <li><a href="{concat($param-string, $start + $perpage)}">Next</a></li>
                 }
-            </ul>
+                </ul>
             else
-            ()
+                ()
             }
         </div>
     </div>
