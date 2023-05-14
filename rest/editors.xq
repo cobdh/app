@@ -7,7 +7,7 @@ module namespace editors="https://cobdh.org/rest/editors";
 
 import module namespace config="https://cobdh.org/config" at "../modules/config.xqm";
 
-import module namespace persons="https://cobdh.org/persons" at "../modules/persons.xql";
+import module namespace editor="https://cobdh.org/editors" at "../modules/editor.xql";
 
 (: Namespaces :)
 declare namespace rest="http://exquery.org/ns/restxq";
@@ -33,7 +33,7 @@ declare
     %rest:path("/editors")
     %output:method("xml")
 function editors:index_xml(){
-    editors:list-items()
+    editor:list-items()
 };
 
 declare
@@ -42,15 +42,4 @@ declare
 function editors:view-item($index as xs:string*){
     let $result := collection($config:data-editors)/tei:TEI/tei:person[@xml:id eq $index]
     return $result
-};
-
-declare function editors:list-items(){
-    <tei:listPerson>
-    {
-        for $editor in collection($config:data-editors)/tei:TEI
-        order by persons:orderby_name($editor)
-        return
-            $editor
-    }
-    </tei:listPerson>
 };
