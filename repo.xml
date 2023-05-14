@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <meta xmlns="http://exist-db.org/xquery/repo">
-    <description>TEI data used by cobdh-app</description>
+    <description>cobdh view</description>
     <author>cobdh.org</author>
     <website>https://cobdh.org</website>
     <copyright>true</copyright>
