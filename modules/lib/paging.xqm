@@ -16,7 +16,7 @@ declare function page:pages(
     $start as xs:integer?,
     $perpage as xs:integer?
 ){
-let $perpage := if($perpage) then xs:integer($perpage) else 20
+let $perpage := if($perpage) then xs:integer($perpage) else 100
 let $start := if($start) then $start else 1
 let $total-result-count := count($hits)
 let $end :=
