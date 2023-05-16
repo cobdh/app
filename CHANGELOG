@@ -1,6 +1,52 @@
 CHANGELOG
 =========
 
+## v0.3.0 (2023-05-16)
+
+### Feature
+
+* increase per page value to display more items (2d171b5bbf70)
+* use data from external package if provided (cb67f0061c08)
+* add link to open template (3b794cef45ca)
+* add article template (e5f36e81711f)
+* add function to display xml template (2f092b02fa0e)
+* add book template (666b736a1923)
+* add tool description (6d7ac7bb397e)
+* add article (e32cd3873a52)
+* move to data credits (ebd683b46b6a)
+* fill citation button with citation (2aecb62ad662)
+* enable clipboard library (6f266ab2a0ef)
+* add clipboard library (27c5b4f1daf1)
+* make copy-button copy-able (9753c5646f0a)
+* add function to convert xmlid to person name (59a6c03e523f)
+* support without monograph or analytic (86cc32743354)
+
+### Fix
+
+* ensure export data with external collection module (68a6ed6de875)
+* disable language selector (7b6df9afa6d1)
+* improve xml-id converter (12b72143afeb)
+* make h3 less equal h2 (7862d6739a07)
+
+### Documentation
+
+* add information about cob_bibl (5a13c8fb5acb)
+* add information about website crawler (4c0a4d05acaf)
+* display templates (989fc27dd2d0)
+* add person template (09c35cc05f04)
+* add editor template (6b18006cc415)
+
+### Chore
+
+* do not use mini build in release (868b287ee2e5)
+* do not deploy docker files (ed7e1dcbe467)
+* fix repo description (f5821c21cb97)
+* shorten naming (7eaa906fbcc0)
+* add release build (4b07d96a543d)
+* move test build into separate directory (5de7a8f2143f)
+* rename project (5fab05971f25)
+* convert data repository into backend code repository (346d09d3c036)
+
 ## v0.2.0 (2023-05-05)
 
 ### Feature
