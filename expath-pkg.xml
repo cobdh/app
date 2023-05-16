@@ -2,10 +2,10 @@
 <package
     xmlns="http://expath.org/ns/pkg"
     abbrev="cobdh"
-    name="https://cobdh.org/cobdh"
+    name="https://app.cobdh.org"
     spec="1.0"
     version="XXX"
 >
     <title>cobdh.org</title>
-    <!--<dependency package="http://exist-db.org/apps/shared" />-->
+    <dependency package="http://exist-db.org/apps/shared" />
 </package>
