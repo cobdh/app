@@ -47,8 +47,11 @@ declare variable $config:data-bibl := $config:data-root || "/bibl";
 declare variable $config:data-persons := $config:data-root || "/persons";
 
 declare variable $config:data-editors := $config:data-root || "/editors";
+
+declare variable $config:prod := environment-variable('COBDH_LIVE');
+
 (: TODO: UNITE WITH APP-ROOT :)
-declare variable $config:web-root := '/exist/apps/cobdh/';
+declare variable $config:web-root := if ($config:prod)  then '/exist/apps/cobdh/' else '/';
 
 declare variable $config:parameters := (
     <parameters>
