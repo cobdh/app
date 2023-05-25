@@ -21,10 +21,10 @@ declare function bibl:index($node as node(), $model as map(*)){
     let $bibls := landing:select_category(bibl:list-items())
     (: Select current data for pagination :)
     let $bibls := subsequence($bibls, $start, $perpage)
-    let $bibls := <tei:listBibl>{$bibls}</tei:listBibl>
+    let $data := <tei:listBibl>{$bibls}</tei:listBibl>
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     return
-        transform:transform($bibls, $xsl, ())
+        transform:transform($data, $xsl, $config:parameters)
 };
 
 declare function bibl:view-item($node as node(), $model as map(*), $index as xs:string){
@@ -34,7 +34,7 @@ declare function bibl:view-item($node as node(), $model as map(*), $index as xs:
     (: select template :)
     let $xsl := config:resolve("views/bibl/view-item.xsl")
     return
-        transform:transform($data, $xsl, ())
+        transform:transform($data, $xsl, $config:parameters)
 };
 
 declare function bibl:view-item-request($node as node(), $model as map(*)){

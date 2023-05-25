@@ -108,7 +108,7 @@ function search:view_persons($node as node(), $model as map(*)){
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
         $pagination|
-        transform:transform($persons, $xsl, ())
+        transform:transform($persons, $xsl, $config:parameters)
 };
 
 declare
@@ -129,7 +129,7 @@ function search:view_bibls($node as node(), $model as map(*)){
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     return
         $pagination|
-        transform:transform($bibls, $xsl, ())
+        transform:transform($bibls, $xsl, $config:parameters)
 };
 
 declare

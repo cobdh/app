@@ -25,7 +25,7 @@ declare function persons:index($node as node(), $model as map(*)){
     let $persons := <tei:listPerson>{$persons}</tei:listPerson>
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
-        transform:transform($persons, $xsl, ())
+        transform:transform($persons, $xsl, $config:parameters)
 };
 
 declare function persons:view-item($node as node(), $model as map(*), $index as xs:string){
@@ -35,7 +35,7 @@ declare function persons:view-item($node as node(), $model as map(*), $index as 
     (: select template :)
     let $xsl := config:resolve("views/persons/view-item.xsl")
     return
-        transform:transform($data, $xsl, ())
+        transform:transform($data, $xsl, $config:parameters)
 };
 
 declare function persons:view-item-request($node as node(), $model as map(*)){
@@ -115,6 +115,7 @@ declare function persons:edited-request($node as node(), $model as map(*)){
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     let $parameters := <parameters>
         <param name="headline" value="Work"/>
+        <param name="web-root" value="{$config:web-root}"/>
     </parameters>
     return
         transform:transform($data, $xsl, $parameters)

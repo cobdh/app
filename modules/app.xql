@@ -39,7 +39,7 @@ declare
     %test:arg("path", "bibl/1234")
     %test:assertEquals('/exist/apps/cobdh/bibl/1234')
 function app:abspath($path as xs:string){
-    let $result := concat("/exist/apps/cobdh/", $path)
+    let $result := concat($config:web-root, $path)
     return
         $result
 };
@@ -118,9 +118,9 @@ declare %templates:wrap function app:pageination(
 declare
     %templates:wrap
 function app:view_template($node as node(), $model as map(*), $template as xs:string){
-    let $root := '/db/apps/cobdh/'
+    let $root := $config:app-root
     let $path := concat('docs/templates/', $template, '.xml')
-    let $src := concat($root, $path)
+    let $src := concat($root, '/',$path)
     let $data := doc($src)
     return
         <div>

@@ -7,6 +7,7 @@
     version="2.0"
     >
     <!--Render credit information-->
+    <xsl:param name="web-root"/>
     <xsl:template name="credit">
         <h3>About this Online Entry</h3>
         <h4>Additional Credit</h4>
@@ -109,7 +110,7 @@
     <xsl:function name="core:hyper">
         <xsl:param name="collection"/>
         <xsl:param name="item"/>
-        <xsl:value-of select="concat('/exist/apps/cobdh/', $collection, '/', $item)"/>
+        <xsl:value-of select="concat($web-root, $collection, '/', $item)"/>
     </xsl:function>
     <!--Userid to name-->
     <xsl:function name="core:id_to_name">

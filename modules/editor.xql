@@ -18,7 +18,7 @@ declare function editor:index($node as node(), $model as map(*)){
     let $input := editor:list-items()
     let $xsl := config:resolve("views/editors/list-items.xsl")
     return
-        transform:transform($input, $xsl, ())
+        transform:transform($input, $xsl, $config:parameters)
 };
 
 declare function editor:view-item($node as node(), $model as map(*), $index as xs:string){
@@ -26,7 +26,7 @@ declare function editor:view-item($node as node(), $model as map(*), $index as x
     let $data := editor:list-items()/tei:TEI/tei:person[@xml:id eq $index]
     let $xsl := config:resolve("views/editors/view-item.xsl")
     return
-        transform:transform($data, $xsl, ())
+        transform:transform($data, $xsl, $config:parameters)
 };
 
 declare function editor:view-item-request($node as node(), $model as map(*)){
@@ -82,9 +82,11 @@ declare function editor:edited-request($node as node(), $model as map(*)){
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     let $headline_generals := <parameters>
         <param name="headline" value="Edited"/>
+        <param name="web-root" value="{$config:web-root}"/>
     </parameters>
     let $headline_creators := <parameters>
         <param name="headline" value="XML coded"/>
+        <param name="web-root" value="{$config:web-root}"/>
     </parameters>
     return
         transform:transform($generals, $xsl, $headline_generals)

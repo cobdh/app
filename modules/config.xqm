@@ -47,7 +47,14 @@ declare variable $config:data-bibl := $config:data-root || "/bibl";
 declare variable $config:data-persons := $config:data-root || "/persons";
 
 declare variable $config:data-editors := $config:data-root || "/editors";
+(: TODO: UNITE WITH APP-ROOT :)
+declare variable $config:web-root := '/exist/apps/cobdh/';
 
+declare variable $config:parameters := (
+    <parameters>
+        <param name="web-root" value="{$config:web-root}"/>
+    </parameters>
+);
 
 (:~
  : Resolve the given path using the current application context.
