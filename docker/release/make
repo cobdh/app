@@ -2,7 +2,7 @@
 
 : "${CLEANUP}:=0"
 
-BUILDER="cobdh/builder:v0.1.0-3-g62d4382"
+BUILDER="cobdh/builder:v0.3.0"
 ROOT=$(pwd)
 
 rm -r "${ROOT}/build"
