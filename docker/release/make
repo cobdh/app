@@ -17,6 +17,7 @@ docker rm $NAME
 docker run -it\
     -v "${ROOT}/../../":/var/src \
     -e VERSION="$CURRENT" \
+    -e LIVE=1\
     --name ${NAME}\
     ${BUILDER}
 
