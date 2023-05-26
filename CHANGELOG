@@ -1,6 +1,22 @@
 CHANGELOG
 =========
 
+## v0.4.0 (2023-05-26)
+
+### Feature
+
+* set data set explicitly (df62cab40655)
+* decide between live and testing env (10d64b124a88)
+* use parameter to determine production system (7b60403e7310)
+* use separate config to distinguish environments (ba373a5fb778)
+
+### Chore
+
+* upgrade builder (194d4b788f6b)
+* build production env (7f648b9c2aa1)
+* add live flag to change hyperlinks (43c25e6445ff)
+* add shared dependency (1db1a4788d2a)
+
 ## v0.3.0 (2023-05-16)
 
 ### Feature
