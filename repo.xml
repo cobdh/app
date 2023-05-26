@@ -4,6 +4,7 @@
     <author>cobdh.org</author>
     <website>https://cobdh.org</website>
     <copyright>true</copyright>
+    <live>true</live>
     <type>application</type>
     <target>cobdh</target>
     <prepare>pre-install.xql</prepare>
