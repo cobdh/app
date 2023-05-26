@@ -110,7 +110,7 @@
     <xsl:function name="core:hyper">
         <xsl:param name="collection"/>
         <xsl:param name="item"/>
-        <xsl:value-of select="concat($web-root, $collection, '/', $item)"/>
+        <xsl:value-of select="concat($web-root, '/', $collection, '/', $item)"/>
     </xsl:function>
     <!--Userid to name-->
     <xsl:function name="core:id_to_name">

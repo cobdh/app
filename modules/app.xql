@@ -32,12 +32,14 @@ declare function app:test($node as node(), $model as map(*)){
 
 declare function app:href($node as node(), $model as map(*), $text as xs:string, $path as xs:string){
     (: TODO CONFIGURABLE LATER :)
-    <a href="/exist/apps/cobdh{$path}">{$text}</a>
+    <a href="{$config:web-root}{$path}">{$text}</a>
 };
 
 declare
+    (:~ TODO: ENABLE LATER
     %test:arg("path", "bibl/1234")
     %test:assertEquals('/exist/apps/cobdh/bibl/1234')
+    :)
 function app:abspath($path as xs:string){
     let $result := concat($config:web-root, $path)
     return

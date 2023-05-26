@@ -51,7 +51,13 @@ declare variable $config:data-editors := $config:data-root || "/editors";
 declare variable $config:prod := environment-variable('COBDH_LIVE');
 
 (: TODO: UNITE WITH APP-ROOT :)
-declare variable $config:web-root := if ($config:prod)  then '/exist/apps/cobdh/' else '/';
+declare variable $config:web-root :=
+    (: TODO: FIX EQ :)
+    if($config:repo-descriptor/repo:live/text() eq 'true') then
+        ''
+    else
+        '/exist/apps/cobdh'
+;
 
 declare variable $config:parameters := (
     <parameters>
