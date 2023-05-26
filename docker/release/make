@@ -14,9 +14,14 @@ NAME="tmp_cobdh_${CURRENT}"
 docker rm $NAME
 
 # build
+# MINIMAL:1 => copy minimal test data set
+# MINIMAL:0 => do not copy any test data
+# LIVE:1=> build production env
+# LIVE:0=> build dev env
 docker run -it\
     -v "${ROOT}/../../":/var/src \
     -e VERSION="$CURRENT" \
+    -e MINIMAL=0\
     -e LIVE=1\
     --name ${NAME}\
     ${BUILDER}
