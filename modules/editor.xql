@@ -88,8 +88,35 @@ declare function editor:edited-request($node as node(), $model as map(*)){
         <param name="headline" value="XML coded"/>
         <param name="web-root" value="{$config:web-root}"/>
     </parameters>
+    (:persons:)
+    let $data := persons:list-items()//tei:titleStmt/tei:editor[@xml:id eq $selected]
+    let $persons_xsl := config:resolve("views/persons/list-items.xsl")
+    let $persons_generals := <tei:listPerson>{
+        for $item in $data
+        where $item/@role eq 'general'
+        order by persons:orderby_name(root($item)//tei:person)
+        return root($item)//tei:person
+    }</tei:listPerson>
+    let $persons_creators := <tei:listPerson>{
+        for $item in $data
+        where $item/@role eq 'creator'
+        order by persons:orderby_name(root($item)//tei:person)
+        return root($item)//tei:person
+    }</tei:listPerson>
+    let $persons_headline_generals := <parameters>
+        <param name="headline" value="Edited"/>
+        <param name="web-root" value="{$config:web-root}"/>
+    </parameters>
+    let $persons_headline_creators := <parameters>
+        <param name="headline" value="XML coded"/>
+        <param name="web-root" value="{$config:web-root}"/>
+    </parameters>
     return
         transform:transform($generals, $xsl, $headline_generals)
         |
         transform:transform($creators, $xsl, $headline_creators)
+        |
+        transform:transform($persons_generals, $persons_xsl, $persons_headline_generals)
+        |
+        transform:transform($persons_creators, $persons_xsl, $persons_headline_creators)
 };
