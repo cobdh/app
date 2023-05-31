@@ -18,9 +18,10 @@ else if ($exist:path eq "/" or $exist:path eq "index.html") then
     </dispatch>
 else if ($exist:path eq "/impressum"
     or $exist:path eq "/contribution"
+    or $exist:path eq "/landing"
+    or $exist:path eq "/missing"
     or $exist:path eq "/search"
     or $exist:path eq "/validation"
-    or $exist:path eq "/landing"
     ) then
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
         <forward url="views/{$exist:path}.html"/>
@@ -80,7 +81,9 @@ else if (contains($exist:path, "/$resources/")) then
         </forward>
     </dispatch>
 else
-    (: everything else is passed through :)
+    (:error page:)
+    (: TODO: ADD 404 RETURN CODE :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        <cache-control cache="yes"/>
+        <forward url="views/missing.html"/>
+        <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
