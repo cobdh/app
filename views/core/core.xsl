@@ -40,8 +40,8 @@
                     <xsl:value-of select="//tei:licence"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    The Creative Commons Attribution 3.0 Unported (CC BY
-                    3.0) Licence applies to this document.
+                    The Creative Commons Attribution 4.0 (CC BY 4.0)
+                    Licence applies to this document.
                 </xsl:otherwise>
             </xsl:choose>
         </p>
