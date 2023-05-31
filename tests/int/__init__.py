@@ -18,7 +18,7 @@ def curl(
 ):
     """\
     >>> curl('/')
-    '...<h1 data-template="config:app-title">cobdh.org</h1>...'
+    '...<h1> Christian Orient and Byzantine - Digital Humanities </h1>...'
     """
     url = SERVER + path
     url = werkzeug.urls.url_fix(url)
