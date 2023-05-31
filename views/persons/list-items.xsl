@@ -11,8 +11,15 @@
     <xsl:import href="../core/href.xsl"/>
     <xsl:import href="../core/persons.xsl"/>
     <xsl:import href="../core/utils.xsl"/>
+    <!--Parameter-->
+    <xsl:param name="headline" select="''"/>
     <!--Render list of persons -->
     <xsl:template match="/">
+        <xsl:if test="$headline and //(tei:person)">
+            <h3>
+                <xsl:value-of select="$headline"/>
+            </h3>
+        </xsl:if>
         <ul>
             <xsl:for-each select="//(tei:person)">
                 <xsl:call-template name="person_href"/>
