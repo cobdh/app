@@ -1,3 +1,5 @@
 FROM cobdh/nano_db:v0.2.0
 
+LABEL org.opencontainers.image.authors="helmutus@outlook.com"
+
 COPY build/*.xar /exist/autodeploy
