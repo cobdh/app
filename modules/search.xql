@@ -182,7 +182,7 @@ function search:formular($node as node(), $model as map(*)){
                 method="get"
                 role="form"
             >
-            <div class="tab-content col-md-8">
+            <div class="tab-content">
                 <!--Keyword-->
                 <div class="form-group">
                     <label
