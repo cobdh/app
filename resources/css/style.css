@@ -43,3 +43,9 @@ h3{
     /* TODO: REMOVE AFTER FIX EXIST.DB */
     font-family: "QuicksandBook", "Arial", Helvetica, sans-serif;
 }
+.viewtemplate_textarea{
+    width:100%;
+    max-width:50em;
+    height: 15em;
+    border:none;
+}

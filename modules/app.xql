@@ -127,6 +127,6 @@ function app:view_template($node as node(), $model as map(*), $template as xs:st
     return
         <div>
             <h4><a href="{app:abspath($path)}" target="_blank">{$path}</a></h4>
-            <textarea lang="xml" rows="8" cols="80" style="border:none;">{$data}</textarea>
+            <textarea lang="xml" class="viewtemplate_textarea">{$data}</textarea>
         </div>
 };
