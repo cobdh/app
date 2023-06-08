@@ -52,7 +52,7 @@
         <xsl:param name="value"></xsl:param>
         <button
             type="button"
-            class="btn btn-default btn-xs copy-sm clipboard"
+            class="btn btn-secondary btn-sm copy-sm clipboard"
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{core:no_html($value)}"
@@ -76,7 +76,7 @@
         <xsl:param name="resource"></xsl:param>
         <div class="container other_formats">
             <xsl:element name="a">
-                <xsl:attribute name="class">btn btn-default btn-xs</xsl:attribute>
+                <xsl:attribute name="class">btn btn-secondary btn-sm</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
@@ -88,7 +88,7 @@
                     />
             </xsl:element>
             <xsl:element name="a">
-                <xsl:attribute name="class">btn btn-default btn-xs</xsl:attribute>
+                <xsl:attribute name="class">btn btn-secondary btn-sm</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>

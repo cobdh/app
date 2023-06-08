@@ -42,9 +42,9 @@ declare function tester:display-source($node as node(), $model as map(*), $lang 
             <div class="code" data-language="{if ($lang) then $lang else 'xquery'}">{ $expanded }</div>
             <div class="toolbar">
                 <div class="btn-group">
-                <a class="btn btn-default run" href="#" data-type="{if ($type) then $type else 'xml'}">
+                <a class="btn btn-secondary run" href="#" data-type="{if ($type) then $type else 'xml'}">
                     <i class="glyphicon glyphicon-play"/> Run</a>
-                <a class="btn btn-default eXide-open" href="{$eXideLink}" target="eXide"
+                <a class="btn btn-secondary eXide-open" href="{$eXideLink}" target="eXide"
                     data-exide-create="{$expanded}"
                     title="Opens the code in eXide in new tab or existing tab if it is already open.">
                     <i class="glyphicon glyphicon-edit"/> Edit</a>

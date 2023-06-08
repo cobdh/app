@@ -4,7 +4,7 @@
     data-template="app:determine_resource"
 >
     <head>
-        <title data-template="config:app-title">App Title</title>
+        <title data-template="config:app-title"/>
         <meta
             content="width=device-width, initial-scale=1.0"
             name="viewport"
@@ -33,95 +33,80 @@
             type="text/javascript"
         />
     </head>
-    <body id="grey-top">
+    <body class="d-flex flex-column h-100">
         <div data-template="landing:region_select"/>
-        <div class="grey-bot">
-            <div
-                class="container"
-                id="main-container"
-            >
-                <div class="row">
-                    <div
-                        class="col-md-12"
-                        id="header"
+        <header>
+            <!--Fixed navbar-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <!--TODO: ENABLE LATER-->
+                    <a class="navbar-brand"></a>
+                    <button
+                        aria-controls="navbarCollapse"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                        class="navbar-toggler"
+                        data-bs-target="#navbarCollapse"
+                        data-bs-toggle="collapse"
+                        type="button"
                     >
-                        <a
-                            href="/"
-                            id="logo"
-                        >
-                            https://cobdh.org
-                        </a>
+                        <span class="navbar-toggler-icon"/>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse"
+                        id="navbarCollapse"
+                    >
+                        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <li class="nav-item">
+                                <div
+                                    data-template="app:href"
+                                    data-template-path="/"
+                                    data-template-text="Home"
+                                />
+                            </li>
+                            <li class="nav-item">
+                                <div
+                                    data-template="app:href"
+                                    data-template-path="/bibl"
+                                    data-template-text="Bibliography"
+                                />
+                            </li>
+                            <li class="nav-item">
+                                <div
+                                    data-template="app:href"
+                                    data-template-path="/persons"
+                                    data-template-text="Persons"
+                                />
+                            </li>
+                            <li class="nav-item">
+                                <div
+                                    data-template="app:href"
+                                    data-template-path="/search"
+                                    data-template-text="Search"
+                                />
+                            </li>
+                            <li class="nav-item">
+                                <div
+                                    data-template="app:href"
+                                    data-template-path="/editors"
+                                    data-template-text="Editors"
+                                />
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <nav
-                        class="navbar navbar-default"
-                        role="navigation"
-                    >
-                        <button
-                            class="navbar-toggle"
-                            data-target="#navbar-collapse-1"
-                            data-toggle="collapse"
-                            type="button"
-                        >
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"/>
-                            <span class="icon-bar"/>
-                            <span class="icon-bar"/>
-                        </button>
-                        <div
-                            class="navbar-collapse collapse"
-                            id="navbar-collapse-1"
-                        >
-                            <ul class="nav navbar-nav">
-                                <li>
-                                    <div
-                                        data-template="app:href"
-                                        data-template-path="/"
-                                        data-template-text="Home"
-                                    />
-                                </li>
-                                <li>
-                                    <div
-                                        data-template="app:href"
-                                        data-template-path="/bibl"
-                                        data-template-text="Bibliography"
-                                    />
-                                </li>
-                                <li>
-                                    <div
-                                        data-template="app:href"
-                                        data-template-path="/persons"
-                                        data-template-text="Persons"
-                                    />
-                                </li>
-                                <li>
-                                    <div
-                                        data-template="app:href"
-                                        data-template-path="/search"
-                                        data-template-text="Search"
-                                    />
-                                </li>
-                                <li>
-                                    <div
-                                        data-template="app:href"
-                                        data-template-path="/editors"
-                                        data-template-text="Editors"
-                                    />
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div
-                    class="row"
-                    id="content"
-                />
-            </div>
-        </div>
-        <div id="footer">
+            </nav>
+        </header>
+        <!--Begin page content-->
+        <main class="flex-shrink-0">
+            <div
+                class="container"
+                id="content"
+            />
+        </main>
+        <footer class="footer mt-auto py-3 bg-body-tertiary">
             <div class="container">
-                <ul>
+                <ul class="nav">
                     <li>
                         <div
                             data-template="app:href"
@@ -144,10 +129,9 @@
                         />
                     </li>
                     <!--TODO: MAY ENABLE LATER
-<li><div data-template="config:lang-selector"/></li>-->
+-<li><div data-template="config:lang-selector"/></li>-->
                 </ul>
             </div>
-        </div>
         </footer>
         <script src="$shared/resources/scripts/bootstrap.bundle.min.js"/>
     </body>

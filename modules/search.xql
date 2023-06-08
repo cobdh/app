@@ -160,12 +160,23 @@ function search:formular($node as node(), $model as map(*)){
     let $bibl_active :=  if ($person_active eq '') then 'active' else ''
     return
     <div class="well well-small search-box">
-        <div class="top-pad">
-        <ul class="nav nav-tabs">
-            <li class="{$bibl_active}"><a href="#bibliography" data-toggle="tab" aria-expanded="true">Bibliography</a></li>
-            <li class="{$person_active}"><a href="#persons" data-toggle="tab" aria-expanded="false">Persons</a></li>
-        </ul>
-        <div class="tab-pane {$bibl_active}" id="bibliography">
+        <nav>
+          <div class="nav nav-tabs mb-2" id="nav-tab" role="tablist">
+            <button class="nav-link {$bibl_active}" id="nav-bibliography-tab"
+                role="tab" aria-selected="true" aria-controls="nav-bibliography"
+                type="button" data-bs-toggle="tab"
+                data-bs-target="#nav-bibliography">
+                Bibliography
+            </button>
+            <button class="nav-link {$person_active}" id="nav-persons-tab"
+                role="tab" aria-selected="false" aria-controls="nav-persons"
+                type="button" data-bs-toggle="tab"
+                data-bs-target="#nav-persons">
+                Persons
+            </button>
+          </div>
+        </nav>
+        <div class="tab-pane {$bibl_active}" id="nav-bibliography" role="tabpanel" aria-labelledby="nav-bibliography-tab">
             <form
                 class="form-horizontal indent"
                 method="get"
@@ -255,7 +266,7 @@ function search:formular($node as node(), $model as map(*)){
             </div>
             </form>
         </div>
-        <div class="tab-pane {$person_active}" id="persons">
+        <div class="tab-pane {$person_active}" id="nav-persons" role="tabpanel" aria-labelledby="nav-persons-tab">
             <form
                 class="form-horizontal indent"
                 method="get"
@@ -321,7 +332,6 @@ function search:formular($node as node(), $model as map(*)){
                 <!--end col-->
             </div>
             </form>
-        </div>
     </div>
 </div>
 };

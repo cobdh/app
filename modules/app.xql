@@ -32,7 +32,7 @@ declare function app:test($node as node(), $model as map(*)){
 
 declare function app:href($node as node(), $model as map(*), $text as xs:string, $path as xs:string){
     (: TODO CONFIGURABLE LATER :)
-    <a href="{$config:web-root}{$path}">{$text}</a>
+    <a href="{$config:web-root}{$path}" class="nav-link">{$text}</a>
 };
 
 declare
