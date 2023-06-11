@@ -35,7 +35,7 @@ declare function page:pages(
                     if ($current-page = 1) then
                         ()
                     else
-                        <li><a href="{concat($param-string, $perpage * ($current-page - 2)) }">Prev</a></li>,
+                        <li class="page-item"><a href="{concat($param-string, $perpage * ($current-page - 2)) }" class="page-link">«</a></li>,
                     (: Show links to each page of results :)
                     let $max-pages-to-show := 8
                     let $padding := xs:integer(round($max-pages-to-show div 2))
@@ -57,14 +57,14 @@ declare function page:pages(
                                         $perpage * ($page - 1)
                         return
                             if ($newstart eq $start) then
-                                <li class="active"><a href="#" >{$page}</a></li>
+                                <li class="page-item active"><a href="#" class="page-link">{$page}</a></li>
                             else
-                                <li><a href="{concat($param-string, $newstart)}">{$page}</a></li>,
+                                <li class="page-item"><a href="{concat($param-string, $newstart)}" class="page-link">{$page}</a></li>,
                     (: Shows 'Next' for all but the last page of results :)
                     if ($start + $perpage ge $total-result-count) then
                         ()
                     else
-                        <li><a href="{concat($param-string, $start + $perpage)}">Next</a></li>
+                        <li class="page-item"><a href="{concat($param-string, $start + $perpage)}" class="page-link">»</a></li>
                 }
                 </ul>
             else
