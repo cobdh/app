@@ -8,6 +8,7 @@ BIBL_10_PATH = os.path.join(tests.ROOT, 'tests/mini/bibl/10.xml')
 PERSONS_1_PATH = os.path.join(tests.ROOT, 'tests/mini/persons/1.xml')
 PERSONS_2_PATH = os.path.join(tests.ROOT, 'tests/mini/persons/2.xml')
 PERSONS_4_PATH = os.path.join(tests.ROOT, 'tests/mini/persons/4.xml')
+PERSONS_13_PATH = os.path.join(tests.ROOT, 'tests/mini/persons/13.xml')
 
 REQUIRED = [
     BIBL_1_PATH,
@@ -15,6 +16,7 @@ REQUIRED = [
     PERSONS_1_PATH,
     PERSONS_2_PATH,
     PERSONS_4_PATH,
+    PERSONS_13_PATH,
 ]
 
 for item in REQUIRED:

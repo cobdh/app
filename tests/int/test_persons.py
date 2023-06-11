@@ -33,3 +33,9 @@ def test_persons_failure():
     assert ABOUT not in result
     assert CITATION not in result
     # assert FULL not in result
+
+
+def test_export_tei_unicode():
+    resource = tests.resources.ids.PERSONS_13_ID
+    result = tests.int.curl(f'/persons/{resource}?format=tei')
+    assert '<person xml:id="GarsoïanNinaG">' in result
