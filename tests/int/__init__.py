@@ -18,7 +18,7 @@ def curl(
 ):
     """\
     >>> curl('/')
-    '...<h1> Christian Orient and Byzantine - Digital Humanities </h1>...'
+    '...<h1 class="..."> Christian Orient and Byzantine - Digital Humanities </h1>...'
     """
     url = SERVER + path
     url = werkzeug.urls.url_fix(url)
