@@ -23,7 +23,7 @@ declare
 function editors:index(){
   <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <h1 class="bd-heading sticky-xl-top align-self-start mt-5 mb-3 mb-xl-2">Editors</h1>
+        <h1 class="heading align-self-start mt-5 mb-3 mb-xl-2">Editors</h1>
     </body>
   </html>
 };
