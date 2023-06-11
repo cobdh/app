@@ -84,6 +84,6 @@ else
     (:error page:)
     (: TODO: ADD 404 RETURN CODE :)
     <dispatch xmlns="http://exist.sourceforge.net/NS/exist">
-        <forward url="views/missing.html"/>
+        <forward url="{$exist:controller}/views/missing.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
