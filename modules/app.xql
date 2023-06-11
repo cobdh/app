@@ -126,7 +126,7 @@ function app:view_template($node as node(), $model as map(*), $template as xs:st
     let $data := doc($src)
     return
         <div>
-            <h4><a href="{app:abspath($path)}" target="_blank">{$path}</a></h4>
+            <h4><a href="{app:abspath(concat('/', $path))}" target="_blank">{$path}</a></h4>
             <textarea lang="xml" class="viewtemplate_textarea">{$data}</textarea>
         </div>
 };
