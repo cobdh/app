@@ -48,6 +48,8 @@ declare variable $config:data-persons := $config:data-root || "/persons";
 
 declare variable $config:data-editors := $config:data-root || "/editors";
 
+declare variable $config:data-news := $config:data-root || "/news";
+
 declare variable $config:prod := environment-variable('COBDH_LIVE');
 
 (: TODO: UNITE WITH APP-ROOT :)
