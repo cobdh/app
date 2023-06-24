@@ -43,6 +43,10 @@
                 dir="tests/mini/editors"
                 prefix="data/editors"
             />
+            <zipfileset
+                dir="tests/mini/news"
+                prefix="data/news"
+            />
         </zip>
     </target>
 </project>
