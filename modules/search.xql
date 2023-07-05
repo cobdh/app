@@ -255,7 +255,7 @@ function search:formular($node as node(), $model as map(*)){
                 <div class="form-group">
                     <div class="pull-right">
                         <button
-                            class="btn btn-info mt-2"
+                            class="btn btn-primary mt-2"
                             type="submit"
                         >
                             <i18n:text key="search_doit">Search</i18n:text>
@@ -322,7 +322,7 @@ function search:formular($node as node(), $model as map(*)){
                 <div class="form-group">
                     <div class="pull-right">
                         <button
-                            class="btn btn-info mt-2"
+                            class="btn btn-primary mt-2"
                             type="submit"
                         >
                             <i18n:text key="search_doit">Search</i18n:text>

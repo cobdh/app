@@ -52,7 +52,7 @@
         <xsl:param name="value"></xsl:param>
         <button
             type="button"
-            class="btn btn-secondary btn-sm copy-sm clipboard"
+            class="badge text-bg-primary rounded-pill copy-sm clipboard"
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{core:no_html($value)}"
