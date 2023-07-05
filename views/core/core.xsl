@@ -76,19 +76,16 @@
         <xsl:param name="resource"></xsl:param>
         <div class="container other_formats">
             <xsl:element name="a">
-                <xsl:attribute name="class">btn btn-secondary btn-sm</xsl:attribute>
+                <xsl:attribute name="class">badge text-bg-primary rounded-pill</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
                 <xsl:attribute name="type">button</xsl:attribute>
                 <xsl:attribute name="href">javascript:window.print();</xsl:attribute>
-                <span
-                    aria-hidden="true"
-                    class="glyphicon glyphicon-print"
-                    />
+                <span>Print</span>
             </xsl:element>
             <xsl:element name="a">
-                <xsl:attribute name="class">btn btn-secondary btn-sm</xsl:attribute>
+                <xsl:attribute name="class">badge text-bg-primary rounded-pill</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
@@ -97,12 +94,7 @@
                 <xsl:attribute name="href">
                     <xsl:text>?format=tei</xsl:text>
                 </xsl:attribute>
-                <span
-                    aria-hidden="true"
-                    class="glyphicon glyphicon-download-alt"
-                    >
-                    TEI/XML
-                </span>
+                <span>TEI/XML</span>
             </xsl:element>
         </div>
     </xsl:template>
