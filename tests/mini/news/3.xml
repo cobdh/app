@@ -2,7 +2,7 @@
 <TEI
     xmlns="http://www.tei-c.org/ns/1.0"
     xml:lang="en"
-    >
+>
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -10,8 +10,9 @@
                     xml:id="schewe_helmut_konrad"
                     ref="https://cobdh.org/editors/schewe_helmut_konrad"
                     role="creator"
-                    />
+                />
             </titleStmt>
+            <date>2025.4.10</date>
         </fileDesc>
     </teiHeader>
     <body>
