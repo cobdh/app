@@ -19,4 +19,4 @@ def test_static(url, expected):
 
 def test_contribution():
     result = tests.int.curl('/contribution')
-    assert 'docs/templates/bookSection.xml' in result
+    assert 'templates/bookSection' in result

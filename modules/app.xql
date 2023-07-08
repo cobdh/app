@@ -107,12 +107,12 @@ declare
     %templates:wrap
 function app:view_template($node as node(), $model as map(*), $template as xs:string){
     let $root := $config:app-root
-    let $path := concat('docs/templates/', $template, '.xml')
+    let $path := concat('data/templates/', $template, '.xml')
     let $src := concat($root, '/',$path)
     let $data := doc($src)
     return
         <div>
-            <h4><a href="{app:abspath(concat('/', $path))}" target="_blank">{$path}</a></h4>
+            <h4><a href="{app:abspath(concat('/templates/', $template))}" target="_blank">{concat('templates/', $template)}</a></h4>
             <textarea lang="xml" class="viewtemplate_textarea">{$data}</textarea>
         </div>
 };

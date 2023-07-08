@@ -10,7 +10,11 @@ let $resource := request:get-parameter('resource', '')
 (: Convert base64 :)
 let $resource := xmldb:decode($resource)
 let $source := concat($config:data-root, '/', $collection)
-let $selected := collection($source)//(tei:biblFull|tei:biblStruct|tei:person)[@xml:id eq $resource]
+let $selected := if ($collection eq 'templates')
+    then
+        doc(concat($source, '/', $resource, '.xml'))
+    else
+        collection($source)//(tei:biblFull|tei:biblStruct|tei:person)[@xml:id eq $resource]
 
 return
     if (empty($selected)) then
