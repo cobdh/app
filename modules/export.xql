@@ -20,6 +20,7 @@ return
     if (empty($selected)) then
     (
         response:set-header("Content-Type", "text/plain; charset=utf-8"),
+        response:set-status-code(404),
         concat("Resource not Found!",
             " Collection: ",
             $collection,
