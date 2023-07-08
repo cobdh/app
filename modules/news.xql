@@ -16,6 +16,7 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 declare function news:list-items(){
     (: Determine list of bibl, sort newest items first. :)
     for $item in collection($config:data-news)/tei:TEI
+    order by $item//tei:date descending
     return
         $item
 };
