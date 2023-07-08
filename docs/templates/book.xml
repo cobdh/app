@@ -16,14 +16,14 @@
         <encodingDesc>
             <classDecl>
                 <taxonomy>
-                    <category xml:id="[XXXXXX]"/>
+                    <category xml:id="XXXXXX"/>
                 </taxonomy>
             </classDecl>
         </encodingDesc>
     </teiHeader>
     <body>
         <biblStruct
-            corresp="[XXXXXX]"
+            corresp="XXXXXX"
             xml:id="XXXXXX"
             type="book"
         >
@@ -44,7 +44,7 @@
                 </imprint>
             </monogr>
             <series>
-                <title level="s">[XXXXXX]</title>
+                <title level="s">XXXXXX</title>
             </series>
         </biblStruct>
     </body>
