@@ -5,7 +5,7 @@
     version="2.0"
     >
     <xsl:template match="/">
-        <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="row row-cols-1 g-4">
             <xsl:for-each select=".//tei:floatingText">
                 <div class="col">
                     <div class="card">
