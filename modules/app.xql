@@ -13,8 +13,8 @@ declare namespace test="http://exist-db.org/xquery/xqsuite";
 declare namespace request="http://exist-db.org/xquery/request";
 
 (: Global Variables:)
-declare variable $app:start {request:get-parameter('start', 1) cast as xs:integer};
-declare variable $app:perpage {request:get-parameter('perpage', 25) cast as xs:integer};
+declare variable $app:start {try{xs:integer(request:get-parameter('start', 1))} catch *{1}};
+declare variable $app:perpage {try{xs:integer(request:get-parameter('perpage', 25))} catch *{25}};
 
 declare function app:href($node as node(), $model as map(*), $text as xs:string, $path as xs:string){
     (: TODO CONFIGURABLE LATER :)
