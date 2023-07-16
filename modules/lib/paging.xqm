@@ -64,7 +64,7 @@ declare function page:pages(
                     if ($start + $perpage ge $total-result-count) then
                         ()
                     else
-                        <li class="page-item"><a href="{concat($param-string, $start + $perpage)}" class="page-link">»</a></li>
+                        <li class="page-item"><a href="{concat($param-string, $perpage * $current-page)}" class="page-link">»</a></li>
                 }
                 </ul>
             else
