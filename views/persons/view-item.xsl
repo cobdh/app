@@ -13,26 +13,24 @@
     <xsl:import href="../core/utils.xsl"/>
     <!-- End of Import -->
     <xsl:template match="tei:person">
-        <div class="container">
-            <xsl:call-template name="print_formats"/>
-            <small>
-                <xsl:call-template name="resource_link">
-                    <xsl:with-param name="collection">persons</xsl:with-param>
-                </xsl:call-template>
-            </small>
-            <h3>Biography</h3>
-            <h4>Names</h4>
-            <ul class="list-none">
-                <xsl:call-template name="person_names">
-                    <xsl:with-param name="list" select='1'/>
-                </xsl:call-template>
-            </ul>
-            <xsl:call-template name="details"/>
-            <!-- May enable later -->
-            <!-- <h3>Full Citation Information</h3> -->
-            <xsl:call-template name="credit"/>
-            <xsl:call-template name="licence"/>
-        </div>
+        <xsl:call-template name="print_formats"/>
+        <small>
+            <xsl:call-template name="resource_link">
+                <xsl:with-param name="collection">persons</xsl:with-param>
+            </xsl:call-template>
+        </small>
+        <h3>Biography</h3>
+        <h4>Names</h4>
+        <ul class="list-none">
+            <xsl:call-template name="person_names">
+                <xsl:with-param name="list" select='1'/>
+            </xsl:call-template>
+        </ul>
+        <xsl:call-template name="details"/>
+        <!-- May enable later -->
+        <!-- <h3>Full Citation Information</h3> -->
+        <xsl:call-template name="credit"/>
+        <xsl:call-template name="licence"/>
     </xsl:template>
     <xsl:template name="details">
         <xsl:if test="tei:state | tei:birth | tei:death | tei:floruit | tei:sex | tei:langKnowledge">
