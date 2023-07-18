@@ -7,7 +7,7 @@
     >
     <xsl:import href="../core/utils.xsl"/>
     <xsl:template match="/">
-        <ul>
+        <ul class="list-none">
             <xsl:for-each select="//tei:person">
                 <li>
                     <!-- Example: cobdh.org/editors/schewe_helmut_konrad-->

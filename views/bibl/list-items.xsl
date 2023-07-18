@@ -17,7 +17,7 @@
         <xsl:if test="$headline and //(tei:biblFull|tei:biblStruct)">
             <h3><xsl:value-of select="$headline"/></h3>
         </xsl:if>
-        <ul>
+        <ul class="list-none">
             <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
                 <li>
                     <!-- Example: cobdh.org/bibl/1-->

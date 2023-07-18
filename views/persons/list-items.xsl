@@ -20,7 +20,7 @@
                 <xsl:value-of select="$headline"/>
             </h3>
         </xsl:if>
-        <ul>
+        <ul class="list-none">
             <xsl:for-each select="//(tei:person)">
                 <xsl:call-template name="person_href"/>
             </xsl:for-each>
