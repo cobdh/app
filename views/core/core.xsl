@@ -84,6 +84,7 @@
                 <xsl:attribute name="href">javascript:window.print();</xsl:attribute>
                 <span>Print</span>
             </xsl:element>
+            <xsl:text> </xsl:text>
             <xsl:element name="a">
                 <xsl:attribute name="class">badge text-bg-primary rounded-pill</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
