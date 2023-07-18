@@ -52,7 +52,7 @@
         <xsl:param name="value"></xsl:param>
         <a
             type="button"
-            class="badge text-bg-secondary rounded-pill copy-sm clipboard"
+            class="badge text-bg-secondary rounded-pill copy-sm clipboard text-decoration-none"
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{core:no_html($value)}"
@@ -76,7 +76,7 @@
         <xsl:param name="resource"></xsl:param>
         <div class="container other_formats">
             <xsl:element name="a">
-                <xsl:attribute name="class">badge text-bg-primary rounded-pill</xsl:attribute>
+                <xsl:attribute name="class">badge text-bg-primary rounded-pill text-decoration-none</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
@@ -86,7 +86,7 @@
             </xsl:element>
             <xsl:text> </xsl:text>
             <xsl:element name="a">
-                <xsl:attribute name="class">badge text-bg-primary rounded-pill</xsl:attribute>
+                <xsl:attribute name="class">badge text-bg-primary rounded-pill text-decoration-none</xsl:attribute>
                 <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
