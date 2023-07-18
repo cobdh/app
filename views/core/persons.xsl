@@ -15,7 +15,9 @@
                     </li>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates/>
+                    <!-- TODO: ENABLE LATER -->
+                    <!-- <xsl:apply-templates/> -->
+                    <xsl:value-of select="utils:strip(.)"/>
                     <xsl:if test="position() != last()">
                         <xsl:text>; </xsl:text>
                     </xsl:if>

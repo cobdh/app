@@ -35,3 +35,9 @@ def test_persons_unicode_xml_id():
     # no works inserted
     assert '/persons/MaclerFrédéric' in result
     assert NOT_FOUND not in result
+
+
+def test_persons_no_spaces():
+    result = tests.int.curl(f'/persons')
+    expected = 'Barsoum Ignatius Afram;'
+    assert expected in result
