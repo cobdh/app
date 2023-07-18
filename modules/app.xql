@@ -13,8 +13,9 @@ declare namespace test="http://exist-db.org/xquery/xqsuite";
 declare namespace request="http://exist-db.org/xquery/request";
 
 (: Global Variables:)
-declare variable $app:start {try{xs:integer(request:get-parameter('start', 1))} catch *{1}};
-declare variable $app:perpage {try{xs:integer(request:get-parameter('perpage', 25))} catch *{25}};
+declare variable $app:start {local:get_int('start', 0)};
+
+declare variable $app:perpage {local:get_int('perpage', 25)};
 
 declare function app:href($node as node(), $model as map(*), $text as xs:string, $path as xs:string){
     (: TODO CONFIGURABLE LATER :)
@@ -115,4 +116,12 @@ function app:view_template($node as node(), $model as map(*), $template as xs:st
             <h4><a href="{app:abspath(concat('/templates/', $template))}" target="_blank">{concat('templates/', $template)}</a></h4>
             <textarea lang="xml" class="viewtemplate_textarea">{$data}</textarea>
         </div>
+};
+
+declare function local:get_int($var as xs:string, $default as xs:integer){
+    try{
+        xs:integer(request:get-parameter($var, $default))
+    }catch *{
+        $default
+    }
 };
