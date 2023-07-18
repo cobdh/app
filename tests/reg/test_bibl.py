@@ -17,12 +17,13 @@ def test_bibl_biblfull():
     assert_bibl_record(result)
     # a single hyperlink in the header of the bib item
     expected = 1
+    expected += 1  # content of copy link
     counted = result.count('https://cobdh.org/bibl/BVCP1990')
     assert counted == expected
 
 
 @pytest.mark.parametrize('pattern, expected', [
-    ('https://cobdh.org/bibl/Hovhanessian2013', 2),
+    ('https://cobdh.org/bibl/Hovhanessian2013', 4),
     ('Editor:', 3),
     ('Author:', 1),
     ('Date of Publication: 2013', 1),

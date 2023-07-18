@@ -16,7 +16,16 @@
             </xsl:attribute>
             <xsl:value-of select="$text"/>
         </xsl:element>
-        <!-- <xsl:call-template name="copy"/> -->
+        <xsl:if test="contains($text, 'http')">
+            <!--Only make hyperlinks copyable, not text-->
+            <xsl:text> </xsl:text>
+            <xsl:call-template name="copy" >
+                <xsl:with-param name="text">copy</xsl:with-param>
+                <xsl:with-param name="value">
+                    <xsl:value-of select="$text"/>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
         <br/>
     </xsl:template>
 </xsl:stylesheet>
