@@ -50,15 +50,15 @@
     <xsl:template name="copy">
         <xsl:param name="text">copy</xsl:param>
         <xsl:param name="value"></xsl:param>
-        <button
+        <a
             type="button"
-            class="badge text-bg-primary rounded-pill copy-sm clipboard"
+            class="badge text-bg-secondary rounded-pill copy-sm clipboard"
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{core:no_html($value)}"
             >
             <xsl:value-of select="$text"/>
-        </button>
+        </a>
     </xsl:template>
     <!--Render editor-->
     <xsl:template name="editor_link">
