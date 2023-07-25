@@ -1,6 +1,60 @@
 CHANGELOG
 =========
 
+## v0.6.0 (2023-07-25)
+
+### Feature
+
+* add function to insert licence if not present (d774ceaba8e5)
+* do not underline buttons (adfb5a35407b)
+* make resource link copyable (345d2e9eb9fe)
+* display date and author (a007dc9f40a5)
+* sort news by date (27d3486eec15)
+* add news renderer (bfcf1f3b557c)
+* add four article (1265e0aea4df)
+* upgrade landing page (efbee6694beb)
+* use fluid container to improve distance to display border (87f25fc6209e)
+* use common first level style (936c6c4716cf)
+
+### Fix
+
+* make hyperlink flat (ec4217edcfbf)
+* remove space between author et semicolon (0037bc34e5bb)
+* add space between print and export button (91464bd0257f)
+* shorten link name (61ca57e536a7)
+* make view more modern (f7d19cf814ec)
+* remove useless container (2f5c100c78bd)
+* do not use global variable (613d5f60e14a)
+* fix index error (5b3cd9fbf61e)
+* make user input more stable (6b5243202ff6)
+* set 404 for missing resource (48ee845da128)
+* adjust spelling error (83f1b064e048)
+* adjust templates selector (e28585a9d9f7)
+* adjust ids (c0fd385eac14)
+* always use a single column (79e05a58683b)
+* adjust style (24607be8c140)
+* adjust after bootstrap upgrade (e4fe8d9f6a69)
+* adjust resources (197dbc1fec69)
+* remove unused code (e4d7e4ca5931)
+* convert base64 correctly (d61d06e4ab37)
+* make error page path independent (0b587b2124c3)
+* adjust path (b287cd53c625)
+* do not shrink search width (43a10c2c2bfb)
+* add distance to search button (7493e22969a3)
+* fix display error in Edge (d8664a992f1f)
+* do not shrink content width, let it bootstrap do (0587b3cc1c4c)
+* adjust to new bootstrap version (034e0213ba84)
+* adjust bootstrap API (626cecc22ca6)
+* make textarea style bootstrap independent (11f1cd95b8d3)
+* remove unused loadsource (40465d32f273)
+
+### Chore
+
+* use external clipboard (e944b9432fda)
+* upgrade bootstrap and jquery (dc87445097d2)
+* upgrade base image (a3459307d5e2)
+* add maintainer information (64f8598908ed)
+
 ## v0.5.1 (2023-05-31)
 
 ### Fix
