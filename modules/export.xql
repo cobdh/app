@@ -6,12 +6,34 @@ import module namespace config="https://cobdh.org/config" at "config.xqm";
 
 declare function local:select_resource($resource as xs:string, $collection as xs:string){
     let $source := concat($config:data-root, '/', $collection)
-    let $selected := if ($collection eq 'templates')
+    let $templates := $collection eq 'templates'
+    let $selected := if ($templates)
         then
             doc(concat($source, '/', $resource, '.xml'))
         else
             collection($source)//(tei:biblFull|tei:biblStruct|tei:person)[@xml:id eq $resource]
-    return $selected
+    let $result := if ($templates)
+        then
+            $selected
+        else
+            local:insert_licence(
+                $selected,
+                'https://cobdh.org/{$collection}/{$resource}?format=tei'
+            )
+    return $result
+};
+
+declare function local:insert_licence($document, $href as xs:string){
+    let $licence := <publicationStmt>
+            <idno type="URI">$href</idno>
+            <authority>cobdh.org</authority>
+            <availability>
+                <licence target="http://creativecommons.org/licenses/by/4.0/">
+                    <p>Distributed under a Creative Commons Attribution 4.0 (CC BY 4.0) Licence.</p>
+                </licence>
+            </availability>
+        </publicationStmt>
+    return $document
 };
 
 let $format := request:get-parameter('format', 'tei')
