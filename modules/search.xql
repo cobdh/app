@@ -132,9 +132,13 @@ function search:view_bibls($node as node(), $model as map(*)){
     let $bibls := subsequence($bibls, $start, $perpage)
     let $bibls := if ($bibls) then <tei:listBibl>{$bibls}</tei:listBibl> else ()
     let $xsl := config:resolve("views/bibl/list-items.xsl")
+    let $parameters := <parameters>
+        <param name="style" value="citation"/>
+        <param name="web-root" value="{$config:web-root}"/>
+    </parameters>
     return
         $pagination|
-        transform:transform($bibls, $xsl, $config:parameters)
+        transform:transform($bibls, $xsl, $parameters)
 };
 
 declare

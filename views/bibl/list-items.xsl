@@ -12,6 +12,7 @@
     <xsl:import href="../core/utils.xsl"/>
     <!--TODO: THERE MUST BE A BETTER WAY TO AVOID THIS GLOBAL PARAMETER-->
     <xsl:param name="headline" select="''"/>
+    <xsl:param name="style" select="''"/>
     <xsl:template match="/">
         <!--Pass headline to draw optional headline  -->
         <xsl:if test="$headline and //(tei:biblFull|tei:biblStruct)">
@@ -19,15 +20,24 @@
         </xsl:if>
         <ul class="list-none">
             <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
-                <li>
+                <li style="margin-bottom:5px">
                     <!-- Example: cobdh.org/bibl/1-->
                     <xsl:element name="a">
                         <xsl:attribute name="href">
                             <xsl:sequence select="core:hyper('bibl', @xml:id)"/>
                         </xsl:attribute>
-                        <xsl:value-of select=".//tei:date"/>
-                        <xsl:text>: </xsl:text>
-                        <xsl:apply-templates select="utils:single(descendant::tei:title)"/>
+                        <xsl:choose>
+                            <xsl:when test="$style eq ''">
+                                <!--Default style: Use year and title-->
+                                <xsl:value-of select=".//tei:date"/>
+                                <xsl:text>: </xsl:text>
+                                <xsl:apply-templates select="utils:single(descendant::tei:title)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <!--Use citation style-->
+                                <xsl:apply-templates select="." mode="citation"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </xsl:element>
                 </li>
             </xsl:for-each>
