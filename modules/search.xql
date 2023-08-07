@@ -185,13 +185,13 @@ function search:formular($node as node(), $model as map(*)){
             <div class="tab-content col-sm-10 col-md-9">
                 <!--Keyword-->
                 <div class="form-group">
-                    <label
-                        class="col-sm-2 col-md-3 control-label"
-                        for="keyword"
-                    >
-                        <i18n:text key="search_keyword">Keyword</i18n:text>:
-                    </label>
                     <div class="input-group">
+                        <label
+                            class="input-group-text col-2"
+                            for="keyword"
+                        >
+                            <i18n:text key="search_keyword">Keyword</i18n:text>
+                        </label>
                         <input
                             class="form-control keyboard"
                             id="keyword"
@@ -206,13 +206,13 @@ function search:formular($node as node(), $model as map(*)){
                 </div>
                 <!--author-->
                 <div class="form-group">
-                    <label
-                        class="col-sm-2 col-md-3 control-label"
-                        for="author"
-                    >
-                        <i18n:text key="search_person">Person</i18n:text>:
-                    </label>
-                    <div class="input-group">
+                    <div class="input-group mt-2">
+                        <label
+                            class="input-group-text col-2"
+                            for="author"
+                        >
+                            <i18n:text key="search_person">Person</i18n:text>
+                        </label>
                         <input
                             class="form-control keyboard"
                             id="author"
@@ -227,13 +227,13 @@ function search:formular($node as node(), $model as map(*)){
                 </div>
                 <!--Title-->
                 <div class="form-group">
-                    <label
-                        class="col-sm-2 col-md-3 control-label"
-                        for="title"
-                    >
-                        <i18n:text key="search_title">Title</i18n:text>:
-                    </label>
-                    <div class="input-group">
+                    <div class="input-group mt-2">
+                        <label
+                            class="input-group-text col-2"
+                            for="title"
+                        >
+                            <i18n:text key="search_title">Title</i18n:text>
+                        </label>
                         <input
                             class="form-control keyboard"
                             id="title"
@@ -269,13 +269,13 @@ function search:formular($node as node(), $model as map(*)){
             <div class="tab-content col-sm-10 col-md-9">
                 <!--Keyword-->
                 <div class="form-group">
-                    <label
-                        class="col-sm-2 col-md-3 control-label"
-                        for="keyword"
-                    >
-                        <i18n:text key="search_keyword">Keyword</i18n:text>:
-                    </label>
                     <div class="input-group">
+                        <label
+                            class="input-group-text col-2"
+                            for="keyword"
+                        >
+                            <i18n:text key="search_keyword">Keyword</i18n:text>
+                        </label>
                         <input
                             class="form-control keyboard"
                             id="keyword"
@@ -290,13 +290,13 @@ function search:formular($node as node(), $model as map(*)){
                 </div>
                 <!--person-->
                 <div class="form-group">
-                    <label
-                        class="col-sm-2 col-md-3 control-label"
-                        for="author"
-                    >
-                        <i18n:text key="search_person">Person</i18n:text>:
-                    </label>
-                    <div class="input-group">
+                    <div class="input-group mt-2">
+                        <label
+                            class="input-group-text col-2"
+                            for="author"
+                        >
+                            <i18n:text key="search_person">Person</i18n:text>
+                        </label>
                         <input
                             class="form-control keyboard"
                             id="author"
