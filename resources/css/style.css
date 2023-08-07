@@ -16,10 +16,10 @@ html{
 }
 ul.list-none{
     list-style: none;
+    padding:0px;
 }
 .tab-pane{
     display:none;
-    padding:25px;
     width:100%;
 }
 .active{
