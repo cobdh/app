@@ -182,7 +182,7 @@ function search:formular($node as node(), $model as map(*)){
                 method="get"
                 role="form"
             >
-            <div class="tab-content">
+            <div class="tab-content col-sm-10 col-md-9">
                 <!--Keyword-->
                 <div class="form-group">
                     <label
@@ -191,18 +191,16 @@ function search:formular($node as node(), $model as map(*)){
                     >
                         <i18n:text key="search_keyword">Keyword</i18n:text>:
                     </label>
-                    <div class="col-sm-10 col-md-9 ">
-                        <div class="input-group">
-                            <input
-                                class="form-control keyboard"
-                                id="keyword"
-                                name="bibl_keyword"
-                                type="text"
-                                value="{$bibl_keyword}"
-                            />
-                            <div class="input-group-btn">
-                                <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
-                            </div>
+                    <div class="input-group">
+                        <input
+                            class="form-control keyboard"
+                            id="keyword"
+                            name="bibl_keyword"
+                            type="text"
+                            value="{$bibl_keyword}"
+                        />
+                        <div class="input-group-btn">
+                            <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
                         </div>
                     </div>
                 </div>
@@ -214,18 +212,16 @@ function search:formular($node as node(), $model as map(*)){
                     >
                         <i18n:text key="search_person">Person</i18n:text>:
                     </label>
-                    <div class="col-sm-10 col-md-9 ">
-                        <div class="input-group">
-                            <input
-                                class="form-control keyboard"
-                                id="author"
-                                name="bibl_person"
-                                type="text"
-                                value="{$bibl_person}"
-                            />
-                            <div class="input-group-btn">
-                                <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
-                            </div>
+                    <div class="input-group">
+                        <input
+                            class="form-control keyboard"
+                            id="author"
+                            name="bibl_person"
+                            type="text"
+                            value="{$bibl_person}"
+                        />
+                        <div class="input-group-btn">
+                            <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
                         </div>
                     </div>
                 </div>
@@ -237,18 +233,16 @@ function search:formular($node as node(), $model as map(*)){
                     >
                         <i18n:text key="search_title">Title</i18n:text>:
                     </label>
-                    <div class="col-sm-10 col-md-9 ">
-                        <div class="input-group">
-                            <input
-                                class="form-control keyboard"
-                                id="title"
-                                name="bibl_title"
-                                type="text"
-                                value="{$bibl_title}"
-                            />
-                            <div class="input-group-btn">
-                                <!--<span data-template="app:keyboard-select-menu" data-template-input-id="title"/>-->
-                            </div>
+                    <div class="input-group">
+                        <input
+                            class="form-control keyboard"
+                            id="title"
+                            name="bibl_title"
+                            type="text"
+                            value="{$bibl_title}"
+                        />
+                        <div class="input-group-btn">
+                            <!--<span data-template="app:keyboard-select-menu" data-template-input-id="title"/>-->
                         </div>
                     </div>
                 </div>
@@ -272,7 +266,7 @@ function search:formular($node as node(), $model as map(*)){
                 method="get"
                 role="form"
             >
-            <div class="tab-content">
+            <div class="tab-content col-sm-10 col-md-9">
                 <!--Keyword-->
                 <div class="form-group">
                     <label
@@ -281,18 +275,16 @@ function search:formular($node as node(), $model as map(*)){
                     >
                         <i18n:text key="search_keyword">Keyword</i18n:text>:
                     </label>
-                    <div class="col-sm-10 col-md-9 ">
-                        <div class="input-group">
-                            <input
-                                class="form-control keyboard"
-                                id="keyword"
-                                name="person_keyword"
-                                type="text"
-                                value="{$person_keyword}"
-                            />
-                            <div class="input-group-btn">
-                                <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
-                            </div>
+                    <div class="input-group">
+                        <input
+                            class="form-control keyboard"
+                            id="keyword"
+                            name="person_keyword"
+                            type="text"
+                            value="{$person_keyword}"
+                        />
+                        <div class="input-group-btn">
+                            <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
                         </div>
                     </div>
                 </div>
@@ -304,18 +296,16 @@ function search:formular($node as node(), $model as map(*)){
                     >
                         <i18n:text key="search_person">Person</i18n:text>:
                     </label>
-                    <div class="col-sm-10 col-md-9 ">
-                        <div class="input-group">
-                            <input
-                                class="form-control keyboard"
-                                id="author"
-                                name="person_person"
-                                type="text"
-                                value="{$person_person}"
-                            />
-                            <div class="input-group-btn">
-                                <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
-                            </div>
+                    <div class="input-group">
+                        <input
+                            class="form-control keyboard"
+                            id="author"
+                            name="person_person"
+                            type="text"
+                            value="{$person_person}"
+                        />
+                        <div class="input-group-btn">
+                            <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
                         </div>
                     </div>
                 </div>
