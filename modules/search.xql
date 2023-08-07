@@ -63,24 +63,7 @@ declare function search:search($node as node(), $model as map(*)){
             }
         else if ($searched eq "person") then
             map{
-                "hits": collection($config:data-persons)
-                    [
-                        (
-                            $person_person and fn:contains
-                            (
-                                lower-case(string-join(.//tei:persName)),
-                                search:build-ft-query($person_person)
-                            )
-                        )
-                            or
-                        (
-                            $person_keyword and fn:contains
-                            (
-                                lower-case(.),
-                                search:build-ft-query($person_keyword)
-                            )
-                        )
-                    ],
+                "hits": local:search_person($person_person, $person_keyword),
                 "searched": "person"
             }
         else
@@ -88,6 +71,28 @@ declare function search:search($node as node(), $model as map(*)){
                 "hits" : (),
                 "searched" : "none"
             }
+};
+
+declare function local:search_person($person as xs:string, $keyword as xs:string){
+    let $data := collection($config:data-persons)[
+        (
+            $person and fn:contains
+            (
+                lower-case(string-join(.//tei:persName)),
+                search:build-ft-query($person)
+            )
+        )
+            or
+        (
+            $keyword and fn:contains
+            (
+                lower-case(.),
+                search:build-ft-query($keyword)
+            )
+        )
+    ]
+    return
+        $data
 };
 
 declare
