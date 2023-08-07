@@ -199,6 +199,11 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_keyword}"
                         />
+                        <select id="bibl_keyword_logic" class="input-group-text">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+                            <option value="NOT">NOT</option>
+                        </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
                         </div>
@@ -220,6 +225,11 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_person}"
                         />
+                        <select id="bibl_author_logic" class="input-group-text">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+                            <option value="NOT">NOT</option>
+                        </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
                         </div>
@@ -241,6 +251,11 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_title}"
                         />
+                        <select id="bibl_title_logic" class="input-group-text">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+                            <option value="NOT">NOT</option>
+                        </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="title"/>-->
                         </div>
@@ -283,6 +298,11 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$person_keyword}"
                         />
+                        <select id="person_keyword_logic" class="input-group-text">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+                            <option value="NOT">NOT</option>
+                        </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
                         </div>
@@ -304,6 +324,11 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$person_person}"
                         />
+                        <select id="person_author_logic" class="input-group-text">
+                            <option value="AND">AND</option>
+                            <option value="OR">OR</option>
+                            <option value="NOT">NOT</option>
+                        </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
                         </div>
