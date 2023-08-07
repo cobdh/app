@@ -6,6 +6,6 @@
     spec="1.0"
     version="XXX"
 >
-    <title>cobdh.org</title>
+    <title>Christian Orient and Byzantium</title>
     <dependency package="http://exist-db.org/apps/shared"/>
 </package>
