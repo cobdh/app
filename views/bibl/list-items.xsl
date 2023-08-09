@@ -47,20 +47,26 @@
         </xsl:if>
         <xsl:if test="$mode eq 'plain'">
             <!--Render citations in textmode to export them to a txt file for users.-->
-            <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
-                <xsl:choose>
-                    <xsl:when test="$style eq ''">
-                        <!--Default style: Use year and title-->
-                        <xsl:value-of select=".//tei:date"/>
-                        <xsl:text>: </xsl:text>
-                        <xsl:apply-templates select="utils:single(descendant::tei:title)"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!--Use citation style-->
-                        <xsl:apply-templates select="." mode="citation"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:for-each>
+            <xsl:call-template name="copy" >
+                <xsl:with-param name="text">Export</xsl:with-param>
+                <xsl:with-param name="value">
+                    <xsl:for-each select="//(tei:biblFull|tei:biblStruct)">
+                        <xsl:choose>
+                            <xsl:when test="$style eq ''">
+                                <!--Default style: Use year and title-->
+                                <xsl:value-of select=".//tei:date"/>
+                                <xsl:text>: </xsl:text>
+                                <xsl:apply-templates select="utils:single(descendant::tei:title)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <!--Use citation style-->
+                                <xsl:apply-templates select="." mode="citation"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                        <xsl:text>NEWLINE</xsl:text>
+                    </xsl:for-each>
+                </xsl:with-param>
+            </xsl:call-template>
         </xsl:if>
     </xsl:template>
 </xsl:stylesheet>

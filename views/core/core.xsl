@@ -55,7 +55,7 @@
             class="badge text-bg-secondary rounded-pill copy-sm clipboard text-decoration-none"
             title="Copies to clipboard"
             data-clipboard-action="copy"
-            data-clipboard-text="{core:no_html($value)}"
+            data-clipboard-text="{core:reduce_spaces(core:no_html($value))}"
             >
             <xsl:value-of select="$text"/>
         </a>
@@ -114,6 +114,12 @@
     <xsl:function name="core:no_html">
         <xsl:param name="text"/>
         <xsl:value-of select="replace($text, '&lt;/?(ibu)&gt;', '')"/>
+    </xsl:function>
+    <!--TODO-->
+    <xsl:function name="core:reduce_spaces">
+        <xsl:param name="text"/>
+        <!--TODO: THINK ABOUT NEWLINE-HACK? -->
+        <xsl:value-of select="replace(replace($text, '\s+', ' '), 'NEWLINE', '&#xA;&#xA;')"/>
     </xsl:function>
     <xsl:template name="external_links">
         <xsl:if test="//tei:biblStruct/@corresp">
