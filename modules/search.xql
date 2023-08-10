@@ -164,11 +164,16 @@ declare
     %templates:wrap
 function search:formular($node as node(), $model as map(*)){
     let $person_keyword := request:get-parameter('person_keyword', '')
+    let $person_keyword_logic := request:get-parameter('person_keyword_logic', 'AND')
     let $person_person := request:get-parameter('person_person', '')
+    let $person_person_logic := request:get-parameter('person_person_logic', 'AND')
 
     let $bibl_keyword := request:get-parameter('bibl_keyword', '')
+    let $bibl_keyword_logic := request:get-parameter('bibl_keyword_logic', 'AND')
     let $bibl_person := request:get-parameter('bibl_person', '')
+    let $bibl_person_logic := request:get-parameter('bibl_person_logic', 'AND')
     let $bibl_title := request:get-parameter('bibl_title', '')
+    let $bibl_title_logic := request:get-parameter('bibl_title_logic', 'AND')
 
     let $person_active :=  if($model("searched") eq "person") then 'active' else ''
     let $bibl_active :=  if ($person_active eq '') then 'active' else ''
@@ -213,10 +218,10 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_keyword}"
                         />
-                        <select id="bibl_keyword_logic" class="input-group-text">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="NOT">NOT</option>
+                        <select name="bibl_keyword_logic" class="input-group-text">
+                            {if ($bibl_keyword_logic eq 'AND') then <option value="AND" selected="">AND</option> else <option value="AND">AND</option>}
+                            {if ($bibl_keyword_logic eq 'OR') then <option value="OR" selected="">OR</option> else <option value="OR">OR</option>}
+                            {if ($bibl_keyword_logic eq 'NOT') then <option value="NOT" selected="">NOT</option> else <option value="NOT">NOT</option>}
                         </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
@@ -239,10 +244,10 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_person}"
                         />
-                        <select id="bibl_author_logic" class="input-group-text">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="NOT">NOT</option>
+                        <select name="bibl_person_logic" class="input-group-text">
+                            {if ($bibl_person_logic eq 'AND') then <option value="AND" selected="">AND</option> else <option value="AND">AND</option>}
+                            {if ($bibl_person_logic eq 'OR') then <option value="OR" selected="">OR</option> else <option value="OR">OR</option>}
+                            {if ($bibl_person_logic eq 'NOT') then <option value="NOT" selected="">NOT</option> else <option value="NOT">NOT</option>}
                         </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
@@ -265,10 +270,10 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$bibl_title}"
                         />
-                        <select id="bibl_title_logic" class="input-group-text">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="NOT">NOT</option>
+                        <select name="bibl_title_logic" class="input-group-text">
+                            {if ($bibl_title_logic eq 'AND') then <option value="AND" selected="">AND</option> else <option value="AND">AND</option>}
+                            {if ($bibl_title_logic eq 'OR') then <option value="OR" selected="">OR</option> else <option value="OR">OR</option>}
+                            {if ($bibl_title_logic eq 'NOT') then <option value="NOT" selected="">NOT</option> else <option value="NOT">NOT</option>}
                         </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="title"/>-->
@@ -312,10 +317,10 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$person_keyword}"
                         />
-                        <select id="person_keyword_logic" class="input-group-text">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="NOT">NOT</option>
+                        <select name="person_keyword_logic" class="input-group-text">
+                            {if ($person_keyword_logic eq 'AND') then <option value="AND" selected="">AND</option> else <option value="AND">AND</option>}
+                            {if ($person_keyword_logic eq 'OR') then <option value="OR" selected="">OR</option> else <option value="OR">OR</option>}
+                            {if ($person_keyword_logic eq 'NOT') then <option value="NOT" selected="">NOT</option> else <option value="NOT">NOT</option>}
                         </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="keyword"/>-->
@@ -338,10 +343,10 @@ function search:formular($node as node(), $model as map(*)){
                             type="text"
                             value="{$person_person}"
                         />
-                        <select id="person_author_logic" class="input-group-text">
-                            <option value="AND">AND</option>
-                            <option value="OR">OR</option>
-                            <option value="NOT">NOT</option>
+                        <select name="person_person_logic" class="input-group-text">
+                            {if ($person_person_logic eq 'AND') then <option value="AND" selected="">AND</option> else <option value="AND">AND</option>}
+                            {if ($person_person_logic eq 'OR') then <option value="OR" selected="">OR</option> else <option value="OR">OR</option>}
+                            {if ($person_person_logic eq 'NOT') then <option value="NOT" selected="">NOT</option> else <option value="NOT">NOT</option>}
                         </select>
                         <div class="input-group-btn">
                             <!--<span data-template="app:keyboard-select-menu" data-template-input-id="author"/>-->
