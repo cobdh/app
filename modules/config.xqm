@@ -103,13 +103,14 @@ declare function config:app-meta($node as node(), $model as map(*)) as element()
 
 declare function config:lang-selector($node as node(), $model as map(*)){
     let $default_lang := 'en'
-    let $lang := request:get-cookie-value('language')
+    let $lang := request:get-cookie-value('lang')
+    let $lang := if (empty($lang)) then request:get-parameter('lang', '') else $lang
     let $lang := if (empty($lang)) then $default_lang else $lang
     return
         <span>
-            <select name="lang" id="lang_selector" class="pull-right">
-            <option value="en" selected="{if ($lang eq 'en') then 'selected' else ''}">English</option>
-            <option value="de" selected="{if ($lang eq 'de') then 'selected' else ''}">German</option>
+            <select name="lang" id="lang_selector" class="nav-link dropdown-toggle">
+                {if ($lang eq 'en') then <option value="en" selected="">English</option> else <option value="en">English</option>}
+                {if ($lang eq 'de') then <option value="de" selected="">German</option> else <option value="de">German</option>}
             </select>
         </span>
 };
