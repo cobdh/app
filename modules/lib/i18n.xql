@@ -192,6 +192,9 @@ declare function i18n:getSelectedLanguage($node as node()*,$selectedLang as xs:s
     if(string-length(request:get-parameter("lang", "")) gt 0) then
         (: use http parameter lang as selected language :)
         request:get-parameter("lang", "")
+    else if(string-length(request:get-cookie-value("lang")) gt 0) then
+        (: use cookie parameter lang as selected language :)
+        request:get-cookie-value("lang")
     else if(exists($node/@xml:lang)) then
         (: use xml:lang attribute on given node as selected language :)
         $node/@xml:lang

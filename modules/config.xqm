@@ -124,3 +124,22 @@ declare function config:lang-selector($node as node(), $model as map(*)){
             </ul>
         </div>
 };
+
+declare
+    %templates:wrap
+function config:lang_set_cookie($node as node(), $model as map(*)){
+    let $age := xs:dayTimeDuration("PT72H")
+    (: TODO: ENABLE BEFORE RELEASE :)
+    let $secure := false()
+    let $lang := request:get-parameter("lang", "")
+    return
+        if ($lang eq "") then
+            ()
+        else
+            response:set-cookie(
+                "lang",
+                $lang,
+                $age,
+                $secure
+            )
+};
