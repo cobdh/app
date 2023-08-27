@@ -50,6 +50,8 @@ declare variable $config:data-editors := $config:data-root || "/editors";
 
 declare variable $config:data-news := $config:data-root || "/news";
 
+declare variable $config:lang_default := "en";
+
 (: TODO: UNITE WITH APP-ROOT :)
 declare variable $config:web-root :=
     (: TODO: FIX EQ :)
@@ -102,10 +104,9 @@ declare function config:app-meta($node as node(), $model as map(*)) as element()
 };
 
 declare function config:lang-selector($node as node(), $model as map(*)){
-    let $lang_default := 'en'
     let $lang := request:get-cookie-value('lang')
-    let $lang := if (empty($lang)) then request:get-parameter('lang', $lang_default) else $lang
-    let $lang := if (empty($lang)) then $lang_default else $lang
+    let $lang := if (empty($lang)) then request:get-parameter('lang', $config:lang_default) else $lang
+    let $lang := if (empty($lang)) then $config:lang_default else $lang
     return
         <div class="dropup">
             <button
