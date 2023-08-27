@@ -102,15 +102,24 @@ declare function config:app-meta($node as node(), $model as map(*)) as element()
 };
 
 declare function config:lang-selector($node as node(), $model as map(*)){
-    let $default_lang := 'en'
+    let $lang_default := 'en'
     let $lang := request:get-cookie-value('lang')
-    let $lang := if (empty($lang)) then request:get-parameter('lang', '') else $lang
-    let $lang := if (empty($lang)) then $default_lang else $lang
+    let $lang := if (empty($lang)) then request:get-parameter('lang', $lang_default) else $lang
+    let $lang := if (empty($lang)) then $lang_default else $lang
     return
-        <span>
-            <select name="lang" id="lang_selector" class="nav-link dropdown-toggle">
-                {if ($lang eq 'en') then <option value="en" selected="">English</option> else <option value="en">English</option>}
-                {if ($lang eq 'de') then <option value="de" selected="">German</option> else <option value="de">German</option>}
-            </select>
-        </span>
+        <div class="dropup">
+            <button
+                class="nav-link dropdown-toggle"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+            >
+                {if ($lang eq 'en') then 'English' else ''}
+                {if ($lang eq 'de') then 'German' else ''}
+            </button>
+            <ul class="dropdown-menu">
+                {if ($lang ne 'en') then <li><a class="dropdown-item" href="?lang=en">English</a></li> else ''}
+                {if ($lang ne 'de') then <li><a class="dropdown-item" href="?lang=de">German</a></li> else ''}
+            </ul>
+        </div>
 };
