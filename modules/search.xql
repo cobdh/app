@@ -110,10 +110,16 @@ function search:view_persons($node as node(), $model as map(*)){
     let $start := $app:start
     let $persons := subsequence($persons, $start, $perpage)
     let $persons := if ($persons) then <tei:listPerson>{$persons}</tei:listPerson> else ()
+    let $export := <parameters>
+        <param name="mode" value="plain"/>
+    </parameters>
     let $xsl := config:resolve("views/persons/list-items.xsl")
     return
-        $pagination|
+        $pagination
+        |
         transform:transform($persons, $xsl, $config:parameters)
+        |
+        transform:transform($persons, $xsl, $export)
 };
 
 declare

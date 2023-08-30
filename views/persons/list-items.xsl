@@ -13,18 +13,33 @@
     <xsl:import href="../core/utils.xsl"/>
     <!--Parameter-->
     <xsl:param name="headline" select="''"/>
+    <xsl:param name="mode" select="''"/>
     <!--Render list of persons -->
     <xsl:template match="tei:listPerson">
-        <xsl:if test="$headline and //(tei:person)">
-            <h3>
-                <xsl:value-of select="$headline"/>
-            </h3>
+        <xsl:if test="$mode eq ''">
+            <xsl:if test="$headline and //(tei:person)">
+                <h3>
+                    <xsl:value-of select="$headline"/>
+                </h3>
+            </xsl:if>
+            <ul class="list-none">
+                <xsl:for-each select="//(tei:person)">
+                    <xsl:call-template name="person_href"/>
+                </xsl:for-each>
+            </ul>
         </xsl:if>
-        <ul class="list-none">
-            <xsl:for-each select="//(tei:person)">
-                <xsl:call-template name="person_href"/>
-            </xsl:for-each>
-        </ul>
+        <xsl:if test="$mode eq 'plain'">
+            <!--Render citations in textmode to export them to a txt file for users.-->
+            <xsl:call-template name="copy" >
+                <xsl:with-param name="text">Export</xsl:with-param>
+                <xsl:with-param name="value">
+                    <xsl:for-each select="//(tei:person)">
+                        <xsl:call-template name="person_names"/>
+                        <xsl:text>NEWLINE</xsl:text>
+                    </xsl:for-each>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:if>
     </xsl:template>
     <xsl:template name="person_href">
         <li>
