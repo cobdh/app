@@ -54,7 +54,18 @@ declare function persons:list-items(){
 };
 
 declare function persons:orderby_name($item){
-    if($item//tei:surname) then
+    (:Sorting persons depends on local differences.
+
+    The English speaking World integrates titles such German 'von' inside
+    the name.
+    ==> von Schuler Einar < Thomson Robert W.
+
+    The Germans ignore such prefixes.
+    ==> Thomson Robert W. < von Schuler Einar
+    :)
+    if($config:lang eq 'en' and $item//tei:nameLink) then
+        lower-case(string-join($item//tei:nameLink))
+    else if($item//tei:surname) then
         lower-case(string-join($item//tei:surname))
     else if($item//tei:persName) then
         lower-case(string-join($item//tei:persName))
