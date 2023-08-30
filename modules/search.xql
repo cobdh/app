@@ -140,7 +140,8 @@ function search:view_bibls($node as node(), $model as map(*)){
         <param name="style" value="citation"/>
         <param name="mode" value="plain"/>
         <param name="web-root" value="{$config:web-root}"/>
-    </parameters>   return
+    </parameters>
+    return
         $pagination|
         transform:transform($bibls, $xsl, $parameters)|
         transform:transform($bibls, $xsl, $export)
