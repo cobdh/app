@@ -63,3 +63,14 @@ def test_sorting_english():
     assert result.find(first) > 0
     assert result.find(second) > 0
     assert result.find(first) < result.find(second)
+
+
+def test_sorting_forename():
+    result = tests.int.curl(f'/persons')
+    first = 'von Schuler Albert'
+    second = 'von Schuler Einar'
+    third = 'von Schuler Ferdinand'
+    assert result.find(first) > 0
+    assert result.find(second) > 0
+    assert result.find(third) > 0
+    assert result.find(first) < result.find(second) < result.find(third)
