@@ -14,7 +14,7 @@
     <!--Parameter-->
     <xsl:param name="headline" select="''"/>
     <!--Render list of persons -->
-    <xsl:template match="/">
+    <xsl:template match="tei:listPerson">
         <xsl:if test="$headline and //(tei:person)">
             <h3>
                 <xsl:value-of select="$headline"/>
