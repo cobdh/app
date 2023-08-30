@@ -41,3 +41,25 @@ def test_persons_no_spaces():
     result = tests.int.curl(f'/persons')
     expected = 'Barsoum Ignatius Afram;'
     assert expected in result
+
+
+def test_sorting_german():
+    """Sort Persons by name and not by "title" if German language is used."""
+    result = tests.int.curl(f'/persons?lang=de')
+    # sort by name and not by von
+    first = 'von Schuler Einar'
+    second = 'Thomson Robert W.'
+    assert result.find(first) > 0
+    assert result.find(second) > 0
+    assert result.find(first) < result.find(second)
+
+
+def test_sorting_english():
+    """Sort Persons by title before name if English language is used."""
+    result = tests.int.curl(f'/persons?lang=en')
+    # sort by name and not by von
+    first = 'Thomson Robert W.'
+    second = 'von Schuler Einar'
+    assert result.find(first) > 0
+    assert result.find(second) > 0
+    assert result.find(first) < result.find(second)
