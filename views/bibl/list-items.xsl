@@ -13,7 +13,7 @@
     <!--TODO: THERE MUST BE A BETTER WAY TO AVOID THIS GLOBAL PARAMETER-->
     <xsl:param name="headline" select="''"/>
     <xsl:param name="style" select="''"/>
-    <xsl:template match="/">
+    <xsl:template match="tei:listBibl">
         <!--Pass headline to draw optional headline  -->
         <xsl:if test="$headline and //(tei:biblFull|tei:biblStruct)">
             <h3><xsl:value-of select="$headline"/></h3>

@@ -110,8 +110,10 @@ function persons:countby_region($node as node(), $model as map(*), $region as xs
 declare function persons:edited-request($node as node(), $model as map(*)){
     (: `selected` is determined in app:determine_resource :)
     let $editor := $model("selected")
+    (: TODO: THERE MUST BE A BETTER WAY :)
     let $data := <tei:listBibl>{bibl:list-items()}</tei:listBibl>
     let $data := $data//tei:TEI[contains(.//tei:author/@ref, $editor) or contains(.//tei:editor/@ref, $editor)]
+    let $data := <tei:listBibl>{$data}</tei:listBibl>
     let $xsl := config:resolve("views/bibl/list-items.xsl")
     let $parameters := <parameters>
         <param name="headline" value="Work"/>
