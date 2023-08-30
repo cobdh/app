@@ -52,6 +52,15 @@ declare variable $config:data-news := $config:data-root || "/news";
 
 declare variable $config:lang_default := "en";
 
+declare variable $config:lang :=
+        (:Prefere url parameter over cookie. If cookie and parameter is not
+        set, use default lang  :)
+        let $lang := request:get-parameter('lang', '')
+        let $lang := if (string-length($lang) eq 0) then request:get-cookie-value('lang') else $lang
+        let $lang := if (string-length($lang) eq 0) then $config:lang_default else $lang
+    return $lang
+;
+
 (: TODO: UNITE WITH APP-ROOT :)
 declare variable $config:web-root :=
     (: TODO: FIX EQ :)
@@ -104,27 +113,21 @@ declare function config:app-meta($node as node(), $model as map(*)) as element()
 };
 
 declare function config:lang-selector($node as node(), $model as map(*)){
-    (:Prefere url parameter over cookie. If cookie and parameter is not
-    set, use default lang  :)
-    let $lang := request:get-parameter('lang', '')
-    let $lang := if (string-length($lang) eq 0) then request:get-cookie-value('lang') else $lang
-    let $lang := if (string-length($lang) eq 0) then $config:lang_default else $lang
-    return
-        <div class="dropup">
-            <button
-                class="nav-link dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-            >
-                {if ($lang eq 'en') then 'English' else ''}
-                {if ($lang eq 'de') then 'German' else ''}
-            </button>
-            <ul class="dropdown-menu">
-                {if ($lang ne 'en') then <li><a class="dropdown-item" href="?lang=en">English</a></li> else ''}
-                {if ($lang ne 'de') then <li><a class="dropdown-item" href="?lang=de">German</a></li> else ''}
-            </ul>
-        </div>
+    <div class="dropup">
+        <button
+            class="nav-link dropdown-toggle"
+            type="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+        >
+            {if ($config:lang eq 'en') then 'English' else ''}
+            {if ($config:lang eq 'de') then 'German' else ''}
+        </button>
+        <ul class="dropdown-menu">
+            {if ($config:lang ne 'en') then <li><a class="dropdown-item" href="?lang=en">English</a></li> else ''}
+            {if ($config:lang ne 'de') then <li><a class="dropdown-item" href="?lang=de">German</a></li> else ''}
+        </ul>
+    </div>
 };
 
 declare
