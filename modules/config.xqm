@@ -50,7 +50,11 @@ declare variable $config:data-editors := $config:data-root || "/editors";
 
 declare variable $config:data-news := $config:data-root || "/news";
 
-declare variable $config:lang_default := "en";
+declare variable $config:ENGLISH := "en";
+
+declare variable $config:GERMAN := "de";
+
+declare variable $config:lang_default := $config:ENGLISH;
 
 declare variable $config:lang :=
         (:Prefere url parameter over cookie. If cookie and parameter is not
@@ -120,12 +124,12 @@ declare function config:lang-selector($node as node(), $model as map(*)){
             data-bs-toggle="dropdown"
             aria-expanded="false"
         >
-            {if ($config:lang eq 'en') then 'English' else ''}
-            {if ($config:lang eq 'de') then 'German' else ''}
+            {if ($config:lang eq $config:ENGLISH) then 'English' else ''}
+            {if ($config:lang eq $config:GERMAN) then 'German' else ''}
         </button>
         <ul class="dropdown-menu">
-            {if ($config:lang ne 'en') then <li><a class="dropdown-item" href="?lang=en">English</a></li> else ''}
-            {if ($config:lang ne 'de') then <li><a class="dropdown-item" href="?lang=de">German</a></li> else ''}
+            {if ($config:lang ne $config:ENGLISH) then <li><a class="dropdown-item" href="?lang={$config:ENGLISH}">English</a></li> else ''}
+            {if ($config:lang ne $config:GERMAN) then <li><a class="dropdown-item" href="?lang={$config:GERMAN}">German</a></li> else ''}
         </ul>
     </div>
 };

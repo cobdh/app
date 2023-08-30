@@ -63,7 +63,7 @@ declare function persons:orderby_name($item){
     The Germans ignore such prefixes.
     ==> Thomson Robert W. < von Schuler Einar
     :)
-    if($config:lang eq 'en' and $item//tei:nameLink) then
+    if($config:lang eq $config:ENGLISH and $item//tei:nameLink) then
         lower-case(string-join($item//tei:nameLink))
     else if($item//tei:surname) then
         lower-case(string-join($item//tei:surname))
