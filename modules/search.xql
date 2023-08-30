@@ -4,6 +4,8 @@ module namespace search="https://cobdh.org/search";
 
 import module namespace config="https://cobdh.org/config" at "config.xqm";
 
+import module namespace persons="https://cobdh.org/persons" at "persons.xql";
+
 import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
 
 import module namespace app="https://cobdh.org/app" at "app.xql";
@@ -98,18 +100,22 @@ declare function local:search_person($person as xs:string, $keyword as xs:string
 declare
     %templates:wrap
 function search:view_persons($node as node(), $model as map(*)){
-    let $persons := if ($model("searched") eq "person") then $model("hits") else ()
+    let $persons_ := if ($model("searched") eq "person") then $model("hits") else ()
     (: Select current search result for pagination :)
     let $perpage := $app:perpage
     let $pagination := app:pageination(
             $node,
             $model,
-            $persons,
+            $persons_,
             $perpage
         )
     let $start := $app:start
-    let $persons := subsequence($persons, $start, $perpage)
-    let $persons := if ($persons) then <tei:listPerson>{$persons}</tei:listPerson> else ()
+    let $persons_ := subsequence($persons_, $start, $perpage)
+    let $persons_ := if ($persons_) then <tei:listPerson>{
+        for $item in $persons_
+        order by persons:orderby_name($item)
+        return $item
+    }</tei:listPerson> else ()
     let $export := <parameters>
         <param name="mode" value="plain"/>
     </parameters>
@@ -117,9 +123,9 @@ function search:view_persons($node as node(), $model as map(*)){
     return
         $pagination
         |
-        transform:transform($persons, $xsl, $config:parameters)
+        transform:transform($persons_, $xsl, $config:parameters)
         |
-        transform:transform($persons, $xsl, $export)
+        transform:transform($persons_, $xsl, $export)
 };
 
 declare
