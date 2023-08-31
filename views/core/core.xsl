@@ -51,7 +51,6 @@
         <xsl:param name="text">copy</xsl:param>
         <xsl:param name="value"></xsl:param>
         <a
-            type="button"
             class="badge text-bg-secondary rounded-pill copy-sm clipboard text-decoration-none"
             title="Copies to clipboard"
             data-clipboard-action="copy"
@@ -80,7 +79,6 @@
                 <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
-                <xsl:attribute name="type">button</xsl:attribute>
                 <xsl:attribute name="href">javascript:window.print();</xsl:attribute>
                 <span>Print</span>
             </xsl:element>
@@ -90,7 +88,6 @@
                 <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
-                <xsl:attribute name="type">button</xsl:attribute>
                 <xsl:attribute name="target">_blank</xsl:attribute>
                 <xsl:attribute name="href">
                     <xsl:text>?format=tei</xsl:text>
