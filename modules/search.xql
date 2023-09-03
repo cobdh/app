@@ -15,6 +15,15 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 declare namespace templates="http://exist-db.org/xquery/templates";
 
+declare function local:search-options(){
+    <options>
+        <default-operator>and</default-operator>
+        <phrase-slop>1</phrase-slop>
+        <leading-wildcard>yes</leading-wildcard>
+        <filter-rewrite>yes</filter-rewrite>
+    </options>
+};
+
 declare function search:search($node as node(), $model as map(*)){
     let $person_keyword := request:get-parameter('person_keyword', '')
     let $person_person := request:get-parameter('person_person', '')
@@ -80,24 +89,23 @@ declare function local:search_bibl($person as xs:string, $title as xs:string, $k
     return
         $data
 };
+
 declare function local:search_person($person as xs:string, $keyword as xs:string){
-    let $data := collection($config:data-persons)[
-        (
-            $person and fn:contains
-            (
-                lower-case(string-join(.//tei:persName)),
-                search:build-ft-query($person)
-            )
-        )
-            or
-        (
-            $keyword and fn:contains
-            (
-                lower-case(.),
-                search:build-ft-query($keyword)
-            )
-        )
-    ]
+    let $person_logic := request:get-parameter('person_person_logic', 'AND')
+    let $keyword_logic := request:get-parameter('person_keyword_logic', 'AND')
+    let $data := collection($config:data-persons)
+    (: Person and Keyword  :)
+    let $data := if(string-length($person) gt 0 and  string-length($keyword) gt 0) then
+        $data[ft:query(.//tei:body, $keyword, local:search-options())][ft:query(.//tei:persName, $person, local:search-options())]
+    (: Person :)
+    else if(string-length($person) gt 0) then
+        $data[ft:query(.//tei:persName, $person, local:search-options())]
+    (: Keyword :)
+    else if(string-length($keyword) gt 0) then
+        $data[ft:query(.//tei:body, $keyword, local:search-options())]
+    (: No Keyword, No Person :)
+    else
+        ()
     return
         $data
 };
