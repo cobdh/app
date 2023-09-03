@@ -55,6 +55,7 @@
             title="Copies to clipboard"
             data-clipboard-action="copy"
             data-clipboard-text="{core:reduce_spaces(core:no_html($value))}"
+            href="#clicked"
             >
             <xsl:value-of select="$text"/>
         </a>
@@ -76,7 +77,7 @@
         <div class="container other_formats">
             <xsl:element name="a">
                 <xsl:attribute name="class">badge text-bg-primary rounded-pill text-decoration-none</xsl:attribute>
-                <xsl:attribute name="data-original-title">Click to send this page to the printer.</xsl:attribute>
+                <xsl:attribute name="title">Click to send this page to the printer.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
                 <xsl:attribute name="href">javascript:window.print();</xsl:attribute>
@@ -85,7 +86,7 @@
             <xsl:text> </xsl:text>
             <xsl:element name="a">
                 <xsl:attribute name="class">badge text-bg-primary rounded-pill text-decoration-none</xsl:attribute>
-                <xsl:attribute name="data-original-title">Click to view the TEI XML data for this record.</xsl:attribute>
+                <xsl:attribute name="title">Click to view the TEI XML data for this record.</xsl:attribute>
                 <xsl:attribute name="data-toggle">tooltip</xsl:attribute>
                 <xsl:attribute name="id">teiBtn</xsl:attribute>
                 <xsl:attribute name="target">_blank</xsl:attribute>
