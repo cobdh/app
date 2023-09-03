@@ -30,37 +30,7 @@ declare function search:search($node as node(), $model as map(*)){
     return
         if ($searched eq "bibl") then
             map{
-                "hits": collection($config:data-bibl)
-                    [
-                        (
-                            $bibl_title and fn:contains
-                            (
-                                lower-case(string-join(.//tei:title)),
-                                search:build-ft-query($bibl_title)
-                            )
-                        )
-                            or
-                        (
-                            $bibl_person and fn:contains
-                            (
-                                lower-case(string-join(.//
-                                (
-                                    tei:author|
-                                    (:Skip document header:)
-                                    tei:editor[not(ancestor::tei:teiHeader)]
-                                ))),
-                                search:build-ft-query($bibl_person)
-                            )
-                        )
-                            or
-                        (
-                            $bibl_keyword and fn:contains
-                            (
-                                lower-case(.),
-                                search:build-ft-query($bibl_keyword)
-                            )
-                        )
-                    ],
+                "hits": local:search_bibl($bibl_person, $bibl_title, $bibl_keyword),
                 "searched": "bibl"
             }
         else if ($searched eq "person") then
@@ -75,6 +45,41 @@ declare function search:search($node as node(), $model as map(*)){
             }
 };
 
+declare function local:search_bibl($person as xs:string, $title as xs:string, $keyword as xs:string){
+    let $data := collection($config:data-bibl)
+        [
+            (
+                $title and fn:contains
+                (
+                    lower-case(string-join(.//tei:title)),
+                    search:build-ft-query($title)
+                )
+            )
+                or
+            (
+                $person and fn:contains
+                (
+                    lower-case(string-join(.//
+                    (
+                        tei:author|
+                        (:Skip document header:)
+                        tei:editor[not(ancestor::tei:teiHeader)]
+                    ))),
+                    search:build-ft-query($person)
+                )
+            )
+                or
+            (
+                $keyword and fn:contains
+                (
+                    lower-case(.),
+                    search:build-ft-query($keyword)
+                )
+            )
+        ]
+    return
+        $data
+};
 declare function local:search_person($person as xs:string, $keyword as xs:string){
     let $data := collection($config:data-persons)[
         (
