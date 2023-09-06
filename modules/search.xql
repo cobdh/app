@@ -102,6 +102,13 @@ declare function local:search_bibl($person as xs:string, $title as xs:string, $k
         $data
 };
 
+declare function local:search($path, $value, $logic){
+    if($logic eq 'NOT') then
+        not(ft:query($path, $value, local:search-options()))
+    else
+        ft:query($path, $value, local:search-options())
+    };
+
 declare function local:search_person($person as xs:string, $keyword as xs:string){
     let $person_logic := request:get-parameter('person_person_logic', 'AND')
     let $keyword_logic := request:get-parameter('person_keyword_logic', 'AND')
@@ -111,10 +118,10 @@ declare function local:search_person($person as xs:string, $keyword as xs:string
         $data[ft:query(.//tei:body, $keyword, local:search-options())][ft:query(.//tei:persName, $person, local:search-options())]
     (: Person :)
     else if(string-length($person) gt 0) then
-        $data[ft:query(.//tei:persName, $person, local:search-options())]
+        $data[local:search(.//tei:persName, $person, $person_logic)]
     (: Keyword :)
     else if(string-length($keyword) gt 0) then
-        $data[ft:query(.//tei:body, $keyword, local:search-options())]
+        $data[local:search(.//tei:body, $keyword, $keyword_logic)]
     (: No Keyword, No Person :)
     else
         ()
