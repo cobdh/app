@@ -32,6 +32,12 @@ declare function search:search($node as node(), $model as map(*)){
     let $bibl_person := request:get-parameter('bibl_person', '')
     let $bibl_title := request:get-parameter('bibl_title', '')
 
+    let $person_keyword := local:prepare_keyword($person_keyword)
+    let $person_person := local:prepare_keyword($person_person)
+    let $bibl_keyword := local:prepare_keyword($bibl_keyword)
+    let $bibl_person := local:prepare_keyword($bibl_person)
+    let $bibl_title := local:prepare_keyword($bibl_title)
+
     let $searched := if ($person_keyword or $person_person) then "person"
         else if ($bibl_keyword or $bibl_person or $bibl_title) then "bibl"
         else 'none'
@@ -52,6 +58,12 @@ declare function search:search($node as node(), $model as map(*)){
                 "hits" : (),
                 "searched" : "none"
             }
+};
+
+declare function local:prepare_keyword($keyword as xs:string){
+    (: Strip spaces :)
+    let $keyword := normalize-space($keyword)
+    return $keyword
 };
 
 declare function local:search_bibl($person as xs:string, $title as xs:string, $keyword as xs:string){
