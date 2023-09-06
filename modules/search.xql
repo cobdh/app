@@ -110,8 +110,8 @@ declare function local:search($path, $value, $logic){
     };
 
 declare function local:search_person($person as xs:string, $keyword as xs:string){
-    let $person_logic := request:get-parameter('person_person_logic', 'AND')
-    let $keyword_logic := request:get-parameter('person_keyword_logic', 'AND')
+    let $person_logic := local:prepare_keyword(request:get-parameter('person_person_logic', 'AND'))
+    let $keyword_logic := local:prepare_keyword(request:get-parameter('person_keyword_logic', 'AND'))
     let $data := collection($config:data-persons)
     (: Person and Keyword  :)
     let $data := if(string-length($person) gt 0 and  string-length($keyword) gt 0) then
