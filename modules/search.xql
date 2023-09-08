@@ -10,6 +10,7 @@ import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib
 
 import module namespace app="https://cobdh.org/app" at "app.xql";
 
+import module namespace functx="http://www.functx.com";
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -61,9 +62,38 @@ declare function search:search($node as node(), $model as map(*)){
 };
 
 declare function local:prepare_keyword($keyword as xs:string){
+    (: Remove invalid character :)
+    let $keyword := local:clean($keyword)
     (: Strip spaces :)
     let $keyword := normalize-space($keyword)
     return $keyword
+};
+
+(:~
+ : See srophe:modules/content-negotiation/bib2html.xqm
+ : GNU GENERAL PUBLIC LICENSE
+ : Cleans search parameters to replace bad/undesirable data in strings
+ : @param-string parameter string to be cleaned
+:)
+declare function local:clean($value){
+    let $value :=
+        if (functx:number-of-matches($value, '"') mod 2) then
+            replace($value, '"', ' ') (:if there is an uneven number of quotation marks, delete all quotation marks.:)
+        else
+            $value
+    let $value :=
+        if ((functx:number-of-matches($value, '\(') + functx:number-of-matches($value, '\)')) mod 2) then
+            translate($value, '()', ' ') (:if there is an uneven number of parentheses, delete all parentheses.:)
+        else
+            $value
+    let $value :=
+        if ((functx:number-of-matches($value, '\[') + functx:number-of-matches($value, '\]')) mod 2) then
+            translate($value, '[]', ' ') (:if there is an uneven number of brackets, delete all brackets.:)
+        else
+            $value
+    let $value := replace($value,"'","''")
+    return
+        replace(replace($value,'<|>|@|&amp;',''), '(\.|\[|\]|\\|\||\-|\^|\$|\+|\{|\}|\(|\)|(/))','\\$1')
 };
 
 declare function local:search_bibl($person as xs:string, $title as xs:string, $keyword as xs:string){
