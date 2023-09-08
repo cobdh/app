@@ -9,7 +9,7 @@ PREV = '«'
 @pytest.mark.parametrize('collection', (
     'bibl',
     'persons',
-    'search?bibl_keyword=a',
+    'search?bibl_keyword=a*',
     'search?person_keyword=a*',
 ))
 def test_paging(collection):
@@ -26,11 +26,16 @@ def test_paging(collection):
 @pytest.mark.parametrize('collection', (
     'bibl',
     'persons',
-    'search?bibl_keyword=a',
+    'search?bibl_keyword=a*',
     'search?person_keyword=a*',
 ))
 def test_nopaging(collection):
     """All elements are on the same page."""
     # use large number to hide
-    result = tests.int.curl(f'/{collection}?perpage=30000')
+    char = '&' if '?' in collection else '?'
+    result = tests.int.curl(f'/{collection}{char}perpage=30000')
+    # class="alert alert-danger"
+    # operation does not work, therefore the test is false negative
+    assert 'alert' not in result
+    assert 'danger' not in result
     assert NEXT not in result
