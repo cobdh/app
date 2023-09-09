@@ -437,25 +437,3 @@ function search:formular($node as node(), $model as map(*)){
     </div>
 </div>
 };
-
-declare function search:build-ft-query($token){
-    let $mode:='any'
-    let $token:=lower-case($token)
-    return
-        <query>
-            {
-                if ($mode eq 'any') then
-                    for $term in tokenize($token, '\s')
-                    return
-                        <term occur="should">{$term}</term>
-                else if ($mode eq 'all') then
-                    for $term in tokenize($token, '\s')
-                    return
-                        <term occur="must">{$term}</term>
-                else if ($mode eq 'phrase') then
-                    <phrase>{$token}</phrase>
-                else
-                    <near>{$token}</near>
-            }
-        </query>
-};
