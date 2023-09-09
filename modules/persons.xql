@@ -10,6 +10,8 @@ import module namespace bibl="https://cobdh.org/bibl" at "bibl.xql";
 
 import module namespace app="https://cobdh.org/app" at "app.xql";
 
+import module namespace search="https://cobdh.org/search" at "search.xql";
+
 import module namespace landing="https://cobdh.org/landing" at "landing.xql";
 
 (: Namespaces :)
@@ -132,4 +134,32 @@ declare function persons:edited-request($node as node(), $model as map(*)){
     </parameters>
     return
         transform:transform($data, $xsl, $parameters)
+};
+
+(:~
+ : Browse Alphabetical Menus
+:)
+declare
+    %templates:wrap
+function persons:browse-abc-menu($node as node(), $model as map(*)){
+    let $data := persons:list-items()
+    return
+        <ul class="pagination pagination-sm" style="display:block ruby;">
+        {
+            for $letter in tokenize('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ALL', ' ')
+            let $active := ($app:alpha-filter eq $letter) or ($letter eq 'ALL' and $app:alpha-filter eq '')
+            (: Default case, no letter is selected :)
+            let $hasdata := ($letter eq 'ALL')
+            (: Is a person with surname of $letter present :)
+            let $hasdata := $hasdata or (count($data[search:search(.//tei:surname, concat($letter, "*"), "AND")]) gt 0)
+            return
+                <li class="page-item {if ($active) then 'active' else ''}">
+                    {
+                        <a class="page-link {if (not($hasdata)) then 'disabled' else ''}" href="?alpha={$letter}">
+                            {$letter}
+                        </a>
+                    }
+                </li>
+        }
+        </ul>
 };
