@@ -146,11 +146,13 @@ declare function persons:edited-request($node as node(), $model as map(*)){
 };
 
 (:~
- : Browse Alphabetical Menus
+ : Select persons presentation by starting letter of the surname. To view
+   all persons select ALL.
 :)
 declare
     %templates:wrap
 function persons:browse-abc-menu($node as node(), $model as map(*)){
+    (: TODO: SUPPORT FURTHER CHARACTER SYSTEMS :)
     let $data := persons:list-items()
     return
         <ul class="pagination pagination-sm" style="display:block ruby;">
