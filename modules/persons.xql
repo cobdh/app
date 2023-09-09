@@ -21,7 +21,7 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 declare function persons:index($node as node(), $model as map(*)){
     let $start := $app:start
     let $perpage := $app:perpage
-    let $persons := landing:select_category(persons:list-items())
+    let $persons := persons:list-items-current()
     (: Select current data for pagination :)
     let $persons := subsequence($persons, $start, $perpage)
     let $persons := <tei:listPerson>{$persons}</tei:listPerson>
@@ -53,6 +53,15 @@ declare function persons:list-items(){
     order by persons:orderby_name($item)
     return
         $item
+};
+
+declare function persons:list-items-current(){
+    let $persons := landing:select_category(persons:list-items())
+    let $persons := if ($app:alpha-filter eq 'ALL' or $app:alpha-filter eq '') then
+        $persons
+    else
+        $persons[search:search(.//tei:surname, concat($app:alpha-filter, "*"), "AND")]
+    return $persons
 };
 
 declare function persons:orderby_name($item){
@@ -95,7 +104,7 @@ function persons:missing-item($node as node(), $model as map(*)){
 declare
     %templates:wrap
 function persons:paging($node as node(), $model as map(*)){
-    let $hits := landing:select_category(persons:list-items())
+    let $hits := persons:list-items-current()
     let $perpage := $app:perpage
     return
         app:pageination(
