@@ -151,7 +151,7 @@ declare function persons:edited-request($node as node(), $model as map(*)){
 :)
 declare
     %templates:wrap
-function persons:browse-abc-menu($node as node(), $model as map(*)){
+function persons:abc-menu($node as node(), $model as map(*)){
     (: TODO: SUPPORT FURTHER CHARACTER SYSTEMS :)
     let $data := persons:list-items()
     return
