@@ -97,43 +97,38 @@ declare function local:clean($value){
 };
 
 declare function local:search_bibl($person as xs:string, $title as xs:string, $keyword as xs:string){
+    let $keyword_logic := local:prepare_keyword(request:get-parameter('bibl_keyword_logic', 'AND'))
+    let $person_logic := local:prepare_keyword(request:get-parameter('bibl_person_logic', 'AND'))
+    let $title_logic := local:prepare_keyword(request:get-parameter('bibl_title_logic', 'AND'))
+
     let $data := collection($config:data-bibl)
-        [
-            (
-                $title and fn:contains
-                (
-                    lower-case(string-join(.//tei:title)),
-                    search:build-ft-query($title)
-                )
-            )
-                or
-            (
-                $person and fn:contains
-                (
-                    lower-case(string-join(.//
-                    (
-                        tei:author|
-                        (:Skip document header:)
-                        tei:editor[not(ancestor::tei:teiHeader)]
-                    ))),
-                    search:build-ft-query($person)
-                )
-            )
-                or
-            (
-                $keyword and fn:contains
-                (
-                    lower-case(.),
-                    search:build-ft-query($keyword)
-                )
-            )
-        ]
+
+    let $expand := $data[
+        (if ($keyword_logic eq 'OR') then local:search(.//tei:body, $keyword, $keyword_logic) else ()) or
+        (if ($person_logic eq 'OR') then local:search(
+            .//(tei:author|
+            (:Skip document header:)
+            tei:editor[not(ancestor::tei:teiHeader)]),
+            $person, $person_logic) else ()) or
+        (if ($title_logic eq 'OR') then local:search(.//tei:title, $title, $title_logic) else ())
+    ]
+    let $minimize := $data
+    let $minimize := if($keyword and $keyword_logic ne 'OR') then $minimize[local:search(.//tei:body, $keyword, $keyword_logic)] else $minimize
+    let $minimize := if($person and $person_logic ne 'OR') then $minimize[local:search(
+        .//(tei:author|
+        (:Skip document header:)
+        tei:editor[not(ancestor::tei:teiHeader)]
+        ), $person, $person_logic)] else $minimize
+    let $minimize := if($title and $title_logic ne 'OR') then $minimize[local:search(.//tei:title, $title, $title_logic)] else $minimize
+
     return
-        $data
+        $expand | $minimize
 };
 
 declare function local:search($path, $value, $logic){
-    if($logic eq 'NOT') then
+    if($value eq '') then
+        ()
+    else if($logic eq 'NOT') then
         not(ft:query($path, $value, local:search-options()))
     else
         ft:query($path, $value, local:search-options())
@@ -142,21 +137,19 @@ declare function local:search($path, $value, $logic){
 declare function local:search_person($person as xs:string, $keyword as xs:string){
     let $person_logic := local:prepare_keyword(request:get-parameter('person_person_logic', 'AND'))
     let $keyword_logic := local:prepare_keyword(request:get-parameter('person_keyword_logic', 'AND'))
+
     let $data := collection($config:data-persons)
-    (: Person and Keyword  :)
-    let $data := if(string-length($person) gt 0 and  string-length($keyword) gt 0) then
-        $data[ft:query(.//tei:body, $keyword, local:search-options())][ft:query(.//tei:persName, $person, local:search-options())]
-    (: Person :)
-    else if(string-length($person) gt 0) then
-        $data[local:search(.//tei:persName, $person, $person_logic)]
-    (: Keyword :)
-    else if(string-length($keyword) gt 0) then
-        $data[local:search(.//tei:body, $keyword, $keyword_logic)]
-    (: No Keyword, No Person :)
-    else
-        ()
+
+    let $expand := $data[
+        (if ($person_logic eq 'OR') then local:search(.//tei:persName, $person, $person_logic) else ()) or
+        (if ($keyword_logic eq 'OR') then local:search(.//tei:body, $keyword, $keyword_logic) else ())
+    ]
+    let $minimize := $data
+    let $minimize := if($person and $person_logic ne 'OR') then $minimize[local:search(.//tei:persName, $person, $person_logic)] else $minimize
+    let $minimize := if($keyword and $keyword_logic ne 'OR') then $minimize[local:search(.//tei:body, $keyword, $keyword_logic)] else $minimize
+
     return
-        $data
+        $expand | $minimize
 };
 
 declare
