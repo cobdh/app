@@ -17,7 +17,7 @@ declare variable $app:start {local:get_int('start', 0)};
 
 declare variable $app:perpage {local:get_int('perpage', 25)};
 
-declare variable $app:alpha-filter {request:get-parameter('alpha', '')};
+declare variable $app:alpha {request:get-parameter('alpha', '')};
 
 declare variable $app:demo {local:get_int('demo', 0) eq 1};
 

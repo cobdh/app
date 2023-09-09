@@ -57,10 +57,10 @@ declare function persons:list-items(){
 
 declare function persons:list-items-current(){
     let $persons := landing:select_category(persons:list-items())
-    let $persons := if ($app:alpha-filter eq 'ALL' or $app:alpha-filter eq '') then
+    let $persons := if ($app:alpha eq 'ALL' or $app:alpha eq '') then
         $persons
     else
-        $persons[search:search(.//tei:surname, concat($app:alpha-filter, "*"), "AND")]
+        $persons[search:search(.//tei:surname, concat($app:alpha, "*"), "AND")]
     return $persons
 };
 
@@ -156,7 +156,7 @@ function persons:browse-abc-menu($node as node(), $model as map(*)){
         <ul class="pagination pagination-sm" style="display:block ruby;">
         {
             for $letter in tokenize('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ALL', ' ')
-            let $active := ($app:alpha-filter eq $letter) or ($letter eq 'ALL' and $app:alpha-filter eq '')
+            let $active := ($app:alpha eq $letter) or ($letter eq 'ALL' and $app:alpha eq '')
             (: Default case, no letter is selected :)
             let $hasdata := ($letter eq 'ALL')
             (: Is a person with surname of $letter present :)
