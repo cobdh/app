@@ -30,7 +30,7 @@ declare function page:pages(
         <div>
             {
             if($total-result-count gt $perpage) then
-                <ul class="pagination pull-right">
+                <ul class="pagination pagination-sm">
                 {(: Show 'Previous' for all but the 1st page of results :)
                     if ($current-page = 1) then
                         ()
