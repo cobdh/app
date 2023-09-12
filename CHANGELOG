@@ -1,6 +1,50 @@
 CHANGELOG
 =========
 
+## v0.7.0 (2023-09-12)
+
+### Feature
+
+* reduce response time (cf393a198999)
+* reduce size of pagination (8aedb47d5cdf)
+* view persons by letter (b5976386a5d7)
+* add alpha browser (805b8be02a50)
+* make search public (f9cc47d2aa3c)
+* make bibl and person search more smart (160520cfdaf6)
+* don't trust the user (d123859e1351)
+* secure user input (3ae6a315d514)
+* allow negative search (ea3f566f4666)
+* strip spaces to avoid empty search (9d1848dbe95d)
+* first approach to improve search logic (9ad5d62cfb4a)
+* add persons search result exporter (fd214f920ad0)
+* make template more specific (925fc7c58395)
+* make persons sorting language dependent (530042509b5f)
+* set language cookie to preserve selection (b23792a80a17)
+* enable lang selector (56716d4e2f15)
+* add button to export bibl search result (f18daadf3bcf)
+* add plain citation mode (96e67634b5c0)
+* make template more specific (43226c332d0f)
+* display list of citation instead of title name (95be381807ee)
+* add flag to enable demo features in release (362381cbaa20)
+* add logical operators (1ebfe2b28e8d)
+* modernize view (100f1932119b)
+
+### Fix
+
+* use small hand when hover button (9e050e999a3d)
+* solve text position error on safari browser (b72d895e390e)
+* order persons by name (aba60e392926)
+* ensure that lang in button is changed (8f1e6e9c4612)
+* adjust logic selector (c10ef57b04db)
+* solve linter warnings (ae17a8911931)
+* remove indention (22aa90d9b033)
+* disable validation link for normal users (45a1b6708726)
+* adjust title (4f592a74de58)
+
+### Documentation
+
+* extend method documentation (9d5a6c0b1621)
+
 ## v0.6.0 (2023-07-25)
 
 ### Feature
