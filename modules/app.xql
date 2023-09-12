@@ -21,12 +21,21 @@ declare variable $app:alpha {request:get-parameter('alpha', '')};
 
 declare variable $app:demo {local:get_int('demo', 0) eq 1};
 
+(:~ Use demo parameter to develop new functionalities. Enable demo mode with
+ : ?demo=1
+:)
 declare function app:href($node as node(), $model as map(*),
     $text as xs:string,
-    $path as xs:string
+    $path as xs:string,
+    $demo as xs:integer*
 ){
-    (: TODO CONFIGURABLE LATER :)
-    <a href="{$config:web-root}{$path}" class="nav-link">{$text}</a>
+    let $visible := empty($demo) or $app:demo
+    return
+        if($visible) then
+            (: TODO CONFIGURABLE LATER :)
+            <a href="{$config:web-root}{$path}" class="nav-link">{$text}</a>
+        else
+            ()
 };
 
 declare
