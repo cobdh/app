@@ -65,6 +65,12 @@ declare variable $config:lang :=
     return $lang
 ;
 
+declare variable $config:demo :=
+    let $demo := request:get-parameter('demo', '')
+    let $demo := if (string-length($demo) eq 0) then request:get-cookie-value('demo') else $demo
+        return $demo
+;
+
 (: TODO: UNITE WITH APP-ROOT :)
 declare variable $config:web-root :=
     (: TODO: FIX EQ :)
@@ -148,6 +154,25 @@ function config:lang_set_cookie($node as node(), $model as map(*)){
             response:set-cookie(
                 "lang",
                 $lang,
+                $age,
+                $secure
+            )
+};
+
+declare
+    %templates:wrap
+function config:demo_set_cookie($node as node(), $model as map(*)){
+    let $age := xs:dayTimeDuration("PT72H")
+    (: TODO: ENABLE BEFORE RELEASE :)
+    let $secure := false()
+    let $demo := request:get-parameter("demo", "")
+    return
+        if ($demo eq "") then
+            ()
+        else
+            response:set-cookie(
+                "demo",
+                "1",
                 $age,
                 $secure
             )

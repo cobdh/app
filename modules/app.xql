@@ -19,8 +19,6 @@ declare variable $app:perpage {local:get_int('perpage', 25)};
 
 declare variable $app:alpha {request:get-parameter('alpha', '')};
 
-declare variable $app:demo {local:get_int('demo', 0) eq 1};
-
 (:~ Use demo parameter to develop new functionalities. Enable demo mode with
  : ?demo=1
 :)
@@ -29,7 +27,7 @@ declare function app:href($node as node(), $model as map(*),
     $path as xs:string,
     $demo as xs:integer*
 ){
-    let $visible := empty($demo) or $app:demo
+    let $visible := empty($demo) or $config:demo
     return
         if($visible) then
             (: TODO CONFIGURABLE LATER :)
