@@ -4,6 +4,8 @@ module namespace app="https://cobdh.org/app";
 
 import module namespace templates="http://exist-db.org/xquery/templates";
 
+import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib/i18n-templates.xql";
+
 import module namespace config="https://cobdh.org/config" at "config.xqm";
 
 import module namespace page="https://cobdh.org/page" at "lib/paging.xqm";
@@ -25,13 +27,16 @@ declare variable $app:alpha {request:get-parameter('alpha', '')};
 declare function app:href($node as node(), $model as map(*),
     $text as xs:string,
     $path as xs:string,
-    $demo as xs:integer*
+    $demo as xs:integer*,
+    $key as xs:string?
 ){
     let $visible := empty($demo) or $config:demo
     return
         if($visible) then
             (: TODO CONFIGURABLE LATER :)
-            <a href="{$config:web-root}{$path}" class="nav-link">{$text}</a>
+            <a href="{$config:web-root}{$path}" class="nav-link">
+                <i18n:text key="{$key}">{$text}</i18n:text>
+            </a>
         else
             ()
 };
