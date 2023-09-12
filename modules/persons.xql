@@ -162,7 +162,7 @@ function persons:abc-menu($node as node(), $model as map(*)){
             (: Default case, no letter is selected :)
             let $hasdata := ($letter eq 'ALL')
             (: Is a person with surname of $letter present :)
-            let $hasdata := $hasdata or (count($data[search:search(.//tei:surname, concat($letter, "*"), "AND")]) gt 0)
+            let $hasdata := $hasdata or (count($data[starts-with(.//tei:surname, $letter)]) gt 0)
             return
                 <li class="page-item {if ($active) then 'active' else ''}">
                     {
