@@ -9,6 +9,12 @@
     <msg key="editors_record">Editor</msg>
     <msg key="impressum_contact">Kontakt</msg>
     <msg key="impressum_licence">Lizenz</msg>
+    <msg key="menu_bibliography">Bibliographie</msg>
+    <msg key="menu_editors">Editoren</msg>
+    <msg key="menu_exhibition">Ausstellung</msg>
+    <msg key="menu_home">Start</msg>
+    <msg key="menu_persons">Personen</msg>
+    <msg key="menu_search">Suche</msg>
     <msg key="persons_persons">Personen</msg>
     <msg key="persons_record">Person-Eintrag</msg>
     <msg key="persons_record_missing">Person nicht vorhanden:</msg>
