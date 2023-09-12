@@ -57,11 +57,11 @@ declare variable $config:GERMAN := "de";
 declare variable $config:lang_default := $config:ENGLISH;
 
 declare variable $config:lang :=
-        (:Prefere url parameter over cookie. If cookie and parameter is not
-        set, use default lang  :)
-        let $lang := request:get-parameter('lang', '')
-        let $lang := if (string-length($lang) eq 0) then request:get-cookie-value('lang') else $lang
-        let $lang := if (string-length($lang) eq 0) then $config:lang_default else $lang
+    (:Prefere url parameter over cookie. If cookie and parameter is not
+    set, use default lang  :)
+    let $lang := request:get-parameter('lang', '')
+    let $lang := if (string-length($lang) eq 0) then request:get-cookie-value('lang') else $lang
+    let $lang := if (string-length($lang) eq 0) then $config:lang_default else $lang
     return $lang
 ;
 
