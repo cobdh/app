@@ -10,7 +10,6 @@ import module namespace i18n="http://exist-db.org/xquery/i18n/templates" at "lib
 
 import module namespace app="https://cobdh.org/app" at "app.xql";
 
-import module namespace functx="http://www.functx.com";
 (: Namespaces :)
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -77,23 +76,30 @@ declare function local:prepare_keyword($keyword as xs:string){
 :)
 declare function local:clean($value){
     let $value :=
-        if (functx:number-of-matches($value, '"') mod 2) then
+        if (local:number-of-matches($value, '"') mod 2) then
             replace($value, '"', ' ') (:if there is an uneven number of quotation marks, delete all quotation marks.:)
         else
             $value
     let $value :=
-        if ((functx:number-of-matches($value, '\(') + functx:number-of-matches($value, '\)')) mod 2) then
+        if ((local:number-of-matches($value, '\(') + local:number-of-matches($value, '\)')) mod 2) then
             translate($value, '()', ' ') (:if there is an uneven number of parentheses, delete all parentheses.:)
         else
             $value
     let $value :=
-        if ((functx:number-of-matches($value, '\[') + functx:number-of-matches($value, '\]')) mod 2) then
+        if ((local:number-of-matches($value, '\[') + local:number-of-matches($value, '\]')) mod 2) then
             translate($value, '[]', ' ') (:if there is an uneven number of brackets, delete all brackets.:)
         else
             $value
     let $value := replace($value,"'","''")
     return
         replace(replace($value,'<|>|@|&amp;',''), '(\.|\[|\]|\\|\||\-|\^|\$|\+|\{|\}|\(|\)|(/))','\\$1')
+};
+
+declare function local:number-of-matches( $arg as xs:string? , $pattern as xs:string ) as xs:integer{
+    if ($arg != '') then
+        count(tokenize($arg,$pattern)) - 1
+    else
+        0
 };
 
 declare function local:search_bibl($person as xs:string, $title as xs:string, $keyword as xs:string){
