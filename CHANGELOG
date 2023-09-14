@@ -1,6 +1,20 @@
 CHANGELOG
 =========
 
+## v0.8.0 (2023-09-14)
+
+### Feature
+
+* use menu translation (13be308366c9)
+* translate menu into German (1e9701973fec)
+* use cookie to preserve demo state (051df464974b)
+* add exhibition hall (b3e532a6c929)
+* make hyperlink demoable (c21d417dafb0)
+
+### Chore
+
+* upgrade nanodb (7ed674ffae3a)
+
 ## v0.7.0 (2023-09-12)
 
 ### Feature
