@@ -155,7 +155,7 @@ function persons:abc-menu($node as node(), $model as map(*)){
     (: TODO: SUPPORT FURTHER CHARACTER SYSTEMS :)
     let $data := persons:list-items()
     return
-        <ul class="pagination pagination-sm" style="display:block ruby;">
+        <ul class="pagination pagination-sm flex-wrap" style="display:inline-flex;">
         {
             for $letter in tokenize('A B C D E F G H I J K L M N O P Q R S T U V W X Y Z ALL', ' ')
             let $active := ($app:alpha eq $letter) or ($letter eq 'ALL' and $app:alpha eq '')
@@ -164,7 +164,7 @@ function persons:abc-menu($node as node(), $model as map(*)){
             (: Is a person with surname of $letter present :)
             let $hasdata := $hasdata or (count($data[starts-with(.//tei:surname, $letter)]) gt 0)
             return
-                <li class="page-item {if ($active) then 'active' else ''}">
+                <li class="page-item {if ($active) then 'active' else ''}" style="margin: 5px;">
                     {
                         <a class="page-link {if (not($hasdata)) then 'disabled' else ''}" href="?alpha={$letter}">
                             {$letter}
