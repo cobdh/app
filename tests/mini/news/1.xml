@@ -19,6 +19,15 @@
         <floatingText>
             <h1>First Entry</h1>
             <p>
+                This is the first release of cobdh project.
+                <br/>
+                The database contains:
+                <ul>
+                    <li>Bibliography: 321</li>
+                    <li>Persons: 319</li>
+                </ul>
+            </p>
+            <p>
                 Cras egestas orci non porttitor maximus. Maecenas quis odio id dolor rhoncus
                 dignissim. Curabitur sed velit at orci ultrices sagittis. Nulla commodo euismod
                 arcu eget vulputate.
