@@ -22,7 +22,7 @@
                             </p>
                             <xsl:for-each select=".//tei:p">
                                 <p class="card-text">
-                                    <xsl:value-of select="."/>
+                                    <xsl:apply-templates/>
                                 </p>
                             </xsl:for-each>
                         </div>
@@ -30,5 +30,14 @@
                 </div>
             </xsl:for-each>
         </div>
+    </xsl:template>
+    <xsl:template match="tei:br">
+        <br/>
+    </xsl:template>
+    <xsl:template match="tei:li">
+        <li><xsl:apply-templates/></li>
+    </xsl:template>
+    <xsl:template match="tei:ul">
+        <ul><xsl:apply-templates/></ul>
     </xsl:template>
 </xsl:stylesheet>
