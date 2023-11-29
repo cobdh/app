@@ -16,7 +16,7 @@
         <encodingDesc>
             <classDecl>
                 <taxonomy>
-                    <category xml:id="XXXXXX"/>
+                    <category xml:id="XXXXXX" />
                 </taxonomy>
             </classDecl>
         </encodingDesc>
