@@ -1,6 +1,20 @@
 CHANGELOG
 =========
 
+## v0.9.0 (2023-12-07)
+
+### Feature
+
+* add intro (66c35745144c)
+* add simple html renderer (b37f626a30e9)
+
+### Fix
+
+* do not confuse user (1da85357cea6)
+* not every contributor is an Editor (8e11b6caecd2)
+* replace by English name (dbb0237a0afb)
+* wrap line on small screens (4a967baa73f8)
+
 ## v0.8.0 (2023-09-14)
 
 ### Feature
