@@ -7,7 +7,7 @@ import tests.int
 @pytest.mark.parametrize('url, expected', [
     pytest.param('/bibl', 'Bibliography'),
     pytest.param('/persons', 'Persons'),
-    pytest.param('/editors', 'Editors'),
+    pytest.param('/editors', 'Contributors'),
     pytest.param('/imprint', 'Imprint'),
     pytest.param('/contribution', 'How To Contribute'),
     pytest.param('/validation', 'Validation'),

@@ -5,13 +5,13 @@
     <msg key="bibl_record_missing">Eintrag nicht vorhanden:</msg>
     <msg key="contribution_howto">Wie kann ich beitragen?</msg>
     <msg key="editors_edited">Edidiert</msg>
-    <msg key="editors_editors">Editoren</msg>
+    <msg key="editors_editors">Beitragende</msg>
     <msg key="editors_record">Editor</msg>
     <msg key="imprint_headline">Impressum</msg>
     <msg key="imprint_contact">Kontakt</msg>
     <msg key="imprint_licence">Lizenz</msg>
     <msg key="menu_bibliography">Bibliographie</msg>
-    <msg key="menu_editors">Editoren</msg>
+    <msg key="menu_editors">Beitragende</msg>
     <msg key="menu_exhibition">Ausstellung</msg>
     <msg key="menu_home">Start</msg>
     <msg key="menu_persons">Personen</msg>
