@@ -16,7 +16,7 @@ else if ($exist:path eq "/" or $exist:path eq "index.html") then
         <forward url="index.html"/>
         <view><forward url="{$exist:controller}/modules/template.xql"/></view>
     </dispatch>
-else if ($exist:path eq "/impressum"
+else if ($exist:path eq "/imprint"
     or $exist:path eq "/contribution"
     or $exist:path eq "/landing"
     or $exist:path eq "/missing"

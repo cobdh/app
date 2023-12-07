@@ -8,7 +8,7 @@ import tests.int
     pytest.param('/bibl', 'Bibliography'),
     pytest.param('/persons', 'Persons'),
     pytest.param('/editors', 'Editors'),
-    pytest.param('/impressum', 'Imprint'),
+    pytest.param('/imprint', 'Imprint'),
     pytest.param('/contribution', 'How To Contribute'),
     pytest.param('/validation', 'Validation'),
 ])
